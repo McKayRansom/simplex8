@@ -1,0 +1,12 @@
+SET 5
+MOVE $4
+SET 1
+MOVE $1
+ADD $1
+MOVE $2
+ACC $1
+MOVE $3
+ACC $2
+MOVE $1
+ACC $3
+JMP $4

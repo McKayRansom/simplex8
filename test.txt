@@ -1,0 +1,154 @@
+SET 1 //SETUP OF VARIABLES
+MOVE $1 //Ball object Column
+SET 1
+MOVE $2 //Ball object Row
+SET 1
+MOVE $3 //1 is up 0 is down
+SET 4
+MOVE $4 //1 is right 0 is left
+SET 3
+MOVE $5 //Player 1
+SET 3
+MOVE $6 //Player 2
+INPUT 1 //input checking loop
+SET 20
+SET
+JMP 6
+ACC $6 //moving up
+ADD $6
+MOVE $6
+INPUT 2
+SET 26
+SET
+JMP 6
+SHIFT $6 //moving down
+MOVE $6
+INPUT 3
+SET 33
+SET
+JMP 6
+ACC $5 //moving up
+ADD $5
+MOVE $5
+INPUT 4
+SET 39
+SET
+JMP 6
+SHIFT $5 //moving down
+MOVE $5
+LI 15 //display loop
+UI 0
+MOVE $7
+LI 0
+UI 0
+DISP $7
+MOVE $7
+ACC $5 //player 1
+DISP $7
+SET 7
+MOVE $7
+ACC $6 //player 2
+DISP $7
+ACC $1 //ball
+DISP $2
+LI 1
+UI 0
+EQUAL $8
+LI 0
+UI 0
+MOVE $8
+LI 13
+UI 0
+JMP 1 //input 2x per loop so player moves faster than ball
+LI 1
+UI 0
+NOOP $8
+MOVE $8 
+SET 128 //Ball up if ball at top then dir = down //Bound checking loop
+SET
+EQUAL $1
+SET 76
+SET
+JMP 4
+LI 0
+UI 0
+MOVE $3
+LI 1 //Ball at bottom then dir == up
+UI 0
+EQUAL $1
+SET 85
+SET
+JMP 4
+LI 1
+UI 0
+MOVE $3
+LI 1 //at the left side
+UI 0
+EQUAL $2
+SET 103
+SET
+JMP 4
+ACC $5 //collision with player 1
+EQUAL $1
+SET 102
+SET
+JMP 7 //jmp if NOT AND
+LI 1
+UI 0
+MOVE $4
+SET 103
+SET
+JMP 0
+HALT 0//hit the wall
+LI 6 //at the right side
+UI 0
+EQUAL $2
+SET 121
+SET
+JMP 4
+ACC $6 //collision with player 2
+EQUAL $1
+SET 120
+SET
+JMP 7
+LI 0
+UI 0
+MOVE $4
+SET 121
+SET
+JMP 0
+HALT 0
+LI 1//update ball position
+UI 0
+EQUAL $4
+SET 134
+SET
+JMP 1
+LI 1
+UI 0
+SUB $2 //moving left
+MOVE $2
+SET 138
+SET
+JMP 0
+LI 1 //moving right
+UI 0
+ADD $2
+MOVE $2
+LI 1//update up down
+UI 0
+EQUAL $3
+SET 149
+SET
+JMP 1
+SHIFT $1 //moving down
+MOVE $1
+SET 152
+SET
+JMP 0
+ACC $1 //moving up
+ADD $1
+MOVE $1
+SET 13
+UI 0
+JMP 0 //restart loop
