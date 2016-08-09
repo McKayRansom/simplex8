@@ -1,0 +1,116 @@
+<html>
+<head>
+<title>Assembler</title>
+<style>
+body {
+    font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace; 
+	background-color: #3D3D3D;
+	color: white;
+}
+
+div#in, div.CodeMirror, div#out {
+    float: left;
+    display: block;
+    padding: 0;
+    margin: 0;
+    width: 50%;
+    height: 100%;        
+}
+
+div#in, div.CodeMirror {
+    width: 45%;
+    height: 400px;
+}
+
+ol {
+    margin-left: 30px;
+    list-style-type: decimal; /* got overrode somehow ?!?!? */
+}
+
+.error {
+	color: red;
+}
+
+</style>
+</head>
+<body>
+
+<!--Writeth thine assembely code here...-->
+<div id="in"></div>
+
+<!-- ...and thine binary code shall appear here!-->
+<div id="out">
+    <ol></ol>
+</div>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="assembler.js"></script>
+<script>
+// UI jQuery globals
+var $list = $('ol');
+
+function compile(editor, change) {       
+    var assembly_code = editor.getValue();
+
+    var compiledCode = Compiler.compileLines(assembly_code);
+    // display the output
+    $list.empty();
+
+    compiledCode.forEach(function (code) {
+        $list
+            .append(
+                $('<li>').html(code)
+            );
+    });
+}
+
+// editor.getSession().on('change', compile);
+
+// compile(); // auto compile the default content (good for testing)
+
+</script>
+<script src="codemirror-2.35/lib/codemirror.js"></script>
+<link rel="stylesheet" href="codemirror-2.35/lib/codemirror.css">
+<link rel="stylesheet" href="codemirror-2.35/theme/ambiance.css">
+<script src="codemirror-2.35/mode/javascript/javascript.js"></script>
+<script>
+
+CodeMirror.defineMode("assembly", function() {
+  return {
+    token: function(stream,state) {
+	  // keyword, number (numbers), string (registers), attribute (addresses)
+	  stream.eatSpace();
+	  
+	  // comments
+	  if (stream.peek() === "#") {
+		stream.skipToEnd();
+		return "comment";
+	  }
+	  
+      if (stream.sol() && stream.match(
+	    /^(nil|sto|add|dis|jmp|jif|mov|sub|cmp|set|get|run)/, 
+	  true))
+        return "keyword";
+      if (stream.match(/^[0-9]/, true))
+	    return "number";
+      if (stream.match(/^(a|b|c|d)/, true))
+	    return "string";
+	  if (stream.match(/^(m[0-9]+)/, true))
+	    return "attribute";
+
+      return stream.skipToEnd();
+    }
+  };
+});
+
+var editor = CodeMirror.fromTextArea(document.getElementById("in"), {
+	theme: 'ambiance',
+	lineNumbers: true,
+	onChange: compile,
+	mode: 'assembly'
+});
+
+// UI tweaking
+$('#CodeMirror').height($(document).height());
+</script>
+</body>
+</html>
