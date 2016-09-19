@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AssetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="1.0" forDir="rat/wraithjs/web">
+  <Asset target="wraith_dom" builder="JavaScriptBuilder">
+    <Platform Name="DirectX11">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="PS4">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="wraith_dom.js" />
+  </Asset>
+  <Asset target="wraith_core" builder="JavaScriptBuilder">
+    <Platform Name="DirectX11">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="PS4">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="wraith_core.js" />
+  </Asset>
+  <Asset target="wraith_canvas" builder="JavaScriptBuilder">
+    <Platform Name="DirectX11">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="PS4">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="wraith_canvas.js" />
+  </Asset>
+</AssetList>

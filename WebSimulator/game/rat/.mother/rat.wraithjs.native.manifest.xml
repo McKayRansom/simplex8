@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AssetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="1.0" forDir="rat/wraithjs/native">
+  <Asset target="wraith_canvas.native" builder="JavaScriptBuilder">
+    <Platform Name="DirectX9">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="DirectX11">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="Xbox360">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="PS3">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="PS4">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="Wii">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="WiiU">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="Windows">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="wraith_canvas.native.js" />
+  </Asset>
+  <Asset target="wraith_core.native" builder="JavaScriptBuilder">
+    <Platform Name="DirectX9">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="DirectX11">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="Xbox360">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="PS3">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="PS4">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="Wii">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="WiiU">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="Windows">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="wraith_core.native.js" />
+  </Asset>
+  <Asset target="wraith_dom.native" builder="JavaScriptBuilder">
+    <Platform Name="DirectX9">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="DirectX11">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="Xbox360">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="PS3">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="PS4">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="Wii">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="WiiU">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="Windows">
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="wraith_dom.native.js" />
+  </Asset>
+</AssetList>

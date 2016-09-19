@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AssetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="1.0" forDir="rat/storage">
+  <Asset target="r_settings" builder="JavaScriptBuilder">
+    <Platform Name="DirectX11">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="r_settings.js" />
+  </Asset>
+  <Asset target="r_storage" builder="JavaScriptBuilder">
+    <Platform Name="DirectX11">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="r_storage.js" />
+  </Asset>
+  <Asset target="r_storage_firebase" builder="JavaScriptBuilder">
+    <Platform Name="DirectX11">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="r_storage_firebase.js" />
+  </Asset>
+  <Asset target="r_storage_xbo" builder="JavaScriptBuilder">
+    <Platform Name="DirectX11">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="r_storage_xbo.js" />
+  </Asset>
+  <Dirty>true</Dirty>
+</AssetList>

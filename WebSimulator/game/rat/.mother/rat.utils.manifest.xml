@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AssetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="1.0" forDir="rat/utils">
+  <Asset target="r_collision2d" builder="JavaScriptBuilder">
+    <Platform Name="DirectX11">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="PS4">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="r_collision2d.js" />
+  </Asset>
+  <Asset target="r_cycleupdate" builder="JavaScriptBuilder">
+    <Platform Name="DirectX11">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="PS4">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="r_cycleupdate.js" />
+  </Asset>
+  <Asset target="r_shapes" builder="JavaScriptBuilder">
+    <Platform Name="DirectX11">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="PS4">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="r_shapes.js" />
+  </Asset>
+  <Asset target="r_timer" builder="JavaScriptBuilder">
+    <Platform Name="DirectX11">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="PS4">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="r_timer.js" />
+  </Asset>
+  <Asset target="r_bezier" builder="JavaScriptBuilder">
+    <Platform Name="DirectX11">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="PS4">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="r_bezier.js" />
+  </Asset>
+  <Asset target="r_spline" builder="JavaScriptBuilder">
+    <Platform Name="DirectX11">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="PS4">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="r_spline.js" />
+  </Asset>
+  <Asset target="r_keyframeanimator" builder="JavaScriptBuilder">
+    <Platform Name="DirectX11">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="PS4">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="r_keyframeanimator.js" />
+  </Asset>
+  <Asset target="r_preload" builder="JavaScriptBuilder">
+    <Platform Name="DirectX11">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="r_preload.js" />
+  </Asset>
+  <Asset target="r_hexgrid" builder="JavaScriptBuilder">
+    <Platform Name="DirectX11">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="r_hexgrid.js" />
+  </Asset>
+  <Asset target="r_utils" builder="JavaScriptBuilder">
+    <Platform Name="DirectX11">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="r_utils.js" />
+  </Asset>
+  <Asset target="r_wordwrap" builder="JavaScriptBuilder">
+    <Platform Name="DirectX11">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="r_wordwrap.js" />
+  </Asset>
+  <Dirty>true</Dirty>
+</AssetList>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AssetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="1.0" forDir="rat/live">
+  <Asset target="r_achievements" builder="JavaScriptBuilder">
+    <Platform Name="DirectX11">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="r_achievements.js" />
+  </Asset>
+  <Asset target="r_scoreboard" builder="JavaScriptBuilder">
+    <Platform Name="DirectX11">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="r_scoreboard.js" />
+  </Asset>
+  <Asset target="r_telemetry" builder="JavaScriptBuilder">
+    <Platform Name="DirectX11">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="r_telemetry.js" />
+  </Asset>
+  <Dirty>true</Dirty>
+</AssetList>

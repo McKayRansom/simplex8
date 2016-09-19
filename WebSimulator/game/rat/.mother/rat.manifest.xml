@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AssetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="1.0" forDir="rat">
+  <Asset target="r_base" builder="JavaScriptBuilder">
+    <Platform Name="DirectX11">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="PS4">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="r_base.js" />
+  </Asset>
+  <Asset target="r_backcompat" builder="JavaScriptBuilder">
+    <Platform Name="DirectX11">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="PS4">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="r_backcompat.js" />
+  </Asset>
+  <Dirty>true</Dirty>
+</AssetList>

@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AssetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="1.0" forDir="rat/graphics">
+  <Asset target="r_graphics" builder="JavaScriptBuilder">
+    <Platform Name="DirectX11">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="r_graphics.js" />
+  </Asset>
+  <Asset target="r_image" builder="JavaScriptBuilder">
+    <Platform Name="DirectX11">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="r_image.js" />
+  </Asset>
+  <Asset target="r_particle" builder="JavaScriptBuilder">
+    <Platform Name="DirectX11">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="LintTool" />
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="r_particle.js" />
+  </Asset>
+  <Asset target="r_rectlist" builder="JavaScriptBuilder">
+    <Platform Name="DirectX11">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="r_rectlist.js" />
+  </Asset>
+  <Asset target="r_offscreen" builder="JavaScriptBuilder">
+    <Platform Name="DirectX11">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Platform Name="XboxOne">
+      <Property Name="Verbose Output">False</Property>
+      <Property Name="Suppress Lint">False</Property>
+      <Property Name="Asset Seach Dir" />
+      <Property Name="Exclude on platform">False</Property>
+      <ExcludedOnPlatform>false</ExcludedOnPlatform>
+    </Platform>
+    <Source file="r_offscreen.js" />
+  </Asset>
+  <Dirty>true</Dirty>
+</AssetList>

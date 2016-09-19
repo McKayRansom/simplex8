@@ -1,0 +1,7 @@
+This folder contains different "boot" js files that list all the rat files to load for a given configuration of rat, e.g. for a particular platform or usage.
+
+This is primarily for generating concatenated/compiled rat.js files using our tools, which look at rat.load() calls.
+
+Since we only use concatenated rat files in some cases (most notably, web and LE builds), we don't list all possible combinations here, just the ones we commonly use.
+
+Keep in mind that you can use the rat tools to generate a completely custom and minimal build of rat based on what you actually use in your project.  The builds generated here are the more generic catch-all builds that people usually expect if they don't want to mess with tools or modules or loading or anything - they just want a rat.js they can include and run with.

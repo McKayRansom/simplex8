@@ -1,0 +1,115 @@
+==============
+TO DO
+==============
+See also "todo" notes all over the source code.
+
+UI
+* rename elements to panes, and rename module to ui
+
+* text
+	* rename multitext to just be text
+	* autowrap in other languages [low pri]
+
+* Send boundsChanged events to screens when window size changes?
+	may depend on whether we think screens should automatically change size.
+	maybe flag determines that.  (flag says go ahead and change screen bounds and call function)
+
+* a container element that auto-organizes subelements by space,
+	like placing in a grid.
+	or just functionality in element class
+
+CODE:
+* read youngoat's standards doc!  Fix my naming conventions.
+* clean up all modules to pollute global namespace less
+* more tests.  The text wrapping tests I did were quite useful during development.
+* better self-test system
+
+DOCUMENTATION:
+* Document
+* Much better starter sample.  Maybe make rtest the starter, but have all non-essential stuff in other modules
+	set up with a single simple "InitParticleSample()" kind of line, so they can just comment that out and move on with that one module.
+	Put only basic essential stuff in core app.
+
+IMAGE:
+* Hmm...  stay has notes for this, but can't find them.  :(  Still looking.
+* remove ctx argument in draw calls.  SO annoying.  Just use rat.graphics.ctx
+* figure out a better way to pass in drawing flags (e.g. flip, center, scale, etc.)
+	ideally, Image would not *store* drawing flags, they'd only get stored in imageref...?
+	maybe pass in single argument specifying rendering flags,
+	or pass in a struct with variables set?  I'm trying to avoid function calls with a zillion args...
+* support flipping: even though it's unoptimal, it's fine for a few images.
+* Rework entire system...
+* ? Rename "imageref" to "image".  Let the "ref" part be an underlying implementation detail.
+* better (complete) support for spritesheets:
+	very generically register images inside spritesheets so that somebody later can refer to an image with a name ("apple")
+	and create an imageref that draws that image, without even KNOWING that image was found in spritesheet, from the outside.
+	So, in theory, spritesheets could be a very low-level layer that nobody above a certain point even needs to know about.
+* flexible internal scaling, at least with spritesheets.  Load a half-sized spritesheet, for example, and have everyone else deal with it transparently.
+	See the work we did in agent, for example.
+	
+* We may want 3 layers:
+	Asset:  actual spritespeets or JS images.  Caching happens here, and spritesheets are hidden behind this layer.
+	Image:  An image or collection of images, with references to assets.  Could have two images referring to the same cached asset.
+	ImageRef:  A single live reference to an image, including current rendering info, e.g. flags for how to render it, and what frame it's on, etc.
+		
+	of course, ui will still have the sprite class, which lives on top of all that.
+		
+* You should have tons of flexibility in creating these things.  You should be able to create a ui sprite from:
+	* a single JS image asset (in which case it creates the layers below as needed)
+	* a sprite sheet reference (in which case it creates the layers below as needed)
+	* imageref (in which case duplicate the imageref to make a new one)
+	* image (in which case make a new imageref to refer to it)
+	maybe more.  e.g. another sprite?
+
+* make sure it's easy to UNCACHE images, since otherwise they'll sit there taking up RAM.
+
+* Support the creation of a new low-level image asset with different bits, according to certain filters.
+	* colorize grayscale
+	* palette swaps
+	* other filters...
+	and cache this image separately, with a unique but reproducible identifier, so that future attempts to build that filtered image just grabs it from the cache, but doesn't mistake it for a non-filtered one.
+	
+SYSTEM:
+* real dt, calculated by rat - make sure we measure how much time has really passed, so it's correct when we're in the background.
+* pass DT that to particle system update (already doing it?)
+
+PARTICLES:
+* retro-generate particles if we missed an update (at least do part of that)
+* implement my awesome keyframe animation system?
+
+Keyframe particle animation system:
+* a single keyframe struct holds all values that can be keyed over time (maybe a whole copy of the particle object?)
+* with a time value
+* time value can be percentage of life instead of literal
+* then blend over time.
+sounds pretty great, right?
+see notes in code for concerns and problems.
+* move keyframe data to anothe structure, instead of using raw RParticle?
+* a function to set default particle values.  (so there are a bunch of reasonable defaults and it's not so hard to get one set up)?
+
+* optional movement update function per particle?  (make it cheap - like a whole separate one-test loop in emitter)
+
+* Seems like sometimes we want the value + variance to be more like an outer range, like
+	-80 to -90, or 80 to 90, but nothing in between... e.g. for radial velocity, and also for roll  (either roll fast right or roll fast left)
+
+* support picking a random value beween start/end every frame, maybe even per field? (how?)
+	for things like flickering alpha values.
+Maybe make it a keyframe thing?  not sure how...
+
+Particle demos:
+
+* fire
+* fireworks
+* ship thrust trail
+* steaming smoke, train...?
+* leaves (sprites)
+
+GENERAL TIMER SYSTEM
+* filters, modifiers, blend in/out (ease in/out, etc.)
+* callbacks
+	* support callbacks when time *newly* transitions past a trigger point (once-only timed callbacks)
+		* multiple per timer
+* start delay
+* automatically update from rat.system, or allow manual update flag (for things like game pause)
+* user data
+* what else?
