@@ -1,0 +1,59 @@
+DISP 3 //setup
+SET 8
+MOVE 1
+DISP 1 //display initial point
+INPUT 4 //input checking loop
+LI 8
+UI 1
+JMP 3
+INPUT 1
+LI 15
+UI 1
+JMP 3
+INPUT 2
+LI 6
+UI 2
+JMP 3
+INPUT 3
+LI 14
+UI 2
+JMP 3
+LI 5
+UI 0
+JMP 0
+ACC 1 //move left
+ADD 1
+MOVE 1
+DISP 0
+LI 5
+UI 0
+JMP 0
+ACC 1 //move right
+SHIFT 1
+MOVE 1
+DISP 0
+LI 5
+UI 0
+JMP 0
+LI 0 //move down
+UI 0
+DISP 0
+ACC 1
+DISP 1
+LI 5
+UI 0
+JMP 0
+LI 0 //move up
+UI 0
+DISP 0
+DISP 1
+DISP 1
+DISP 1
+DISP 1
+DISP 1
+DISP 1
+ACC 1
+DISP 1
+LI 5
+UI 0
+JMP 0
