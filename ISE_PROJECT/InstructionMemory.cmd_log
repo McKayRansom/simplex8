@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj MISCMicroprocessor -o E:/MISCComputer/MISCMicroprocessor/InstructionMemory.tfi -lib work E:/MISCComputer/MISCMicroprocessor//InstructionMemory.v -module InstructionMemory -template C:/Xilinx/14.2/ISE_DS/ISE//data/tfi.tft -deleteonerror 

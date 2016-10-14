@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<Checkpoint Version="4" Minor="0">
+	<BUILD_NUMBER Name="1071353"/>
+	<FULL_BUILD Name="SW Build 1071353 on Tue Nov 18 16:47:07 MST 2014"/>
+	<Part Name="xc7vx485tffg1761-2"/>
+	<BoardPart Name="xilinx.com:vc707:part0:1.1"/>
+	<Top Name="clk_wiz_0"/>
+	<DisableAutoIOBuffers Name="1"/>
+	<OutOfContext Name="1"/>
+	<File Type="XDC_EARLY" Name="clk_wiz_0_early.xdc" ModTime="1476308263"/>
+	<File Type="XDC_BOARD" Name="clk_wiz_0_board.xdc" ModTime="1476308263"/>
+	<File Type="XDC_IN_CONTEXT" Name="clk_wiz_0_in_context.xdc" ModTime="1476308230"/>
+	<File Type="EDIF" Name="clk_wiz_0.edf" ModTime="1476308263"/>
+	<File Type="VERILOG_STUB" Name="clk_wiz_0_stub.v" ModTime="1476308263"/>
+	<File Type="VHDL_STUB" Name="clk_wiz_0_stub.vhdl" ModTime="1476308263"/>
+	<File Type="INCR" Name="clk_wiz_0.incr" ModTime="1476308263"/>
+	<File Type="PSR" Name="clk_wiz_0.psr" ModTime="1476308263"/>
+	<File Type="WDF" Name="clk_wiz_0.wdf" ModTime="1476308263"/>
+</Checkpoint>
+

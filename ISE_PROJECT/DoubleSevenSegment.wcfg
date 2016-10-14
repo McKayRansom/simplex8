@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="E:/MISCComputer/MISCMicroprocessor/DoubleSevenSegmentTest_isim_beh1.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="DoubleSevenSegmentTest" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="6" />
+   <wvobject fp_name="/DoubleSevenSegmentTest/AN" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">AN[3:0]</obj_property>
+      <obj_property name="ObjectShortName">AN[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DoubleSevenSegmentTest/seg" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">seg[6:0]</obj_property>
+      <obj_property name="ObjectShortName">seg[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DoubleSevenSegmentTest/CLK" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DoubleSevenSegmentTest/SW" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">SW[15:0]</obj_property>
+      <obj_property name="ObjectShortName">SW[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DoubleSevenSegmentTest/uut/count" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">count[1:0]</obj_property>
+      <obj_property name="ObjectShortName">count[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DoubleSevenSegmentTest/uut/d" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">d[3:0]</obj_property>
+      <obj_property name="ObjectShortName">d[3:0]</obj_property>
+   </wvobject>
+</wave_config>

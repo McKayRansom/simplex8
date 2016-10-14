@@ -1,0 +1,48 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/KAYDISK2/MISCComputer/ISE_PROJECT/ALUTest.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALUTest
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/KAYDISK2/MISCComputer/ISE_PROJECT/decoder3_8.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module decoder3_8
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/KAYDISK2/MISCComputer/ISE_PROJECT/mux.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/KAYDISK2/MISCComputer/ISE_PROJECT/decoder4_16.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module decoder4_16
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/KAYDISK2/MISCComputer/ISE_PROJECT/sevensegment.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sevensegment
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/KAYDISK2/MISCComputer/ISE_PROJECT/mux_array.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux_array
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/KAYDISK2/MISCComputer/ISE_PROJECT/ClockDivider.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ClockDivider
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/KAYDISK2/MISCComputer/ISE_PROJECT/Registers.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Registers
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/KAYDISK2/MISCComputer/ISE_PROJECT/ProgramMemory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ProgramMemory
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/KAYDISK2/MISCComputer/ISE_PROJECT/PC.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PC
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/KAYDISK2/MISCComputer/ISE_PROJECT/JumpLogic.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module JumpLogic
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/KAYDISK2/MISCComputer/ISE_PROJECT/InstructionMemory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module InstructionMemory
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/KAYDISK2/MISCComputer/ISE_PROJECT/DoubleSevenSegment.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module DoubleSevenSegment
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/KAYDISK2/MISCComputer/ISE_PROJECT/ControlLogic.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ControlLogic
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/KAYDISK2/MISCComputer/ISE_PROJECT/Binary_BCD.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Binary_BCD
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/KAYDISK2/MISCComputer/ISE_PROJECT/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/KAYDISK2/MISCComputer/ISE_PROJECT/HighLevel.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HighLevel
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/KAYDISK2/MISCComputer/ISE_PROJECT/RegisterTest.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RegisterTest
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/KAYDISK2/MISCComputer/ISE_PROJECT/decoder4_16Test.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module decoder4_16Test
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/KAYDISK2/MISCComputer/ISE_PROJECT/ComputerTest.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ComputerTest
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/KAYDISK2/MISCComputer/ISE_PROJECT/ALUTestTest.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALUTestTest
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/KAYDISK2/MISCComputer/ISE_PROJECT/MUXArrayTest.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MUXArrayTest
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/KAYDISK2/MISCComputer/ISE_PROJECT/DoubleSevenSegmentTest.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module DoubleSevenSegmentTest
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/KAYDISK2/MISCComputer/Vivado_project/Vivado_project.sim/sim_1/behav/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl

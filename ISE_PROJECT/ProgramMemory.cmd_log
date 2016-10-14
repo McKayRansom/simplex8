@@ -1,0 +1,2 @@
+vhdtdtfi -lang verilog -prj MISCMicroprocessor -o "D:/MISC Computer/MISCMicroprocessor/ProgramMemory.tfi" -lib work "D:/MISC Computer/MISCMicroprocessor//ProgramMemory.v" -module ProgramMemory -template C:/Software/Xilinx/14.2/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+vhdtdtfi -lang verilog -prj MISCMicroprocessor -o E:/MISCComputer/MISCMicroprocessor/ProgramMemory.tfi -lib work E:/MISCComputer/MISCMicroprocessor//ProgramMemory.v -module ProgramMemory -template C:/Xilinx/14.2/ISE_DS/ISE//data/tfi.tft -deleteonerror 

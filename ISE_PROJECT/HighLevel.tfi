@@ -1,0 +1,13 @@
+
+
+
+// Instantiate the module
+HighLevel instance_name (
+    .CLOCK(CLOCK), 
+    .SW(SW), 
+    .ENABLED(ENABLED), 
+    .AN(AN), 
+    .seg(seg)
+    );
+
+

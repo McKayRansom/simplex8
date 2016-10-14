@@ -1,0 +1,49 @@
+Running: C:\Xilinx\14.2\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o F:/MISCComputer/MISCMicroprocessor/ComputerTest_isim_beh.exe -prj F:/MISCComputer/MISCMicroprocessor/ComputerTest_beh.prj work.ComputerTest work.glbl 
+ISim P.28xd (signature 0xa0883be4)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Analyzing Verilog file "F:/MISCComputer/MISCMicroprocessor/decoder3_8.v" into library work
+Analyzing Verilog file "F:/MISCComputer/MISCMicroprocessor/mux.v" into library work
+Analyzing Verilog file "F:/MISCComputer/MISCMicroprocessor/decoder4_16.v" into library work
+Analyzing Verilog file "F:/MISCComputer/MISCMicroprocessor/sevensegment.v" into library work
+Analyzing Verilog file "F:/MISCComputer/MISCMicroprocessor/mux_array.v" into library work
+Analyzing Verilog file "F:/MISCComputer/MISCMicroprocessor/ClockDivider.v" into library work
+Analyzing Verilog file "F:/MISCComputer/MISCMicroprocessor/Registers.v" into library work
+Analyzing Verilog file "F:/MISCComputer/MISCMicroprocessor/ProgramMemory.v" into library work
+Analyzing Verilog file "F:/MISCComputer/MISCMicroprocessor/PC.v" into library work
+Analyzing Verilog file "F:/MISCComputer/MISCMicroprocessor/JumpLogic.v" into library work
+Analyzing Verilog file "F:/MISCComputer/MISCMicroprocessor/InstructionMemory.v" into library work
+Analyzing Verilog file "F:/MISCComputer/MISCMicroprocessor/DoubleSevenSegment.v" into library work
+Analyzing Verilog file "F:/MISCComputer/MISCMicroprocessor/ControlLogic.v" into library work
+Analyzing Verilog file "F:/MISCComputer/MISCMicroprocessor/Binary_BCD.v" into library work
+Analyzing Verilog file "F:/MISCComputer/MISCMicroprocessor/ALU.v" into library work
+Analyzing Verilog file "F:/MISCComputer/MISCMicroprocessor/HighLevel.v" into library work
+Analyzing Verilog file "F:/MISCComputer/MISCMicroprocessor/ComputerTest.v" into library work
+Analyzing Verilog file "C:/Xilinx/14.2/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Compiling module ClockDivider
+Compiling module PC
+Compiling module InstructionMemory
+Compiling module decoder3_8
+Compiling module decoder4_16
+Compiling module ControlLogic
+Compiling module JumpLogic
+Compiling module mux
+Compiling module mux_array(SIZE=8)
+Compiling module ALU
+Compiling module Registers
+Compiling module ProgramMemory
+Compiling module Binary_BCD
+Compiling module sevensegment
+Compiling module mux_array_default
+Compiling module DoubleSevenSegment
+Compiling module HighLevel
+Compiling module ComputerTest
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Compiled 19 Verilog Units
+Built simulation executable F:/MISCComputer/MISCMicroprocessor/ComputerTest_isim_beh.exe
+Fuse Memory Usage: 28088 KB
+Fuse CPU Usage: 906 ms

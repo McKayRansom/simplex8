@@ -1,0 +1,75 @@
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2014.4 (lin64) Build 1071353 Tue Nov 18 16:47:07 MST 2014
+| Date         : Thu Oct 13 12:38:35 2016
+| Host         : leftserv running 64-bit CentOS release 6.5 (Final)
+| Command      : report_control_sets -verbose -file HighLevel_control_sets_placed.rpt
+| Design       : HighLevel
+| Device       : xc7vx485t
+--------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++-------------------------------------------------------------------+-------+
+|                               Status                              | Count |
++-------------------------------------------------------------------+-------+
+| Number of unique control sets                                     |    22 |
+| Minimum Number of register sites lost to control set restrictions |    19 |
++-------------------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |               7 |            3 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              26 |            7 |
+| Yes          | No                    | No                     |             148 |           63 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++-----------------------------+---------------------------------------+-----------------------------------+------------------+----------------+
+|         Clock Signal        |             Enable Signal             |          Set/Reset Signal         | Slice Load Count | Bel Load Count |
++-----------------------------+---------------------------------------+-----------------------------------+------------------+----------------+
+|  MASTER_CLOCK/inst/clk_out1 |                                       |                                   |                1 |              1 |
+|  CLK_BUFG                   | ControlLogic/SetFlags                 |                                   |                5 |              5 |
+|  CLK_BUFG                   |                                       |                                   |                2 |              6 |
+|  CLK_BUFG                   | PROGRAM_MEMORY/n_0_memory[257][6]_i_1 |                                   |                1 |              7 |
+|  CLK_BUFG                   | REGISTERS/n_0_REGISTERS[0][7]_i_1     |                                   |                1 |              8 |
+|  CLK_BUFG                   | REGISTERS/n_0_REGISTERS[10][7]_i_1    |                                   |                4 |              8 |
+|  CLK_BUFG                   | REGISTERS/n_0_REGISTERS[11][7]_i_1    |                                   |                4 |              8 |
+|  CLK_BUFG                   | REGISTERS/n_0_REGISTERS[12][7]_i_1    |                                   |                5 |              8 |
+|  CLK_BUFG                   | REGISTERS/n_0_REGISTERS[13][7]_i_1    |                                   |                6 |              8 |
+|  CLK_BUFG                   | REGISTERS/n_0_REGISTERS[14][7]_i_1    |                                   |                3 |              8 |
+|  CLK_BUFG                   | REGISTERS/n_0_REGISTERS[15][7]_i_1    |                                   |                2 |              8 |
+|  CLK_BUFG                   | REGISTERS/n_0_REGISTERS[1][7]_i_1     |                                   |                1 |              8 |
+|  CLK_BUFG                   | REGISTERS/n_0_REGISTERS[2][7]_i_1     |                                   |                3 |              8 |
+|  CLK_BUFG                   | REGISTERS/n_0_REGISTERS[3][7]_i_1     |                                   |                6 |              8 |
+|  CLK_BUFG                   | REGISTERS/n_0_REGISTERS[4][7]_i_1     |                                   |                6 |              8 |
+|  CLK_BUFG                   | REGISTERS/n_0_REGISTERS[5][7]_i_1     |                                   |                2 |              8 |
+|  CLK_BUFG                   | REGISTERS/n_0_REGISTERS[6][7]_i_1     |                                   |                2 |              8 |
+|  CLK_BUFG                   | REGISTERS/n_0_REGISTERS[7][7]_i_1     |                                   |                3 |              8 |
+|  CLK_BUFG                   | REGISTERS/n_0_REGISTERS[8][7]_i_1     |                                   |                4 |              8 |
+|  CLK_BUFG                   | REGISTERS/n_0_REGISTERS[9][7]_i_1     |                                   |                4 |              8 |
+|  CLK_BUFG                   | PROGRAM_MEMORY/n_0_memory[256][7]_i_1 |                                   |                1 |              8 |
+|  MASTER_CLOCK/inst/clk_out1 |                                       | PRIMARYCLOCK/n_3_count_reg[0]_i_1 |                7 |             26 |
++-----------------------------+---------------------------------------+-----------------------------------+------------------+----------------+
+
+

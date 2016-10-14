@@ -1,0 +1,219 @@
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------
+| Tool Version     : Vivado v.2014.4 (lin64) Build 1071353 Tue Nov 18 16:47:07 MST 2014
+| Date             : Thu Oct 13 12:40:37 2016
+| Host             : leftserv running 64-bit CentOS release 6.5 (Final)
+| Command          : report_power -file HighLevel_power_routed.rpt -pb HighLevel_power_summary_routed.pb
+| Design           : HighLevel
+| Device           : xc7vx485tffg1761-2
+| Design State     : Routed
+| Grade            : commercial
+| Process          : typical
+| Characterization : Production
+-----------------------------------------------------------------------------------------------------------------
+
+Power Report
+
+Table of Contents
+-----------------
+1. Summary
+1.1 On-Chip Components
+1.2 Power Supply Summary
+1.3 Confidence Level
+2. Settings
+2.1 Environment
+2.2 Clock Constraints
+3. Detailed Reports
+3.1 By Hierarchy
+
+1. Summary
+----------
+
++--------------------------+--------+
+| Total On-Chip Power (W)  | 0.354  |
+| Dynamic (W)              | 0.111  |
+| Device Static (W)        | 0.243  |
+| Effective TJA (C/W)      | 1.1    |
+| Max Ambient (C)          | 84.6   |
+| Junction Temperature (C) | 25.4   |
+| Confidence Level         | Medium |
+| Setting File             | ---    |
+| Simulation Activity File | ---    |
+| Design Nets Matched      | NA     |
++--------------------------+--------+
+
+
+1.1 On-Chip Components
+----------------------
+
++----------------+-----------+----------+-----------+-----------------+
+| On-Chip        | Power (W) | Used     | Available | Utilization (%) |
++----------------+-----------+----------+-----------+-----------------+
+| Clocks         |    <0.001 |        5 |       --- |             --- |
+| Slice Logic    |    <0.001 |      420 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      163 |    303600 |            0.05 |
+|   CARRY4       |    <0.001 |       17 |     75900 |            0.02 |
+|   Register     |    <0.001 |      181 |    607200 |            0.02 |
+|   Others       |     0.000 |       10 |       --- |             --- |
+|   BUFG         |     0.000 |        1 |        32 |            3.12 |
+|   F7/F8 Muxes  |     0.000 |       24 |    303600 |           <0.01 |
+| Signals        |    <0.001 |      314 |       --- |             --- |
+| MMCM           |     0.106 |        1 |        14 |            7.14 |
+| I/O            |     0.004 |       18 |       700 |            2.57 |
+| Static Power   |     0.243 |          |           |                 |
+| Total          |     0.354 |          |           |                 |
++----------------+-----------+----------+-----------+-----------------+
+
+
+1.2 Power Supply Summary
+------------------------
+
++-----------+-------------+-----------+-------------+------------+
+| Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
++-----------+-------------+-----------+-------------+------------+
+| Vccint    |       1.000 |     0.136 |       0.002 |      0.134 |
+| Vccaux    |       1.800 |     0.098 |       0.061 |      0.038 |
+| Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |
+| Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
+| Vcco18    |       1.800 |     0.001 |       0.000 |      0.001 |
+| Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
+| Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
+| Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
+| Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
+| Vccbram   |       1.000 |     0.003 |       0.000 |      0.003 |
+| MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
+| MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
+| MGTVccaux |       1.800 |     0.000 |       0.000 |      0.000 |
+| MGTZVccl  |       1.075 |     0.000 |       0.000 |      0.000 |
+| MGTZAVcc  |       1.075 |     0.000 |       0.000 |      0.000 |
+| MGTZVcch  |       1.800 |     0.000 |       0.000 |      0.000 |
+| Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |
++-----------+-------------+-----------+-------------+------------+
+
+
+1.3 Confidence Level
+--------------------
+
++-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+| User Input Data             | Confidence | Details                                                | Action                                                                                                             |
++-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+| Design implementation state | High       | Design is routed                                       |                                                                                                                    |
+| Clock nodes activity        | Low        | User specified less than 75% of clocks                 | Provide missing clock activity with a constraint file, simulation results or by editing the "By Clock Domain" view |
+| I/O nodes activity          | Medium     | More than 25% of inputs are missing user specification | Provide missing input activity with simulation results or by editing the "By Resource Type -> I/Os" view           |
+| Internal nodes activity     | Medium     | User specified less than 25% of internal nodes         | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views         |
+| Device models               | High       | Device models are Production                           |                                                                                                                    |
+|                             |            |                                                        |                                                                                                                    |
+| Overall confidence level    | Low        |                                                        |                                                                                                                    |
++-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+
+
+2. Settings
+-----------
+
+2.1 Environment
+---------------
+
++-----------------------+--------------------------+
+| Ambient Temp (C)      | 25.0                     |
+| ThetaJA (C/W)         | 1.1                      |
+| Airflow (LFM)         | 250                      |
+| Heat Sink             | medium (Medium Profile)  |
+| ThetaSA (C/W)         | 2.2                      |
+| Board Selection       | medium (10"x10")         |
+| # of Board Layers     | 12to15 (12 to 15 Layers) |
+| Board Temperature (C) | 25.0                     |
++-----------------------+--------------------------+
+
+
+2.2 Clock Constraints
+---------------------
+
++--------------------+--------------------------------------+-----------------+
+| Clock              | Domain                               | Constraint (ns) |
++--------------------+--------------------------------------+-----------------+
+| CLOCK_P            | CLOCK_P                              |             5.0 |
+| clk_out1_clk_wiz_0 | MASTER_CLOCK/inst/clk_out1_clk_wiz_0 |           100.0 |
+| clkfbout_clk_wiz_0 | MASTER_CLOCK/inst/clkfbout_clk_wiz_0 |            25.0 |
++--------------------+--------------------------------------+-----------------+
+
+
+3. Detailed Reports
+-------------------
+
+3.1 By Hierarchy
+----------------
+
++------------------------+-----------+
+| Name                   | Power (W) |
++------------------------+-----------+
+| HighLevel              |     0.111 |
+|   ALU                  |     0.000 |
+|     ADDER_INPUT_SELECT |     0.000 |
+|       MUXarray[0].m    |     0.000 |
+|       MUXarray[1].m    |     0.000 |
+|       MUXarray[2].m    |     0.000 |
+|       MUXarray[3].m    |     0.000 |
+|       MUXarray[4].m    |     0.000 |
+|       MUXarray[5].m    |     0.000 |
+|       MUXarray[6].m    |     0.000 |
+|       MUXarray[7].m    |     0.000 |
+|     RESULT_SELECT      |     0.000 |
+|       MUXarray[0].m    |     0.000 |
+|       MUXarray[1].m    |     0.000 |
+|       MUXarray[2].m    |     0.000 |
+|       MUXarray[3].m    |     0.000 |
+|       MUXarray[4].m    |     0.000 |
+|       MUXarray[5].m    |     0.000 |
+|       MUXarray[6].m    |     0.000 |
+|       MUXarray[7].m    |     0.000 |
+|   ControlLogic         |     0.000 |
+|     instructionDecoder |     0.000 |
+|       d1               |     0.000 |
+|       d2               |     0.000 |
+|   INSTR_MEM            |     0.000 |
+|   JumpLogic            |     0.000 |
+|   MASTER_CLOCK         |     0.111 |
+|     inst               |     0.111 |
+|   PC                   |     0.000 |
+|   PRIMARYCLOCK         |    <0.001 |
+|   PROGRAM_MEMORY       |     0.000 |
+|   REGISTERS            |     0.000 |
+|     ACC_INPUT_SELECT   |     0.000 |
+|       MUXarray[0].m    |     0.000 |
+|       MUXarray[1].m    |     0.000 |
+|       MUXarray[2].m    |     0.000 |
+|       MUXarray[3].m    |     0.000 |
+|       MUXarray[4].m    |     0.000 |
+|       MUXarray[5].m    |     0.000 |
+|       MUXarray[6].m    |     0.000 |
+|       MUXarray[7].m    |     0.000 |
+|     ACC_INPUT_SELECT1  |     0.000 |
+|       MUXarray[0].m    |     0.000 |
+|       MUXarray[1].m    |     0.000 |
+|       MUXarray[2].m    |     0.000 |
+|       MUXarray[3].m    |     0.000 |
+|       MUXarray[4].m    |     0.000 |
+|       MUXarray[5].m    |     0.000 |
+|       MUXarray[6].m    |     0.000 |
+|       MUXarray[7].m    |     0.000 |
+|     ACC_INPUT_SELECT2  |     0.000 |
+|       MUXarray[0].m    |     0.000 |
+|       MUXarray[1].m    |     0.000 |
+|       MUXarray[2].m    |     0.000 |
+|       MUXarray[3].m    |     0.000 |
+|       MUXarray[4].m    |     0.000 |
+|       MUXarray[5].m    |     0.000 |
+|       MUXarray[6].m    |     0.000 |
+|       MUXarray[7].m    |     0.000 |
+|     REG_INPUT_SELECT   |     0.000 |
+|       MUXarray[0].m    |     0.000 |
+|       MUXarray[1].m    |     0.000 |
+|       MUXarray[2].m    |     0.000 |
+|       MUXarray[3].m    |     0.000 |
+|       MUXarray[4].m    |     0.000 |
+|       MUXarray[5].m    |     0.000 |
+|       MUXarray[6].m    |     0.000 |
+|       MUXarray[7].m    |     0.000 |
++------------------------+-----------+
+
+

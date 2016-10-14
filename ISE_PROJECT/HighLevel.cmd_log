@@ -1,0 +1,125 @@
+xst -intstyle ise -ifn "E:/MISC Computer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISC Computer/MISCMicroprocessor/HighLevel.syr" 
+xst -intstyle ise -ifn "E:/MISC Computer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISC Computer/MISCMicroprocessor/HighLevel.syr" 
+xst -intstyle ise -ifn "E:/MISC Computer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISC Computer/MISCMicroprocessor/HighLevel.syr" 
+xst -intstyle ise -ifn "E:/MISC Computer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISC Computer/MISCMicroprocessor/HighLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s100e-cp132-4 "HighLevel.ngc" HighLevel.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o HighLevel_map.ncd HighLevel.ngd HighLevel.pcf 
+par -w -intstyle ise -ol high -t 1 HighLevel_map.ncd HighLevel.ncd HighLevel.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml HighLevel.twx HighLevel.ncd -o HighLevel.twr HighLevel.pcf 
+vhdtdtfi -lib work {E:/MISC Computer/MISCMicroprocessor/HighLevel.v} -lang verilog -prj MISCMicroprocessor -o HighLevel.spl -module HighLevel -template C:/Xilinx/14.2/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e HighLevel.spl {E:/MISC Computer/MISCMicroprocessor/HighLevel.sym} 
+vhdtdtfi -lang verilog -prj MISCMicroprocessor -o "E:/MISC Computer/MISCMicroprocessor/HighLevel.tfi" -lib work "E:/MISC Computer/MISCMicroprocessor//HighLevel.v" -module HighLevel -template C:/Xilinx/14.2/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+xst -intstyle ise -ifn "E:/MISC Computer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISC Computer/MISCMicroprocessor/HighLevel.syr" 
+xst -intstyle ise -ifn "E:/MISC Computer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISC Computer/MISCMicroprocessor/HighLevel.syr" 
+xst -intstyle ise -ifn "E:/MISC Computer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISC Computer/MISCMicroprocessor/HighLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s100e-cp132-4 "HighLevel.ngc" HighLevel.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o HighLevel_map.ncd HighLevel.ngd HighLevel.pcf 
+par -w -intstyle ise -ol high -t 1 HighLevel_map.ncd HighLevel.ncd HighLevel.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml HighLevel.twx HighLevel.ncd -o HighLevel.twr HighLevel.pcf 
+bitgen -intstyle ise -f HighLevel.ut HighLevel.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s100e-cp132-4 "HighLevel.ngc" HighLevel.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o HighLevel_map.ncd HighLevel.ngd HighLevel.pcf 
+par -w -intstyle ise -ol high -t 1 HighLevel_map.ncd HighLevel.ncd HighLevel.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml HighLevel.twx HighLevel.ncd -o HighLevel.twr HighLevel.pcf 
+bitgen -intstyle ise -f HighLevel.ut HighLevel.ncd 
+xst -intstyle ise -ifn "E:/MISC Computer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISC Computer/MISCMicroprocessor/HighLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc computerImpConst.ucf -p xc3s100e-cp132-4 "HighLevel.ngc" HighLevel.ngd  
+xst -intstyle ise -ifn "E:/MISC Computer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISC Computer/MISCMicroprocessor/HighLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc computerImpConst.ucf -p xc3s100e-cp132-4 "HighLevel.ngc" HighLevel.ngd  
+xst -intstyle ise -ifn "E:/MISC Computer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISC Computer/MISCMicroprocessor/HighLevel.syr" 
+xst -intstyle ise -ifn "E:/MISC Computer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISC Computer/MISCMicroprocessor/HighLevel.syr" 
+xst -intstyle ise -ifn "E:/MISC Computer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISC Computer/MISCMicroprocessor/HighLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc computerImpConst.ucf -p xc3s100e-cp132-4 "HighLevel.ngc" HighLevel.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc computerImpConst.ucf -p xc3s100e-cp132-4 "HighLevel.ngc" HighLevel.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o HighLevel_map.ncd HighLevel.ngd HighLevel.pcf 
+par -w -intstyle ise -ol high -t 1 HighLevel_map.ncd HighLevel.ncd HighLevel.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml HighLevel.twx HighLevel.ncd -o HighLevel.twr HighLevel.pcf -ucf computerImpConst.ucf 
+bitgen -intstyle ise -f HighLevel.ut HighLevel.ncd 
+xst -intstyle ise -ifn "E:/MISC Computer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISC Computer/MISCMicroprocessor/HighLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc computerImpConst.ucf -p xc3s100e-cp132-4 "HighLevel.ngc" HighLevel.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o HighLevel_map.ncd HighLevel.ngd HighLevel.pcf 
+par -w -intstyle ise -ol high -t 1 HighLevel_map.ncd HighLevel.ncd HighLevel.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml HighLevel.twx HighLevel.ncd -o HighLevel.twr HighLevel.pcf -ucf computerImpConst.ucf 
+bitgen -intstyle ise -f HighLevel.ut HighLevel.ncd 
+xst -intstyle ise -ifn "E:/MISC Computer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISC Computer/MISCMicroprocessor/HighLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc computerImpConst.ucf -p xc3s100e-cp132-4 "HighLevel.ngc" HighLevel.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o HighLevel_map.ncd HighLevel.ngd HighLevel.pcf 
+xst -intstyle ise -ifn "E:/MISC Computer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISC Computer/MISCMicroprocessor/HighLevel.syr" 
+xst -intstyle ise -ifn "E:/MISC Computer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISC Computer/MISCMicroprocessor/HighLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc computerImpConst.ucf -p xc3s100e-cp132-4 "HighLevel.ngc" HighLevel.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o HighLevel_map.ncd HighLevel.ngd HighLevel.pcf 
+par -w -intstyle ise -ol high -t 1 HighLevel_map.ncd HighLevel.ncd HighLevel.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml HighLevel.twx HighLevel.ncd -o HighLevel.twr HighLevel.pcf -ucf computerImpConst.ucf 
+bitgen -intstyle ise -f HighLevel.ut HighLevel.ncd 
+xst -intstyle ise -ifn "E:/MISC Computer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISC Computer/MISCMicroprocessor/HighLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc computerImpConst.ucf -p xc3s100e-cp132-4 "HighLevel.ngc" HighLevel.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o HighLevel_map.ncd HighLevel.ngd HighLevel.pcf 
+par -w -intstyle ise -ol high -t 1 HighLevel_map.ncd HighLevel.ncd HighLevel.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml HighLevel.twx HighLevel.ncd -o HighLevel.twr HighLevel.pcf -ucf computerImpConst.ucf 
+bitgen -intstyle ise -f HighLevel.ut HighLevel.ncd 
+xst -intstyle ise -ifn "D:/MISC Computer/MISCMicroprocessor/HighLevel.xst" -ofn "D:/MISC Computer/MISCMicroprocessor/HighLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc computerImpConst.ucf -p xc3s100e-cp132-4 "HighLevel.ngc" HighLevel.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o HighLevel_map.ncd HighLevel.ngd HighLevel.pcf 
+par -w -intstyle ise -ol high -t 1 HighLevel_map.ncd HighLevel.ncd HighLevel.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml HighLevel.twx HighLevel.ncd -o HighLevel.twr HighLevel.pcf -ucf computerImpConst.ucf 
+bitgen -intstyle ise -f HighLevel.ut HighLevel.ncd 
+bitgen -intstyle ise -f HighLevel.ut HighLevel.ncd 
+xst -intstyle ise -ifn "D:/MISC Computer/MISCMicroprocessor/HighLevel.xst" -ofn "D:/MISC Computer/MISCMicroprocessor/HighLevel.syr" 
+xst -intstyle ise -ifn "D:/MISC Computer/MISCMicroprocessor/HighLevel.xst" -ofn "D:/MISC Computer/MISCMicroprocessor/HighLevel.syr" 
+xst -intstyle ise -ifn "D:/MISC Computer/MISCMicroprocessor/HighLevel.xst" -ofn "D:/MISC Computer/MISCMicroprocessor/HighLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc computerImpConst.ucf -p xc3s100e-cp132-4 "HighLevel.ngc" HighLevel.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o HighLevel_map.ncd HighLevel.ngd HighLevel.pcf 
+par -w -intstyle ise -ol high -t 1 HighLevel_map.ncd HighLevel.ncd HighLevel.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml HighLevel.twx HighLevel.ncd -o HighLevel.twr HighLevel.pcf -ucf computerImpConst.ucf 
+bitgen -intstyle ise -f HighLevel.ut HighLevel.ncd 
+xst -intstyle ise -ifn "E:/MISCComputer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISCComputer/MISCMicroprocessor/HighLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc computerImpConst.ucf -p xc3s100e-cp132-4 HighLevel.ngc HighLevel.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o HighLevel_map.ncd HighLevel.ngd HighLevel.pcf 
+par -w -intstyle ise -ol high -t 1 HighLevel_map.ncd HighLevel.ncd HighLevel.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml HighLevel.twx HighLevel.ncd -o HighLevel.twr HighLevel.pcf -ucf computerImpConst.ucf 
+bitgen -intstyle ise -f HighLevel.ut HighLevel.ncd 
+xst -intstyle ise -ifn "E:/MISCComputer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISCComputer/MISCMicroprocessor/HighLevel.syr" 
+xst -intstyle ise -ifn "E:/MISCComputer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISCComputer/MISCMicroprocessor/HighLevel.syr" 
+xst -intstyle ise -ifn "E:/MISCComputer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISCComputer/MISCMicroprocessor/HighLevel.syr" 
+xst -intstyle ise -ifn "E:/MISCComputer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISCComputer/MISCMicroprocessor/HighLevel.syr" 
+xst -intstyle ise -ifn "E:/MISCComputer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISCComputer/MISCMicroprocessor/HighLevel.syr" 
+xst -intstyle ise -ifn "E:/MISCComputer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISCComputer/MISCMicroprocessor/HighLevel.syr" 
+xst -intstyle ise -ifn "E:/MISCComputer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISCComputer/MISCMicroprocessor/HighLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc computerImpConst.ucf -p xc3s100e-cp132-4 HighLevel.ngc HighLevel.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o HighLevel_map.ncd HighLevel.ngd HighLevel.pcf 
+par -w -intstyle ise -ol high -t 1 HighLevel_map.ncd HighLevel.ncd HighLevel.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml HighLevel.twx HighLevel.ncd -o HighLevel.twr HighLevel.pcf -ucf computerImpConst.ucf 
+bitgen -intstyle ise -f HighLevel.ut HighLevel.ncd 
+xst -intstyle ise -ifn "E:/MISCComputer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISCComputer/MISCMicroprocessor/HighLevel.syr" 
+xst -intstyle ise -ifn "E:/MISCComputer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISCComputer/MISCMicroprocessor/HighLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc computerImpConst.ucf -p xc3s100e-cp132-4 HighLevel.ngc HighLevel.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o HighLevel_map.ncd HighLevel.ngd HighLevel.pcf 
+par -w -intstyle ise -ol high -t 1 HighLevel_map.ncd HighLevel.ncd HighLevel.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc computerImpConst.ucf -p xc3s100e-cp132-4 HighLevel.ngc HighLevel.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o HighLevel_map.ncd HighLevel.ngd HighLevel.pcf 
+par -w -intstyle ise -ol high -t 1 HighLevel_map.ncd HighLevel.ncd HighLevel.pcf 
+par -w -intstyle ise -ol high -t 1 HighLevel_map.ncd HighLevel.ncd HighLevel.pcf 
+xst -intstyle ise -ifn "E:/MISCComputer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISCComputer/MISCMicroprocessor/HighLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc computerImpConst.ucf -p xc3s100e-cp132-4 HighLevel.ngc HighLevel.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o HighLevel_map.ncd HighLevel.ngd HighLevel.pcf 
+par -w -intstyle ise -ol high -t 1 HighLevel_map.ncd HighLevel.ncd HighLevel.pcf 
+xst -intstyle ise -ifn "E:/MISCComputer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISCComputer/MISCMicroprocessor/HighLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc computerImpConst.ucf -p xc3s100e-cp132-4 HighLevel.ngc HighLevel.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o HighLevel_map.ncd HighLevel.ngd HighLevel.pcf 
+par -w -intstyle ise -ol high -t 1 HighLevel_map.ncd HighLevel.ncd HighLevel.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml HighLevel.twx HighLevel.ncd -o HighLevel.twr HighLevel.pcf -ucf computerImpConst.ucf 
+bitgen -intstyle ise -f HighLevel.ut HighLevel.ncd 
+xst -intstyle ise -ifn "E:/MISCComputer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISCComputer/MISCMicroprocessor/HighLevel.syr" 
+xst -intstyle ise -ifn "E:/MISCComputer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISCComputer/MISCMicroprocessor/HighLevel.syr" 
+xst -intstyle ise -ifn "E:/MISCComputer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISCComputer/MISCMicroprocessor/HighLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc computerImpConst.ucf -p xc3s100e-cp132-4 HighLevel.ngc HighLevel.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o HighLevel_map.ncd HighLevel.ngd HighLevel.pcf 
+par -w -intstyle ise -ol high -t 1 HighLevel_map.ncd HighLevel.ncd HighLevel.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml HighLevel.twx HighLevel.ncd -o HighLevel.twr HighLevel.pcf -ucf computerImpConst.ucf 
+bitgen -intstyle ise -f HighLevel.ut HighLevel.ncd 
+xst -intstyle ise -ifn "E:/MISCComputer/MISCMicroprocessor/HighLevel.xst" -ofn "E:/MISCComputer/MISCMicroprocessor/HighLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc computerImpConst.ucf -p xc3s100e-cp132-4 HighLevel.ngc HighLevel.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o HighLevel_map.ncd HighLevel.ngd HighLevel.pcf 
+par -w -intstyle ise -ol high -t 1 HighLevel_map.ncd HighLevel.ncd HighLevel.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml HighLevel.twx HighLevel.ncd -o HighLevel.twr HighLevel.pcf -ucf computerImpConst.ucf 
+bitgen -intstyle ise -f HighLevel.ut HighLevel.ncd 

@@ -1,0 +1,17 @@
+
+
+
+// Instantiate the module
+ProgramMemory instance_name (
+    .CLK(CLK), 
+    .STORE(STORE), 
+    .LOAD(LOAD), 
+    .IO(IO), 
+    .ADDRESS(ADDRESS), 
+    .INPUT_0(INPUT_0), 
+    .OUTPUT_0(OUTPUT_0), 
+    .OUTPUT_1(OUTPUT_1), 
+    .OUTPUT_2(OUTPUT_2)
+    );
+
+

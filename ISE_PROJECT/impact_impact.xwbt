@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=/media/mckay/KAYDISK2/MISCComputer/MISCMicroprocessor/impact.xsl
+OUTFILE=/media/mckay/KAYDISK2/MISCComputer/MISCMicroprocessor/impact.xsl
+FAMILY=None
+PART=None
+WORKINGDIR=/media/mckay/KAYDISK2/MISCComputer/MISCMicroprocessor
+LICENSE=iMPACT
+USER_INFO=iMPACT

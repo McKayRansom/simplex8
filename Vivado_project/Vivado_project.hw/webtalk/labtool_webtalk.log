@@ -1,0 +1,14 @@
+CRITICAL WARNING: [Common 17-183] Failed to open handle webtalk.jou. Please check access permission of directory '/opt/Xilinx/Vivado/2014.4/bin'. You should restart the application from a writable working directory.
+CRITICAL WARNING: [Common 17-183] Failed to open handle webtalk.log. Please check access permission of directory '/opt/Xilinx/Vivado/2014.4/bin'. You should restart the application from a writable working directory.
+
+****** Webtalk v2014.4 (64-bit)
+  **** SW Build 1071353 on Tue Nov 18 16:47:07 MST 2014
+  **** IP Build 1070531 on Tue Nov 18 01:10:18 MST 2014
+    ** Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+
+source /media/KAYDISK2/MISCComputer/Vivado_project/Vivado_project.hw/webtalk/labtool_webtalk.tcl -notrace
+
+    while executing
+"webtalk_transmit -clientid 1293396594 -regid "210998954_1777507267_210601453_209" -xml /media/KAYDISK2/MISCComputer/Vivado_project/Vivado_project.hw/w..."
+    (file "/media/KAYDISK2/MISCComputer/Vivado_project/Vivado_project.hw/webtalk/labtool_webtalk.tcl" line 28)
+INFO: [Common 17-206] Exiting Webtalk at Thu Oct 13 11:27:29 2016...

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="E:/MISCComputer/MISCMicroprocessor/ComputerTest_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="ComputerTest" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="21" />
+   <wvobject fp_name="/ComputerTest/uut/CLOCK" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">CLOCK</obj_property>
+      <obj_property name="ObjectShortName">CLOCK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ComputerTest/uut/SW" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">SW[7:0]</obj_property>
+      <obj_property name="ObjectShortName">SW[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ComputerTest/uut/ENABLED" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ENABLED</obj_property>
+      <obj_property name="ObjectShortName">ENABLED</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ComputerTest/uut/AN" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">AN[3:0]</obj_property>
+      <obj_property name="ObjectShortName">AN[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ComputerTest/uut/seg" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">seg[6:0]</obj_property>
+      <obj_property name="ObjectShortName">seg[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ComputerTest/uut/CLK" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ComputerTest/uut/PC_VALUE" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">PC_VALUE[15:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_VALUE[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ComputerTest/uut/REG_ADDRESS" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">REG_ADDRESS[15:0]</obj_property>
+      <obj_property name="ObjectShortName">REG_ADDRESS[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ComputerTest/uut/DO_JUMP" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">DO_JUMP</obj_property>
+      <obj_property name="ObjectShortName">DO_JUMP</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ComputerTest/uut/INSTRUCTION" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INSTRUCTION[7:0]</obj_property>
+      <obj_property name="ObjectShortName">INSTRUCTION[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ComputerTest/uut/OPCODE" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">OPCODE[15:0]</obj_property>
+      <obj_property name="ObjectShortName">OPCODE[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ComputerTest/uut/IMM" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">IMM[3:0]</obj_property>
+      <obj_property name="ObjectShortName">IMM[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ComputerTest/uut/LOADACC" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">LOADACC</obj_property>
+      <obj_property name="ObjectShortName">LOADACC</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ComputerTest/uut/SETFLAGS" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">SETFLAGS</obj_property>
+      <obj_property name="ObjectShortName">SETFLAGS</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ComputerTest/uut/REG" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">REG</obj_property>
+      <obj_property name="ObjectShortName">REG</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ComputerTest/uut/MEM" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">MEM</obj_property>
+      <obj_property name="ObjectShortName">MEM</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ComputerTest/uut/FLAGS" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">FLAGS[7:0]</obj_property>
+      <obj_property name="ObjectShortName">FLAGS[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ComputerTest/uut/REGOUT" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">REGOUT[7:0]</obj_property>
+      <obj_property name="ObjectShortName">REGOUT[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ComputerTest/uut/RESULT" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">RESULT[7:0]</obj_property>
+      <obj_property name="ObjectShortName">RESULT[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ComputerTest/uut/ACCVALUE" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ACCVALUE[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ACCVALUE[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ComputerTest/uut/MEM_IO" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">MEM_IO[7:0]</obj_property>
+      <obj_property name="ObjectShortName">MEM_IO[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+</wave_config>

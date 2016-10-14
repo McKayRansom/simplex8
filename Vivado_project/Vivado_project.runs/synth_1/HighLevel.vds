@@ -1,0 +1,652 @@
+#-----------------------------------------------------------
+# Vivado v2014.4 (64-bit)
+# SW Build 1071353 on Tue Nov 18 16:47:07 MST 2014
+# IP Build 1070531 on Tue Nov 18 01:10:18 MST 2014
+# Start of session at: Thu Oct 13 12:36:47 2016
+# Process ID: 39778
+# Log file: /home/mckay/MISCComputer/Vivado_project/Vivado_project.runs/synth_1/HighLevel.vds
+# Journal file: /home/mckay/MISCComputer/Vivado_project/Vivado_project.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source HighLevel.tcl
+# set_param gui.test TreeTableDev
+# debug::add_scope template.lib 1
+# set_msg_config -id {HDL 9-1061} -limit 100000
+# set_msg_config -id {HDL 9-1654} -limit 100000
+# create_project -in_memory -part xc7vx485tffg1761-2
+# set_param project.compositeFile.enableAutoGeneration 0
+# set_param synth.vivado.isSynthRun true
+# set_property webtalk.parent_dir /home/mckay/MISCComputer/Vivado_project/Vivado_project.cache/wt [current_project]
+# set_property parent.project_path /home/mckay/MISCComputer/Vivado_project/Vivado_project.xpr [current_project]
+# set_property default_lib xil_defaultlib [current_project]
+# set_property target_language Verilog [current_project]
+# set_property board_part xilinx.com:vc707:part0:1.1 [current_project]
+# add_files -quiet /home/mckay/MISCComputer/Vivado_project/Vivado_project.runs/clk_wiz_0_synth_1/clk_wiz_0.dcp
+# set_property used_in_implementation false [get_files /home/mckay/MISCComputer/Vivado_project/Vivado_project.runs/clk_wiz_0_synth_1/clk_wiz_0.dcp]
+# read_verilog -library xil_defaultlib {
+#   /home/mckay/MISCComputer/ISE_PROJECT/ALUTest.v
+#   /home/mckay/MISCComputer/ISE_PROJECT/decoder3_8.v
+#   /home/mckay/MISCComputer/ISE_PROJECT/mux.v
+#   /home/mckay/MISCComputer/ISE_PROJECT/decoder4_16.v
+#   /home/mckay/MISCComputer/ISE_PROJECT/sevensegment.v
+#   /home/mckay/MISCComputer/ISE_PROJECT/mux_array.v
+#   /home/mckay/MISCComputer/ISE_PROJECT/ClockDivider.v
+#   /home/mckay/MISCComputer/ISE_PROJECT/Registers.v
+#   /home/mckay/MISCComputer/ISE_PROJECT/ProgramMemory.v
+#   /home/mckay/MISCComputer/ISE_PROJECT/PC.v
+#   /home/mckay/MISCComputer/ISE_PROJECT/JumpLogic.v
+#   /home/mckay/MISCComputer/ISE_PROJECT/InstructionMemory.v
+#   /home/mckay/MISCComputer/ISE_PROJECT/DoubleSevenSegment.v
+#   /home/mckay/MISCComputer/ISE_PROJECT/ControlLogic.v
+#   /home/mckay/MISCComputer/ISE_PROJECT/Binary_BCD.v
+#   /home/mckay/MISCComputer/ISE_PROJECT/ALU.v
+#   /home/mckay/MISCComputer/ISE_PROJECT/HighLevel.v
+# }
+# read_xdc /home/mckay/MISCComputer/Vivado_project/Vivado_project.srcs/constrs_1/new/testConstaints.xdc
+# set_property used_in_implementation false [get_files /home/mckay/MISCComputer/Vivado_project/Vivado_project.srcs/constrs_1/new/testConstaints.xdc]
+# catch { write_hwdef -file HighLevel.hwdef }
+INFO: [Vivado_Tcl 4-279] hardware handoff file cannot be generated as there is no block diagram instance in the design
+# synth_design -top HighLevel -part xc7vx485tffg1761-2 -flatten_hierarchy none -directive RuntimeOptimized -fsm_extraction off
+Command: synth_design -top HighLevel -part xc7vx485tffg1761-2 -flatten_hierarchy none -directive RuntimeOptimized -fsm_extraction off
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7vx485t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7vx485t'
+INFO: [Common 17-1223] The version limit for your license is '2016.03' and will expire in -196 days. A version limit expiration means that, although you may be able to continue to use the current version of tools or IP with this license, you will not be eligible for any updates or new releases.
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 968.957 ; gain = 143.734 ; free physical = 3100 ; free virtual = 119191
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'HighLevel' [/home/mckay/MISCComputer/ISE_PROJECT/HighLevel.v:21]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [/home/mckay/MISCComputer/Vivado_project/Vivado_project.runs/synth_1/.Xil/Vivado-39778-leftserv/realtime/clk_wiz_0_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (1#1) [/home/mckay/MISCComputer/Vivado_project/Vivado_project.runs/synth_1/.Xil/Vivado-39778-leftserv/realtime/clk_wiz_0_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'ClockDivider' [/home/mckay/MISCComputer/ISE_PROJECT/ClockDivider.v:21]
+INFO: [Synth 8-256] done synthesizing module 'ClockDivider' (2#1) [/home/mckay/MISCComputer/ISE_PROJECT/ClockDivider.v:21]
+INFO: [Synth 8-638] synthesizing module 'PC' [/home/mckay/MISCComputer/ISE_PROJECT/PC.v:21]
+INFO: [Synth 8-256] done synthesizing module 'PC' (3#1) [/home/mckay/MISCComputer/ISE_PROJECT/PC.v:21]
+INFO: [Synth 8-638] synthesizing module 'InstructionMemory' [/home/mckay/MISCComputer/ISE_PROJECT/InstructionMemory.v:21]
+INFO: [Synth 8-3876] $readmem data file 'memory.list' is read successfully [/home/mckay/MISCComputer/ISE_PROJECT/InstructionMemory.v:33]
+INFO: [Synth 8-256] done synthesizing module 'InstructionMemory' (4#1) [/home/mckay/MISCComputer/ISE_PROJECT/InstructionMemory.v:21]
+INFO: [Synth 8-638] synthesizing module 'ControlLogic' [/home/mckay/MISCComputer/ISE_PROJECT/ControlLogic.v:21]
+INFO: [Synth 8-638] synthesizing module 'decoder4_16' [/home/mckay/MISCComputer/ISE_PROJECT/decoder4_16.v:21]
+INFO: [Synth 8-638] synthesizing module 'decoder3_8' [/home/mckay/MISCComputer/ISE_PROJECT/decoder3_8.v:21]
+INFO: [Synth 8-256] done synthesizing module 'decoder3_8' (5#1) [/home/mckay/MISCComputer/ISE_PROJECT/decoder3_8.v:21]
+INFO: [Synth 8-256] done synthesizing module 'decoder4_16' (6#1) [/home/mckay/MISCComputer/ISE_PROJECT/decoder4_16.v:21]
+INFO: [Synth 8-256] done synthesizing module 'ControlLogic' (7#1) [/home/mckay/MISCComputer/ISE_PROJECT/ControlLogic.v:21]
+INFO: [Synth 8-638] synthesizing module 'JumpLogic' [/home/mckay/MISCComputer/ISE_PROJECT/JumpLogic.v:21]
+INFO: [Synth 8-256] done synthesizing module 'JumpLogic' (8#1) [/home/mckay/MISCComputer/ISE_PROJECT/JumpLogic.v:21]
+INFO: [Synth 8-638] synthesizing module 'ALU' [/home/mckay/MISCComputer/ISE_PROJECT/ALU.v:21]
+INFO: [Synth 8-638] synthesizing module 'mux_array' [/home/mckay/MISCComputer/ISE_PROJECT/mux_array.v:21]
+	Parameter SIZE bound to: 8 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'mux' [/home/mckay/MISCComputer/ISE_PROJECT/mux.v:21]
+INFO: [Synth 8-256] done synthesizing module 'mux' (9#1) [/home/mckay/MISCComputer/ISE_PROJECT/mux.v:21]
+INFO: [Synth 8-256] done synthesizing module 'mux_array' (10#1) [/home/mckay/MISCComputer/ISE_PROJECT/mux_array.v:21]
+INFO: [Synth 8-256] done synthesizing module 'ALU' (11#1) [/home/mckay/MISCComputer/ISE_PROJECT/ALU.v:21]
+INFO: [Synth 8-638] synthesizing module 'Registers' [/home/mckay/MISCComputer/ISE_PROJECT/Registers.v:21]
+INFO: [Synth 8-256] done synthesizing module 'Registers' (12#1) [/home/mckay/MISCComputer/ISE_PROJECT/Registers.v:21]
+INFO: [Synth 8-638] synthesizing module 'ProgramMemory' [/home/mckay/MISCComputer/ISE_PROJECT/ProgramMemory.v:21]
+INFO: [Synth 8-256] done synthesizing module 'ProgramMemory' (13#1) [/home/mckay/MISCComputer/ISE_PROJECT/ProgramMemory.v:21]
+INFO: [Synth 8-638] synthesizing module 'Binary_BCD' [/home/mckay/MISCComputer/ISE_PROJECT/Binary_BCD.v:23]
+INFO: [Synth 8-256] done synthesizing module 'Binary_BCD' (14#1) [/home/mckay/MISCComputer/ISE_PROJECT/Binary_BCD.v:23]
+INFO: [Synth 8-638] synthesizing module 'DoubleSevenSegment' [/home/mckay/MISCComputer/ISE_PROJECT/DoubleSevenSegment.v:21]
+INFO: [Synth 8-638] synthesizing module 'sevensegment' [/home/mckay/MISCComputer/ISE_PROJECT/sevensegment.v:21]
+INFO: [Synth 8-256] done synthesizing module 'sevensegment' (15#1) [/home/mckay/MISCComputer/ISE_PROJECT/sevensegment.v:21]
+INFO: [Synth 8-638] synthesizing module 'mux_array__parameterized0' [/home/mckay/MISCComputer/ISE_PROJECT/mux_array.v:21]
+	Parameter SIZE bound to: 4 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'mux_array__parameterized0' (15#1) [/home/mckay/MISCComputer/ISE_PROJECT/mux_array.v:21]
+INFO: [Synth 8-256] done synthesizing module 'DoubleSevenSegment' (16#1) [/home/mckay/MISCComputer/ISE_PROJECT/DoubleSevenSegment.v:21]
+WARNING: [Synth 8-3848] Net SW in module/entity HighLevel does not have driver. [/home/mckay/MISCComputer/ISE_PROJECT/HighLevel.v:35]
+INFO: [Synth 8-256] done synthesizing module 'HighLevel' (17#1) [/home/mckay/MISCComputer/ISE_PROJECT/HighLevel.v:21]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1005.199 ; gain = 179.977 ; free physical = 3063 ; free virtual = 119154
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+WARNING: [Synth 8-3295] tying undriven pin PROGRAM_MEMORY:INPUT_0[7] to constant 0 [/home/mckay/MISCComputer/ISE_PROJECT/HighLevel.v:148]
+WARNING: [Synth 8-3295] tying undriven pin PROGRAM_MEMORY:INPUT_0[6] to constant 0 [/home/mckay/MISCComputer/ISE_PROJECT/HighLevel.v:148]
+WARNING: [Synth 8-3295] tying undriven pin PROGRAM_MEMORY:INPUT_0[5] to constant 0 [/home/mckay/MISCComputer/ISE_PROJECT/HighLevel.v:148]
+WARNING: [Synth 8-3295] tying undriven pin PROGRAM_MEMORY:INPUT_0[4] to constant 0 [/home/mckay/MISCComputer/ISE_PROJECT/HighLevel.v:148]
+WARNING: [Synth 8-3295] tying undriven pin PROGRAM_MEMORY:INPUT_0[3] to constant 0 [/home/mckay/MISCComputer/ISE_PROJECT/HighLevel.v:148]
+WARNING: [Synth 8-3295] tying undriven pin PROGRAM_MEMORY:INPUT_0[2] to constant 0 [/home/mckay/MISCComputer/ISE_PROJECT/HighLevel.v:148]
+WARNING: [Synth 8-3295] tying undriven pin PROGRAM_MEMORY:INPUT_0[1] to constant 0 [/home/mckay/MISCComputer/ISE_PROJECT/HighLevel.v:148]
+WARNING: [Synth 8-3295] tying undriven pin PROGRAM_MEMORY:INPUT_0[0] to constant 0 [/home/mckay/MISCComputer/ISE_PROJECT/HighLevel.v:148]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1005.199 ; gain = 179.977 ; free physical = 3063 ; free virtual = 119154
+---------------------------------------------------------------------------------
+Loading clock regions from /opt/Xilinx/Vivado/2014.4/data/parts/xilinx/virtex7/virtex7/xc7vx485t/ClockRegion.xml
+Loading clock buffers from /opt/Xilinx/Vivado/2014.4/data/parts/xilinx/virtex7/virtex7/xc7vx485t/ClockBuffers.xml
+Loading clock placement rules from /opt/Xilinx/Vivado/2014.4/data/parts/xilinx/virtex7/ClockPlacerRules.xml
+Loading package pin functions from /opt/Xilinx/Vivado/2014.4/data/parts/xilinx/virtex7/PinFunctions.xml...
+Loading package from /opt/Xilinx/Vivado/2014.4/data/parts/xilinx/virtex7/virtex7/xc7vx485t/ffg1761/Package.xml
+Loading io standards from /opt/Xilinx/Vivado/2014.4/data/./parts/xilinx/virtex7/IOStandards.xml
+Loading device configuration modes from /opt/Xilinx/Vivado/2014.4/data/parts/xilinx/virtex7/ConfigModes.xml
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/mckay/MISCComputer/Vivado_project/Vivado_project.runs/synth_1/.Xil/Vivado-39778-leftserv/dcp/clk_wiz_0_in_context.xdc] for cell 'MASTER_CLOCK'
+Finished Parsing XDC File [/home/mckay/MISCComputer/Vivado_project/Vivado_project.runs/synth_1/.Xil/Vivado-39778-leftserv/dcp/clk_wiz_0_in_context.xdc] for cell 'MASTER_CLOCK'
+Parsing XDC File [/home/mckay/MISCComputer/Vivado_project/Vivado_project.srcs/constrs_1/new/testConstaints.xdc]
+Finished Parsing XDC File [/home/mckay/MISCComputer/Vivado_project/Vivado_project.srcs/constrs_1/new/testConstaints.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 1495.625 ; gain = 0.000 ; free physical = 2733 ; free virtual = 118825
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1495.625 ; gain = 670.402 ; free physical = 2729 ; free virtual = 118821
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7vx485tffg1761-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1495.625 ; gain = 670.402 ; free physical = 2729 ; free virtual = 118821
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property IO_BUFFER_TYPE = NONE for CLOCK_P. (constraint file  /home/mckay/MISCComputer/Vivado_project/Vivado_project.runs/synth_1/.Xil/Vivado-39778-leftserv/dcp/clk_wiz_0_in_context.xdc, line 3).
+Applied set_property IO_BUFFER_TYPE = NONE for CLOCK_N. (constraint file  /home/mckay/MISCComputer/Vivado_project/Vivado_project.runs/synth_1/.Xil/Vivado-39778-leftserv/dcp/clk_wiz_0_in_context.xdc, line 4).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1495.625 ; gain = 670.402 ; free physical = 2729 ; free virtual = 118821
+---------------------------------------------------------------------------------
+ROM "REGISTERS_reg[1]" won't be mapped to Block RAM because address size (4) smaller than threshold (5) 
+ROM "REGISTERS_reg[2]" won't be mapped to Block RAM because address size (4) smaller than threshold (5) 
+ROM "REGISTERS_reg[3]" won't be mapped to Block RAM because address size (4) smaller than threshold (5) 
+ROM "REGISTERS_reg[4]" won't be mapped to Block RAM because address size (4) smaller than threshold (5) 
+ROM "REGISTERS_reg[5]" won't be mapped to Block RAM because address size (4) smaller than threshold (5) 
+ROM "REGISTERS_reg[6]" won't be mapped to Block RAM because address size (4) smaller than threshold (5) 
+ROM "REGISTERS_reg[7]" won't be mapped to Block RAM because address size (4) smaller than threshold (5) 
+ROM "REGISTERS_reg[8]" won't be mapped to Block RAM because address size (4) smaller than threshold (5) 
+ROM "REGISTERS_reg[9]" won't be mapped to Block RAM because address size (4) smaller than threshold (5) 
+ROM "REGISTERS_reg[10]" won't be mapped to Block RAM because address size (4) smaller than threshold (5) 
+ROM "REGISTERS_reg[11]" won't be mapped to Block RAM because address size (4) smaller than threshold (5) 
+ROM "REGISTERS_reg[12]" won't be mapped to Block RAM because address size (4) smaller than threshold (5) 
+ROM "REGISTERS_reg[13]" won't be mapped to Block RAM because address size (4) smaller than threshold (5) 
+ROM "REGISTERS_reg[14]" won't be mapped to Block RAM because address size (4) smaller than threshold (5) 
+ROM "REGISTERS_reg[15]" won't be mapped to Block RAM because address size (4) smaller than threshold (5) 
+ROM "memory_reg[256]" won't be mapped to RAM because it is too sparse.
+ROM "memory_reg[257]" won't be mapped to RAM because it is too sparse.
+ROM "memory_reg[258]" won't be mapped to RAM because it is too sparse.
+WARNING: [Synth 8-3848] Net SW in module/entity HighLevel does not have driver. [/home/mckay/MISCComputer/ISE_PROJECT/HighLevel.v:35]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1495.625 ; gain = 670.402 ; free physical = 2714 ; free virtual = 118805
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input      9 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 7     
+	   2 Input      2 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	                8 Bit    Registers := 20    
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 6     
+	   8 Input      8 Bit        Muxes := 4     
+	   2 Input      1 Bit        Muxes := 88    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module HighLevel 
+Detailed RTL Component Info : 
+Module ClockDivider 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module PC 
+Detailed RTL Component Info : 
+Module InstructionMemory 
+Detailed RTL Component Info : 
+Module decoder3_8 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 1     
+	   8 Input      8 Bit        Muxes := 1     
+Module decoder4_16 
+Detailed RTL Component Info : 
+Module ControlLogic 
+Detailed RTL Component Info : 
+Module JumpLogic 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
+Module mux 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module mux_array 
+Detailed RTL Component Info : 
+Module ALU 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input      9 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
+Module Registers 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 16    
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 17    
+Module ProgramMemory 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 3     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 3     
+Module Binary_BCD 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 7     
+Module sevensegment 
+Detailed RTL Component Info : 
+Module mux_array__parameterized0 
+Detailed RTL Component Info : 
+Module DoubleSevenSegment 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	                2 Bit    Registers := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 2800 (col length:140)
+BRAMs: 2060 (col length: RAMB18 140 RAMB36 70)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1495.625 ; gain = 670.402 ; free physical = 2714 ; free virtual = 118805
+---------------------------------------------------------------------------------
+Start Cross Boundary Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1495.625 ; gain = 670.402 ; free physical = 2714 ; free virtual = 118805
+---------------------------------------------------------------------------------
+Finished Parallel Reinference  : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1495.625 ; gain = 670.402 ; free physical = 2714 ; free virtual = 118805
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (ALU/\FLAGS_reg[7] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (ALU/\FLAGS_reg[0] )
+WARNING: [Synth 8-3332] Sequential element (\Q_reg[6] ) is unused and will be removed from module PC.
+WARNING: [Synth 8-3332] Sequential element (\Q_reg[7] ) is unused and will be removed from module PC.
+WARNING: [Synth 8-3332] Sequential element (\Q_reg[8] ) is unused and will be removed from module PC.
+WARNING: [Synth 8-3332] Sequential element (\Q_reg[9] ) is unused and will be removed from module PC.
+WARNING: [Synth 8-3332] Sequential element (\Q_reg[10] ) is unused and will be removed from module PC.
+WARNING: [Synth 8-3332] Sequential element (\Q_reg[11] ) is unused and will be removed from module PC.
+WARNING: [Synth 8-3332] Sequential element (\Q_reg[12] ) is unused and will be removed from module PC.
+WARNING: [Synth 8-3332] Sequential element (\Q_reg[13] ) is unused and will be removed from module PC.
+WARNING: [Synth 8-3332] Sequential element (\Q_reg[14] ) is unused and will be removed from module PC.
+WARNING: [Synth 8-3332] Sequential element (\Q_reg[15] ) is unused and will be removed from module PC.
+WARNING: [Synth 8-3332] Sequential element (\FLAGS_reg[7] ) is unused and will be removed from module ALU.
+WARNING: [Synth 8-3332] Sequential element (\FLAGS_reg[0] ) is unused and will be removed from module ALU.
+WARNING: [Synth 8-3332] Sequential element (\memory_reg[257][7] ) is unused and will be removed from module ProgramMemory.
+WARNING: [Synth 8-3332] Sequential element (\memory_reg[258][7] ) is unused and will be removed from module ProgramMemory.
+WARNING: [Synth 8-3332] Sequential element (\memory_reg[258][6] ) is unused and will be removed from module ProgramMemory.
+WARNING: [Synth 8-3332] Sequential element (\memory_reg[258][5] ) is unused and will be removed from module ProgramMemory.
+WARNING: [Synth 8-3332] Sequential element (\memory_reg[258][4] ) is unused and will be removed from module ProgramMemory.
+WARNING: [Synth 8-3332] Sequential element (\memory_reg[258][3] ) is unused and will be removed from module ProgramMemory.
+WARNING: [Synth 8-3332] Sequential element (\memory_reg[258][2] ) is unused and will be removed from module ProgramMemory.
+WARNING: [Synth 8-3332] Sequential element (\memory_reg[258][1] ) is unused and will be removed from module ProgramMemory.
+WARNING: [Synth 8-3332] Sequential element (\memory_reg[258][0] ) is unused and will be removed from module ProgramMemory.
+---------------------------------------------------------------------------------
+Start Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3332] Sequential element (clkout_reg) is unused and will be removed from module ClockDivider.
+WARNING: [Synth 8-3332] Sequential element (\count_reg[0] ) is unused and will be removed from module ClockDivider.
+WARNING: [Synth 8-3332] Sequential element (\count_reg[1] ) is unused and will be removed from module ClockDivider.
+WARNING: [Synth 8-3332] Sequential element (\count_reg[2] ) is unused and will be removed from module ClockDivider.
+WARNING: [Synth 8-3332] Sequential element (\count_reg[3] ) is unused and will be removed from module ClockDivider.
+WARNING: [Synth 8-3332] Sequential element (\count_reg[4] ) is unused and will be removed from module ClockDivider.
+WARNING: [Synth 8-3332] Sequential element (\count_reg[5] ) is unused and will be removed from module ClockDivider.
+WARNING: [Synth 8-3332] Sequential element (\count_reg[6] ) is unused and will be removed from module ClockDivider.
+WARNING: [Synth 8-3332] Sequential element (\count_reg[7] ) is unused and will be removed from module ClockDivider.
+WARNING: [Synth 8-3332] Sequential element (\count_reg[8] ) is unused and will be removed from module ClockDivider.
+WARNING: [Synth 8-3332] Sequential element (\count_reg[9] ) is unused and will be removed from module ClockDivider.
+WARNING: [Synth 8-3332] Sequential element (\count_reg[10] ) is unused and will be removed from module ClockDivider.
+WARNING: [Synth 8-3332] Sequential element (\count_reg[11] ) is unused and will be removed from module ClockDivider.
+WARNING: [Synth 8-3332] Sequential element (\count_reg[12] ) is unused and will be removed from module ClockDivider.
+WARNING: [Synth 8-3332] Sequential element (\count_reg[13] ) is unused and will be removed from module ClockDivider.
+WARNING: [Synth 8-3332] Sequential element (\count_reg[14] ) is unused and will be removed from module ClockDivider.
+WARNING: [Synth 8-3332] Sequential element (\count_reg[15] ) is unused and will be removed from module ClockDivider.
+WARNING: [Synth 8-3332] Sequential element (\count_reg[16] ) is unused and will be removed from module ClockDivider.
+WARNING: [Synth 8-3332] Sequential element (\count_reg[17] ) is unused and will be removed from module ClockDivider.
+WARNING: [Synth 8-3332] Sequential element (\count_reg[18] ) is unused and will be removed from module ClockDivider.
+WARNING: [Synth 8-3332] Sequential element (\count_reg[19] ) is unused and will be removed from module ClockDivider.
+WARNING: [Synth 8-3332] Sequential element (\count_reg[20] ) is unused and will be removed from module ClockDivider.
+WARNING: [Synth 8-3332] Sequential element (\count_reg[21] ) is unused and will be removed from module ClockDivider.
+WARNING: [Synth 8-3332] Sequential element (\count_reg[22] ) is unused and will be removed from module ClockDivider.
+WARNING: [Synth 8-3332] Sequential element (\count_reg[23] ) is unused and will be removed from module ClockDivider.
+WARNING: [Synth 8-3332] Sequential element (\count_reg[24] ) is unused and will be removed from module ClockDivider.
+WARNING: [Synth 8-3332] Sequential element (\count_reg[25] ) is unused and will be removed from module ClockDivider.
+WARNING: [Synth 8-3332] Sequential element (\count_reg[1] ) is unused and will be removed from module DoubleSevenSegment.
+WARNING: [Synth 8-3332] Sequential element (\count_reg[0] ) is unused and will be removed from module DoubleSevenSegment.
+---------------------------------------------------------------------------------
+Finished Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1495.625 ; gain = 670.402 ; free physical = 2703 ; free virtual = 118795
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1495.625 ; gain = 670.402 ; free physical = 2703 ; free virtual = 118795
+---------------------------------------------------------------------------------
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1495.625 ; gain = 670.402 ; free physical = 2703 ; free virtual = 118795
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1495.625 ; gain = 670.402 ; free physical = 2703 ; free virtual = 118795
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+INFO: Moved 1 constraints on hierarchical pins to their respective driving/loading pins
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:31 . Memory (MB): peak = 1495.625 ; gain = 670.402 ; free physical = 2671 ; free virtual = 118763
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1495.625 ; gain = 670.402 ; free physical = 2667 ; free virtual = 118759
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3332] Sequential element (\FLAGS_reg[5] ) is unused and will be removed from module ALU.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1495.625 ; gain = 670.402 ; free physical = 2670 ; free virtual = 118762
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3295] tying undriven pin PRIMARYCLOCK:divBy[25] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PRIMARYCLOCK:divBy[24] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PRIMARYCLOCK:divBy[23] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PRIMARYCLOCK:divBy[22] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PRIMARYCLOCK:divBy[21] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PRIMARYCLOCK:divBy[20] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PRIMARYCLOCK:divBy[19] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PRIMARYCLOCK:divBy[18] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PRIMARYCLOCK:divBy[17] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PRIMARYCLOCK:divBy[16] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PRIMARYCLOCK:divBy[15] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PRIMARYCLOCK:divBy[14] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PRIMARYCLOCK:divBy[13] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PRIMARYCLOCK:divBy[12] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PRIMARYCLOCK:divBy[11] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PRIMARYCLOCK:divBy[10] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PRIMARYCLOCK:divBy[9] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PRIMARYCLOCK:divBy[8] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PRIMARYCLOCK:divBy[7] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PRIMARYCLOCK:divBy[6] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PRIMARYCLOCK:divBy[5] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PRIMARYCLOCK:divBy[4] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PRIMARYCLOCK:divBy[3] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PRIMARYCLOCK:divBy[2] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PRIMARYCLOCK:divBy[1] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PRIMARYCLOCK:divBy[0] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PC:ADDRESS[15] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PC:ADDRESS[14] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PC:ADDRESS[13] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PC:ADDRESS[12] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PC:ADDRESS[11] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PC:ADDRESS[10] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PC:ADDRESS[9] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PC:ADDRESS[8] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PC:ADDRESS[7] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PC:ADDRESS[6] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin INSTR_MEM:ADDRESS[15] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin INSTR_MEM:ADDRESS[14] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin INSTR_MEM:ADDRESS[13] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin INSTR_MEM:ADDRESS[12] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin INSTR_MEM:ADDRESS[11] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin INSTR_MEM:ADDRESS[10] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin INSTR_MEM:ADDRESS[9] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin INSTR_MEM:ADDRESS[8] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin INSTR_MEM:ADDRESS[7] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin INSTR_MEM:ADDRESS[6] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin instructionDecoder:en to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ControlLogic:instruction[3] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ControlLogic:instruction[2] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ControlLogic:instruction[1] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ControlLogic:instruction[0] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ControlLogic:EN to constant 0
+WARNING: [Synth 8-3295] tying undriven pin JumpLogic:FLAGS[7] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin JumpLogic:FLAGS[5] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin JumpLogic:FLAGS[0] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin \MUXarray[0].m :i[1] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin \MUXarray[1].m :i[1] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin \MUXarray[2].m :i[1] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin \MUXarray[3].m :i[1] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin \MUXarray[4].m :i[1] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin \MUXarray[5].m :i[1] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin \MUXarray[6].m :i[1] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin \MUXarray[7].m :i[1] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ADDER_INPUT_SELECT:b[7] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ADDER_INPUT_SELECT:b[6] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ADDER_INPUT_SELECT:b[5] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ADDER_INPUT_SELECT:b[4] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ADDER_INPUT_SELECT:b[3] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ADDER_INPUT_SELECT:b[2] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ADDER_INPUT_SELECT:b[1] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ADDER_INPUT_SELECT:b[0] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin \MUXarray[7].m :i[1] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin RESULT_SELECT:b[7] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ALU:ADD to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ALU:OR to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ALU:AND to constant 0
+WARNING: [Synth 8-3295] tying undriven pin REGISTERS:STORE to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PROGRAM_MEMORY:LOAD to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PROGRAM_MEMORY:INPUT_0[7] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PROGRAM_MEMORY:INPUT_0[6] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PROGRAM_MEMORY:INPUT_0[5] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PROGRAM_MEMORY:INPUT_0[4] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PROGRAM_MEMORY:INPUT_0[3] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PROGRAM_MEMORY:INPUT_0[2] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PROGRAM_MEMORY:INPUT_0[1] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin PROGRAM_MEMORY:INPUT_0[0] to constant 0
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1495.625 ; gain = 670.402 ; free physical = 2671 ; free virtual = 118762
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1495.625 ; gain = 670.402 ; free physical = 2671 ; free virtual = 118762
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |clk_wiz_0     |         1|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+----------+------+
+|      |Cell      |Count |
++------+----------+------+
+|1     |clk_wiz_0 |     1|
+|2     |CARRY4    |    17|
+|3     |LUT1      |    27|
+|4     |LUT2      |    21|
+|5     |LUT3      |    64|
+|6     |LUT4      |    34|
+|7     |LUT5      |    20|
+|8     |LUT6      |    47|
+|9     |MUXF7     |    16|
+|10    |MUXF8     |     8|
+|11    |FDRE      |   181|
+|12    |IBUF      |     1|
+|13    |OBUF      |    15|
++------+----------+------+
+
+Report Instance Areas: 
++------+-----------------------+------------------+------+
+|      |Instance               |Module            |Cells |
++------+-----------------------+------------------+------+
+|1     |top                    |                  |   453|
+|2     |  PRIMARYCLOCK         |ClockDivider__1   |    73|
+|3     |  PC                   |PC                |    15|
+|4     |  INSTR_MEM            |InstructionMemory |     8|
+|5     |  ControlLogic         |ControlLogic      |    19|
+|6     |    instructionDecoder |decoder4_16__1    |    15|
+|7     |      d1               |decoder3_8__3     |     7|
+|8     |      d2               |decoder3_8__2     |     7|
+|9     |  JumpLogic            |JumpLogic         |     3|
+|10    |  ALU                  |ALU               |    56|
+|11    |    ADDER_INPUT_SELECT |mux_array__1      |     8|
+|12    |      \MUXarray[0].m   |mux__27           |     1|
+|13    |      \MUXarray[1].m   |mux__26           |     1|
+|14    |      \MUXarray[2].m   |mux__25           |     1|
+|15    |      \MUXarray[3].m   |mux__24           |     1|
+|16    |      \MUXarray[4].m   |mux__23           |     1|
+|17    |      \MUXarray[5].m   |mux__22           |     1|
+|18    |      \MUXarray[6].m   |mux__21           |     1|
+|19    |      \MUXarray[7].m   |mux__20           |     1|
+|20    |    RESULT_SELECT      |mux_array__2      |     8|
+|21    |      \MUXarray[0].m   |mux__35           |     1|
+|22    |      \MUXarray[1].m   |mux__34           |     1|
+|23    |      \MUXarray[2].m   |mux__33           |     1|
+|24    |      \MUXarray[3].m   |mux__32           |     1|
+|25    |      \MUXarray[4].m   |mux__31           |     1|
+|26    |      \MUXarray[5].m   |mux__30           |     1|
+|27    |      \MUXarray[6].m   |mux__29           |     1|
+|28    |      \MUXarray[7].m   |mux__28           |     1|
+|29    |  REGISTERS            |Registers         |   241|
+|30    |    ACC_INPUT_SELECT   |mux_array__3      |     8|
+|31    |      \MUXarray[0].m   |mux__43           |     1|
+|32    |      \MUXarray[1].m   |mux__42           |     1|
+|33    |      \MUXarray[2].m   |mux__41           |     1|
+|34    |      \MUXarray[3].m   |mux__40           |     1|
+|35    |      \MUXarray[4].m   |mux__39           |     1|
+|36    |      \MUXarray[5].m   |mux__38           |     1|
+|37    |      \MUXarray[6].m   |mux__37           |     1|
+|38    |      \MUXarray[7].m   |mux__36           |     1|
+|39    |    ACC_INPUT_SELECT1  |mux_array__4      |     8|
+|40    |      \MUXarray[0].m   |mux__51           |     1|
+|41    |      \MUXarray[1].m   |mux__50           |     1|
+|42    |      \MUXarray[2].m   |mux__49           |     1|
+|43    |      \MUXarray[3].m   |mux__48           |     1|
+|44    |      \MUXarray[4].m   |mux__47           |     1|
+|45    |      \MUXarray[5].m   |mux__46           |     1|
+|46    |      \MUXarray[6].m   |mux__45           |     1|
+|47    |      \MUXarray[7].m   |mux__44           |     1|
+|48    |    ACC_INPUT_SELECT2  |mux_array__5      |     8|
+|49    |      \MUXarray[0].m   |mux__59           |     1|
+|50    |      \MUXarray[1].m   |mux__58           |     1|
+|51    |      \MUXarray[2].m   |mux__57           |     1|
+|52    |      \MUXarray[3].m   |mux__56           |     1|
+|53    |      \MUXarray[4].m   |mux__55           |     1|
+|54    |      \MUXarray[5].m   |mux__54           |     1|
+|55    |      \MUXarray[6].m   |mux__53           |     1|
+|56    |      \MUXarray[7].m   |mux__52           |     1|
+|57    |    REG_INPUT_SELECT   |mux_array__6      |     8|
+|58    |      \MUXarray[0].m   |mux__67           |     1|
+|59    |      \MUXarray[1].m   |mux__66           |     1|
+|60    |      \MUXarray[2].m   |mux__65           |     1|
+|61    |      \MUXarray[3].m   |mux__64           |     1|
+|62    |      \MUXarray[4].m   |mux__63           |     1|
+|63    |      \MUXarray[5].m   |mux__62           |     1|
+|64    |      \MUXarray[6].m   |mux__61           |     1|
+|65    |      \MUXarray[7].m   |mux__60           |     1|
+|66    |  PROGRAM_MEMORY       |ProgramMemory     |    20|
++------+-----------------------+------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1495.625 ; gain = 670.402 ; free physical = 2671 ; free virtual = 118762
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 138 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1495.625 ; gain = 77.238 ; free physical = 2671 ; free virtual = 118762
+Synthesis Optimization Complete : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1495.625 ; gain = 670.402 ; free physical = 2671 ; free virtual = 118762
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 18 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-140] Inserted 0 IBUFs to IO ports without IO buffers.
+INFO: [Opt 31-141] Inserted 0 OBUFs to IO ports without IO buffers.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+52 Infos, 147 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1495.625 ; gain = 571.664 ; free physical = 2657 ; free virtual = 118748
+# write_checkpoint -noxdef HighLevel.dcp
+# catch { report_utilization -file HighLevel_utilization_synth.rpt -pb HighLevel_utilization_synth.pb }
+report_utilization: Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.22 . Memory (MB): peak = 1495.625 ; gain = 0.000 ; free physical = 2655 ; free virtual = 118747
+INFO: [Common 17-206] Exiting Vivado at Thu Oct 13 12:37:25 2016...
