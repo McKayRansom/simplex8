@@ -1,0 +1,30 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  "../../../../ISE_PROJECT/ALUTest.v"
+verilog xil_defaultlib  "../../../../ISE_PROJECT/decoder3_8.v"
+verilog xil_defaultlib  "../../../../ISE_PROJECT/mux.v"
+verilog xil_defaultlib  "../../../../ISE_PROJECT/decoder4_16.v"
+verilog xil_defaultlib  "../../../../ISE_PROJECT/sevensegment.v"
+verilog xil_defaultlib  "../../../../ISE_PROJECT/mux_array.v"
+verilog xil_defaultlib  "../../../../ISE_PROJECT/ClockDivider.v"
+verilog xil_defaultlib  "../../../../ISE_PROJECT/Registers.v"
+verilog xil_defaultlib  "../../../../ISE_PROJECT/ProgramMemory.v"
+verilog xil_defaultlib  "../../../../ISE_PROJECT/PC.v"
+verilog xil_defaultlib  "../../../../ISE_PROJECT/JumpLogic.v"
+verilog xil_defaultlib  "../../../../ISE_PROJECT/InstructionMemory.v"
+verilog xil_defaultlib  "../../../../ISE_PROJECT/DoubleSevenSegment.v"
+verilog xil_defaultlib  "../../../../ISE_PROJECT/ControlLogic.v"
+verilog xil_defaultlib  "../../../../ISE_PROJECT/Binary_BCD.v"
+verilog xil_defaultlib  "../../../../ISE_PROJECT/ALU.v"
+verilog xil_defaultlib  "../../../../ISE_PROJECT/HighLevel.v"
+verilog xil_defaultlib  "../../../../ISE_PROJECT/RegisterTest.v"
+verilog xil_defaultlib  "../../../../ISE_PROJECT/decoder4_16Test.v"
+verilog xil_defaultlib  "../../../../ISE_PROJECT/ComputerTest.v"
+verilog xil_defaultlib  "../../../../ISE_PROJECT/ALUTestTest.v"
+verilog xil_defaultlib  "../../../../ISE_PROJECT/MUXArrayTest.v"
+verilog xil_defaultlib  "../../../../ISE_PROJECT/DoubleSevenSegmentTest.v"
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

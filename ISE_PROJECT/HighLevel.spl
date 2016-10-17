@@ -1,0 +1,11 @@
+[Inputs]
+CLOCK
+ENABLED
+=SW[7:0]=
+[Outputs]
+=AN[3:0]=
+=seg[6:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel HighLevel
+

@@ -1,0 +1,222 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--This is an ISE project configuration file.-->
+<!--It holds project specific layout data for the projectmgr plugin.-->
+<!--Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.-->
+<Project version="2" owner="projectmgr" name="MISCMicroprocessor" >
+   <!--This is an ISE project configuration file.-->
+   <ItemView engineview="SynthesisOnly" guiview="Source" compilemode="AutoCompile" >
+      <ClosedNodes>
+         <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/ALUTest D:|MISC Computer|MISCMicroprocessor|ALUTest.v</ClosedNode>
+         <ClosedNode>/ALUTest E:|MISC Computer|MISCMicroprocessor|ALUTest.v/DISPLAY - DoubleSevenSegment/MUX - mux_array</ClosedNode>
+         <ClosedNode>/ALUTest E:|MISC Computer|MISCMicroprocessor|ALUTest.v/DISPLAY - DoubleSevenSegment/seg_dec - sevensegment</ClosedNode>
+         <ClosedNode>/ALUTest E:|MISC Computer|MISCMicroprocessor|ALUTest.v/testALU - ALU</ClosedNode>
+         <ClosedNode>/ALUTest E:|MISCComputer|MISCMicroprocessor|ALUTest.v/DISPLAY - DoubleSevenSegment</ClosedNode>
+         <ClosedNode>/ALUTest E:|MISCComputer|MISCMicroprocessor|ALUTest.v/testALU - ALU</ClosedNode>
+         <ClosedNode>/ALUTest F:|MISCComputer|MISCMicroprocessor|ALUTest.v</ClosedNode>
+         <ClosedNode>/ALUTest |run|media|a02228346|KAYDISK2|MISCComputer|MISCMicroprocessor|ALUTest.v/DISPLAY - DoubleSevenSegment</ClosedNode>
+         <ClosedNode>/ALUTest |run|media|a02228346|KAYDISK2|MISCComputer|MISCMicroprocessor|ALUTest.v/testALU - ALU</ClosedNode>
+         <ClosedNode>/DoubleSevenSegment E:|MISC Computer|MISCMicroprocessor|DoubleSevenSegment.v/seg_dec - sevensegment/D - decoder4_16</ClosedNode>
+         <ClosedNode>/HighLevel D:|MISC Computer|MISCMicroprocessor|HighLevel.v/ALU - ALU</ClosedNode>
+         <ClosedNode>/HighLevel D:|MISC Computer|MISCMicroprocessor|HighLevel.v/ControlLogic - ControlLogic</ClosedNode>
+         <ClosedNode>/HighLevel D:|MISC Computer|MISCMicroprocessor|HighLevel.v/DISPLAY - DoubleSevenSegment</ClosedNode>
+         <ClosedNode>/HighLevel D:|MISC Computer|MISCMicroprocessor|HighLevel.v/REGISTERS - Registers</ClosedNode>
+         <ClosedNode>/HighLevel E:|MISC Computer|MISCMicroprocessor|HighLevel.v/ALU - ALU</ClosedNode>
+         <ClosedNode>/HighLevel E:|MISC Computer|MISCMicroprocessor|HighLevel.v/ControlLogic - ControlLogic</ClosedNode>
+         <ClosedNode>/HighLevel E:|MISC Computer|MISCMicroprocessor|HighLevel.v/DISPLAY - DoubleSevenSegment/MUX - mux_array</ClosedNode>
+         <ClosedNode>/HighLevel E:|MISC Computer|MISCMicroprocessor|HighLevel.v/DISPLAY - DoubleSevenSegment/seg_dec - sevensegment</ClosedNode>
+         <ClosedNode>/HighLevel E:|MISCComputer|MISCMicroprocessor|HighLevel.v/ALU - ALU</ClosedNode>
+         <ClosedNode>/HighLevel E:|MISCComputer|MISCMicroprocessor|HighLevel.v/ControlLogic - ControlLogic</ClosedNode>
+         <ClosedNode>/HighLevel E:|MISCComputer|MISCMicroprocessor|HighLevel.v/DISPLAY - DoubleSevenSegment/master - mux_array</ClosedNode>
+         <ClosedNode>/HighLevel E:|MISCComputer|MISCMicroprocessor|HighLevel.v/DISPLAY - DoubleSevenSegment/part0 - mux_array</ClosedNode>
+         <ClosedNode>/HighLevel E:|MISCComputer|MISCMicroprocessor|HighLevel.v/DISPLAY - DoubleSevenSegment/part1 - mux_array</ClosedNode>
+         <ClosedNode>/HighLevel E:|MISCComputer|MISCMicroprocessor|HighLevel.v/DISPLAY - DoubleSevenSegment/seg_dec - sevensegment</ClosedNode>
+         <ClosedNode>/HighLevel E:|MISCComputer|MISCMicroprocessor|HighLevel.v/REGISTERS - Registers</ClosedNode>
+         <ClosedNode>/HighLevel E:|MISCComputer|MISCMicroprocessor|HighLevel.v/REGISTERS - Registers/ACC_INPUT_SELECT - mux_array</ClosedNode>
+         <ClosedNode>/HighLevel E:|MISCComputer|MISCMicroprocessor|HighLevel.v/REGISTERS - Registers/ACC_INPUT_SELECT1 - mux_array</ClosedNode>
+         <ClosedNode>/HighLevel E:|MISCComputer|MISCMicroprocessor|HighLevel.v/REGISTERS - Registers/ACC_INPUT_SELECT2 - mux_array</ClosedNode>
+         <ClosedNode>/HighLevel E:|MISCComputer|MISCMicroprocessor|HighLevel.v/REGISTERS - Registers/REG_INPUT_SELECT - mux_array</ClosedNode>
+         <ClosedNode>/HighLevel E:|MISCComputer|MISCMicroprocessor|HighLevel.v/REGISTERS - Registers/REG_INPUT_SELECT1 - mux_array</ClosedNode>
+         <ClosedNode>/HighLevel |run|media|a02228346|KAYDISK2|MISCComputer|MISCMicroprocessor|HighLevel.v/ALU - ALU</ClosedNode>
+         <ClosedNode>/HighLevel |run|media|a02228346|KAYDISK2|MISCComputer|MISCMicroprocessor|HighLevel.v/ControlLogic - ControlLogic</ClosedNode>
+         <ClosedNode>/HighLevel |run|media|a02228346|KAYDISK2|MISCComputer|MISCMicroprocessor|HighLevel.v/DISPLAY - DoubleSevenSegment</ClosedNode>
+         <ClosedNode>/HighLevel |run|media|a02228346|KAYDISK2|MISCComputer|MISCMicroprocessor|HighLevel.v/REGISTERS - Registers</ClosedNode>
+         <ClosedNode>PROJECT</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>HighLevel (/run/media/a02228346/KAYDISK2/MISCComputer/MISCMicroprocessor/HighLevel.v)</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >2</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001d1000000020000000000000000000000000200000064ffffffff000000810000000300000002000001d10000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
+      <CurrentItem>HighLevel (/run/media/a02228346/KAYDISK2/MISCComputer/MISCMicroprocessor/HighLevel.v)</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Design Utilities/Compile HDL Simulation Libraries</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>Design Utilities</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>Design Utilities</CurrentItem>
+   </ItemView>
+   <ItemView guiview="File" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems/>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000000000000000100000000000000000000000000000000000004cc000000040101000100000000000000000000000064ffffffff000000810000000000000004000000420000000100000000000000240000000100000000000000660000000100000000000004000000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>ALU.v</CurrentItem>
+   </ItemView>
+   <ItemView guiview="Library" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>work</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems/>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000000000000000100000000000000000000000000000000000004dc000000010001000100000000000000000000000064ffffffff000000810000000000000001000004dc0000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>work</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VERILOG" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Configure Target Device</ClosedNode>
+         <ClosedNode>Implement Design/Map</ClosedNode>
+         <ClosedNode>Implement Design/Place &amp; Route</ClosedNode>
+         <ClosedNode>Implement Design/Translate</ClosedNode>
+         <ClosedNode>User Constraints</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>View Technology Schematic</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000ff000000010000000100000000000000000000000064ffffffff000000810000000000000001000000ff0000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>View Technology Schematic</CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
+      <ClosedNodes>
+         <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/ALUTest E:|MISC Computer|MISCMicroprocessor|ALUTest.v</ClosedNode>
+         <ClosedNode>/ALUTestTest E:|MISC Computer|MISCMicroprocessor|ALUTestTest.v/uut - ALUTest/DISPLAY - DoubleSevenSegment/MUX - mux_array</ClosedNode>
+         <ClosedNode>/ALUTestTest E:|MISC Computer|MISCMicroprocessor|ALUTestTest.v/uut - ALUTest/DISPLAY - DoubleSevenSegment/seg_dec - sevensegment</ClosedNode>
+         <ClosedNode>/ALUTestTest E:|MISC Computer|MISCMicroprocessor|ALUTestTest.v/uut - ALUTest/testALU - ALU</ClosedNode>
+         <ClosedNode>/ALUTestTest E:|MISCComputer|MISCMicroprocessor|ALUTestTest.v</ClosedNode>
+         <ClosedNode>/ALUTestTest F:|MISCComputer|MISCMicroprocessor|ALUTestTest.v</ClosedNode>
+         <ClosedNode>/ComputerTest E:|MISC Computer|MISCMicroprocessor|ComputerTest.v/uut - HighLevel/ALU - ALU</ClosedNode>
+         <ClosedNode>/ComputerTest E:|MISC Computer|MISCMicroprocessor|ComputerTest.v/uut - HighLevel/ControlLogic - ControlLogic</ClosedNode>
+         <ClosedNode>/ComputerTest E:|MISC Computer|MISCMicroprocessor|ComputerTest.v/uut - HighLevel/DISPLAY - DoubleSevenSegment/MUX - mux_array</ClosedNode>
+         <ClosedNode>/ComputerTest E:|MISC Computer|MISCMicroprocessor|ComputerTest.v/uut - HighLevel/DISPLAY - DoubleSevenSegment/seg_dec - sevensegment</ClosedNode>
+         <ClosedNode>/ComputerTest E:|MISC Computer|MISCMicroprocessor|ComputerTest.v/uut - HighLevel/REGISTERS - Registers</ClosedNode>
+         <ClosedNode>/ComputerTest E:|MISC Computer|MISCMicroprocessor|ComputerTest.v/uut - HighLevel/REGISTERS - Registers/ACC_INPUT_SELECT - mux_array</ClosedNode>
+         <ClosedNode>/ComputerTest E:|MISC Computer|MISCMicroprocessor|ComputerTest.v/uut - HighLevel/REGISTERS - Registers/ACC_INPUT_SELECT1 - mux_array</ClosedNode>
+         <ClosedNode>/ComputerTest E:|MISC Computer|MISCMicroprocessor|ComputerTest.v/uut - HighLevel/REGISTERS - Registers/ACC_INPUT_SELECT2 - mux_array</ClosedNode>
+         <ClosedNode>/ComputerTest E:|MISC Computer|MISCMicroprocessor|ComputerTest.v/uut - HighLevel/REGISTERS - Registers/REG_INPUT_SELECT - mux_array</ClosedNode>
+         <ClosedNode>/ComputerTest E:|MISC Computer|MISCMicroprocessor|ComputerTest.v/uut - HighLevel/REGISTERS - Registers/REG_INPUT_SELECT1 - mux_array</ClosedNode>
+         <ClosedNode>/ComputerTest E:|MISCComputer|MISCMicroprocessor|ComputerTest.v/uut - HighLevel</ClosedNode>
+         <ClosedNode>/ComputerTest E:|MISCComputer|MISCMicroprocessor|ComputerTest.v/uut - HighLevel/ALU - ALU</ClosedNode>
+         <ClosedNode>/ComputerTest E:|MISCComputer|MISCMicroprocessor|ComputerTest.v/uut - HighLevel/DISPLAY - DoubleSevenSegment</ClosedNode>
+         <ClosedNode>/ComputerTest E:|MISCComputer|MISCMicroprocessor|ComputerTest.v/uut - HighLevel/REGISTERS - Registers/ACC_INPUT_SELECT - mux_array</ClosedNode>
+         <ClosedNode>/ComputerTest E:|MISCComputer|MISCMicroprocessor|ComputerTest.v/uut - HighLevel/REGISTERS - Registers/ACC_INPUT_SELECT1 - mux_array</ClosedNode>
+         <ClosedNode>/ComputerTest E:|MISCComputer|MISCMicroprocessor|ComputerTest.v/uut - HighLevel/REGISTERS - Registers/ACC_INPUT_SELECT2 - mux_array</ClosedNode>
+         <ClosedNode>/ComputerTest E:|MISCComputer|MISCMicroprocessor|ComputerTest.v/uut - HighLevel/REGISTERS - Registers/REG_INPUT_SELECT - mux_array</ClosedNode>
+         <ClosedNode>/ComputerTest E:|MISCComputer|MISCMicroprocessor|ComputerTest.v/uut - HighLevel/REGISTERS - Registers/REG_INPUT_SELECT1 - mux_array</ClosedNode>
+         <ClosedNode>/ComputerTest F:|MISCComputer|MISCMicroprocessor|ComputerTest.v/uut - HighLevel</ClosedNode>
+         <ClosedNode>/ControlLogic E:|MISC Computer|MISCMicroprocessor|ControlLogic.v</ClosedNode>
+         <ClosedNode>/ControlLogic E:|MISCComputer|MISCMicroprocessor|ControlLogic.v</ClosedNode>
+         <ClosedNode>/DoubleSevenSegmentTest E:|MISC Computer|MISCMicroprocessor|DoubleSevenSegmentTest.v</ClosedNode>
+         <ClosedNode>/DoubleSevenSegmentTest E:|MISCComputer|MISCMicroprocessor|DoubleSevenSegmentTest.v</ClosedNode>
+         <ClosedNode>/DoubleSevenSegmentTest E:|MISCComputer|MISCMicroprocessor|DoubleSevenSegmentTest.v/uut - DoubleSevenSegment</ClosedNode>
+         <ClosedNode>/DoubleSevenSegmentTest E:|MISCComputer|MISCMicroprocessor|DoubleSevenSegmentTest.v/uut - DoubleSevenSegment/MUX - mux_array</ClosedNode>
+         <ClosedNode>/DoubleSevenSegmentTest E:|MISCComputer|MISCMicroprocessor|DoubleSevenSegmentTest.v/uut - DoubleSevenSegment/seg_dec - sevensegment</ClosedNode>
+         <ClosedNode>/HighLevel E:|MISC Computer|MISCMicroprocessor|HighLevel.v</ClosedNode>
+         <ClosedNode>/MUXArrayTest E:|MISC Computer|MISCMicroprocessor|MUXArrayTest.v</ClosedNode>
+         <ClosedNode>/MUXArrayTest E:|MISCComputer|MISCMicroprocessor|MUXArrayTest.v</ClosedNode>
+         <ClosedNode>/RegisterTest E:|MISC Computer|MISCMicroprocessor|RegisterTest.v/uut - Registers/ACC_INPUT_SELECT - mux_array</ClosedNode>
+         <ClosedNode>/RegisterTest E:|MISC Computer|MISCMicroprocessor|RegisterTest.v/uut - Registers/ACC_INPUT_SELECT1 - mux_array</ClosedNode>
+         <ClosedNode>/RegisterTest E:|MISC Computer|MISCMicroprocessor|RegisterTest.v/uut - Registers/ACC_INPUT_SELECT2 - mux_array</ClosedNode>
+         <ClosedNode>/RegisterTest E:|MISC Computer|MISCMicroprocessor|RegisterTest.v/uut - Registers/REG_INPUT_SELECT - mux_array</ClosedNode>
+         <ClosedNode>/RegisterTest E:|MISC Computer|MISCMicroprocessor|RegisterTest.v/uut - Registers/REG_INPUT_SELECT1 - mux_array</ClosedNode>
+         <ClosedNode>/RegisterTest E:|MISCComputer|MISCMicroprocessor|RegisterTest.v</ClosedNode>
+         <ClosedNode>/RegisterTest E:|MISCComputer|MISCMicroprocessor|RegisterTest.v/uut - Registers</ClosedNode>
+         <ClosedNode>/decoder4_16Test E:|MISC Computer|MISCMicroprocessor|decoder4_16Test.v</ClosedNode>
+         <ClosedNode>/decoder4_16Test E:|MISCComputer|MISCMicroprocessor|decoder4_16Test.v</ClosedNode>
+         <ClosedNode>PROJECT</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>ComputerTest (F:/MISCComputer/MISCMicroprocessor/ComputerTest.v)</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000171000000020000000000000000000000000200000064ffffffff000000810000000300000002000001710000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
+      <CurrentItem>ComputerTest (F:/MISCComputer/MISCMicroprocessor/ComputerTest.v)</CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Design Utilities</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000154000000010000000100000000000000000000000064ffffffff000000810000000000000001000001540000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="DESUT_VERILOG" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>Simulate Behavioral Model</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000154000000010000000100000000000000000000000064ffffffff000000810000000000000001000001540000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>Simulate Behavioral Model</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_UCF" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>User Constraints</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_MEM" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems/>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" />
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <SourceProcessView>000000ff00000000000000020000011b0000011b01000000050100000002</SourceProcessView>
+   <CurrentView>Implementation</CurrentView>
+</Project>

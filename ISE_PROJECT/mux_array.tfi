@@ -1,0 +1,12 @@
+
+
+
+// Instantiate the module
+mux_array instance_name (
+    .a(a), 
+    .b(b), 
+    .sel(sel), 
+    .o(o)
+    );
+
+

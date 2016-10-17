@@ -1,0 +1,2 @@
+vhdtdtfi -lib work /run/media/a02228346/KAYDISK2/MISCComputer/MISCMicroprocessor/PC.v -lang verilog -prj MISCMicroprocessor -o PC.spl -module PC -template /opt/software/xilinx/14.2/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e PC.spl /run/media/a02228346/KAYDISK2/MISCComputer/MISCMicroprocessor/PC.sym 

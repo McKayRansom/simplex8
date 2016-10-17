@@ -1,0 +1,96 @@
+#-----------------------------------------------------------
+# Vivado v2014.4 (64-bit)
+# SW Build 1071353 on Tue Nov 18 16:47:07 MST 2014
+# IP Build 1070531 on Tue Nov 18 01:10:18 MST 2014
+# Start of session at: Thu Oct 13 12:14:20 2016
+# Process ID: 31046
+# Log file: /media/KAYDISK2/MISCComputer/Vivado_project/Vivado_project.runs/synth_1/HighLevel.vds
+# Journal file: /media/KAYDISK2/MISCComputer/Vivado_project/Vivado_project.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source HighLevel.tcl
+# set_param gui.test TreeTableDev
+# debug::add_scope template.lib 1
+# set_msg_config -id {HDL 9-1061} -limit 100000
+# set_msg_config -id {HDL 9-1654} -limit 100000
+# create_project -in_memory -part xc7vx485tffg1761-2
+# set_param project.compositeFile.enableAutoGeneration 0
+# set_param synth.vivado.isSynthRun true
+# set_property webtalk.parent_dir /media/KAYDISK2/MISCComputer/Vivado_project/Vivado_project.cache/wt [current_project]
+# set_property parent.project_path /media/KAYDISK2/MISCComputer/Vivado_project/Vivado_project.xpr [current_project]
+# set_property default_lib xil_defaultlib [current_project]
+# set_property target_language Verilog [current_project]
+# set_property board_part xilinx.com:vc707:part0:1.1 [current_project]
+# add_files -quiet /media/KAYDISK2/MISCComputer/Vivado_project/Vivado_project.runs/clk_wiz_0_synth_1/clk_wiz_0.dcp
+# set_property used_in_implementation false [get_files /media/KAYDISK2/MISCComputer/Vivado_project/Vivado_project.runs/clk_wiz_0_synth_1/clk_wiz_0.dcp]
+# read_verilog -library xil_defaultlib {
+#   /media/KAYDISK2/MISCComputer/ISE_PROJECT/ALUTest.v
+#   /media/KAYDISK2/MISCComputer/ISE_PROJECT/decoder3_8.v
+#   /media/KAYDISK2/MISCComputer/ISE_PROJECT/mux.v
+#   /media/KAYDISK2/MISCComputer/ISE_PROJECT/decoder4_16.v
+#   /media/KAYDISK2/MISCComputer/ISE_PROJECT/sevensegment.v
+#   /media/KAYDISK2/MISCComputer/ISE_PROJECT/mux_array.v
+#   /media/KAYDISK2/MISCComputer/ISE_PROJECT/ClockDivider.v
+#   /media/KAYDISK2/MISCComputer/ISE_PROJECT/Registers.v
+#   /media/KAYDISK2/MISCComputer/ISE_PROJECT/ProgramMemory.v
+#   /media/KAYDISK2/MISCComputer/ISE_PROJECT/PC.v
+#   /media/KAYDISK2/MISCComputer/ISE_PROJECT/JumpLogic.v
+#   /media/KAYDISK2/MISCComputer/ISE_PROJECT/InstructionMemory.v
+#   /media/KAYDISK2/MISCComputer/ISE_PROJECT/DoubleSevenSegment.v
+#   /media/KAYDISK2/MISCComputer/ISE_PROJECT/ControlLogic.v
+#   /media/KAYDISK2/MISCComputer/ISE_PROJECT/Binary_BCD.v
+#   /media/KAYDISK2/MISCComputer/ISE_PROJECT/ALU.v
+#   /media/KAYDISK2/MISCComputer/ISE_PROJECT/HighLevel.v
+# }
+# read_xdc /media/KAYDISK2/MISCComputer/Vivado_project/Vivado_project.srcs/constrs_1/new/testConstaints.xdc
+# set_property used_in_implementation false [get_files /media/KAYDISK2/MISCComputer/Vivado_project/Vivado_project.srcs/constrs_1/new/testConstaints.xdc]
+# catch { write_hwdef -file HighLevel.hwdef }
+INFO: [Vivado_Tcl 4-279] hardware handoff file cannot be generated as there is no block diagram instance in the design
+# synth_design -top HighLevel -part xc7vx485tffg1761-2 -flatten_hierarchy none -directive RuntimeOptimized -fsm_extraction off
+Command: synth_design -top HighLevel -part xc7vx485tffg1761-2 -flatten_hierarchy none -directive RuntimeOptimized -fsm_extraction off
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7vx485t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7vx485t'
+INFO: [Common 17-1223] The version limit for your license is '2016.03' and will expire in -196 days. A version limit expiration means that, although you may be able to continue to use the current version of tools or IP with this license, you will not be eligible for any updates or new releases.
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:11 . Memory (MB): peak = 968.961 ; gain = 143.734 ; free physical = 3636 ; free virtual = 119390
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'HighLevel' [/media/KAYDISK2/MISCComputer/ISE_PROJECT/HighLevel.v:21]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [/media/KAYDISK2/MISCComputer/Vivado_project/Vivado_project.runs/synth_1/.Xil/Vivado-31046-leftserv/realtime/clk_wiz_0_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (1#1) [/media/KAYDISK2/MISCComputer/Vivado_project/Vivado_project.runs/synth_1/.Xil/Vivado-31046-leftserv/realtime/clk_wiz_0_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'ClockDivider' [/media/KAYDISK2/MISCComputer/ISE_PROJECT/ClockDivider.v:21]
+INFO: [Synth 8-256] done synthesizing module 'ClockDivider' (2#1) [/media/KAYDISK2/MISCComputer/ISE_PROJECT/ClockDivider.v:21]
+INFO: [Synth 8-638] synthesizing module 'PC' [/media/KAYDISK2/MISCComputer/ISE_PROJECT/PC.v:21]
+INFO: [Synth 8-256] done synthesizing module 'PC' (3#1) [/media/KAYDISK2/MISCComputer/ISE_PROJECT/PC.v:21]
+INFO: [Synth 8-638] synthesizing module 'InstructionMemory' [/media/KAYDISK2/MISCComputer/ISE_PROJECT/InstructionMemory.v:21]
+INFO: [Synth 8-3876] $readmem data file 'memory.list' is read successfully [/media/KAYDISK2/MISCComputer/ISE_PROJECT/InstructionMemory.v:33]
+INFO: [Synth 8-256] done synthesizing module 'InstructionMemory' (4#1) [/media/KAYDISK2/MISCComputer/ISE_PROJECT/InstructionMemory.v:21]
+INFO: [Synth 8-638] synthesizing module 'ControlLogic' [/media/KAYDISK2/MISCComputer/ISE_PROJECT/ControlLogic.v:21]
+INFO: [Synth 8-638] synthesizing module 'decoder4_16' [/media/KAYDISK2/MISCComputer/ISE_PROJECT/decoder4_16.v:21]
+INFO: [Synth 8-638] synthesizing module 'decoder3_8' [/media/KAYDISK2/MISCComputer/ISE_PROJECT/decoder3_8.v:21]
+INFO: [Synth 8-256] done synthesizing module 'decoder3_8' (5#1) [/media/KAYDISK2/MISCComputer/ISE_PROJECT/decoder3_8.v:21]
+INFO: [Synth 8-256] done synthesizing module 'decoder4_16' (6#1) [/media/KAYDISK2/MISCComputer/ISE_PROJECT/decoder4_16.v:21]
+INFO: [Synth 8-256] done synthesizing module 'ControlLogic' (7#1) [/media/KAYDISK2/MISCComputer/ISE_PROJECT/ControlLogic.v:21]
+INFO: [Synth 8-638] synthesizing module 'JumpLogic' [/media/KAYDISK2/MISCComputer/ISE_PROJECT/JumpLogic.v:21]
+INFO: [Synth 8-256] done synthesizing module 'JumpLogic' (8#1) [/media/KAYDISK2/MISCComputer/ISE_PROJECT/JumpLogic.v:21]
+INFO: [Synth 8-638] synthesizing module 'ALU' [/media/KAYDISK2/MISCComputer/ISE_PROJECT/ALU.v:21]
+INFO: [Synth 8-638] synthesizing module 'mux_array' [/media/KAYDISK2/MISCComputer/ISE_PROJECT/mux_array.v:21]
+	Parameter SIZE bound to: 8 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'mux' [/media/KAYDISK2/MISCComputer/ISE_PROJECT/mux.v:21]
+INFO: [Synth 8-256] done synthesizing module 'mux' (9#1) [/media/KAYDISK2/MISCComputer/ISE_PROJECT/mux.v:21]
+INFO: [Synth 8-256] done synthesizing module 'mux_array' (10#1) [/media/KAYDISK2/MISCComputer/ISE_PROJECT/mux_array.v:21]
+INFO: [Synth 8-256] done synthesizing module 'ALU' (11#1) [/media/KAYDISK2/MISCComputer/ISE_PROJECT/ALU.v:21]
+INFO: [Synth 8-638] synthesizing module 'Registers' [/media/KAYDISK2/MISCComputer/ISE_PROJECT/Registers.v:21]
+INFO: [Synth 8-256] done synthesizing module 'Registers' (12#1) [/media/KAYDISK2/MISCComputer/ISE_PROJECT/Registers.v:21]
+INFO: [Synth 8-638] synthesizing module 'ProgramMemory' [/media/KAYDISK2/MISCComputer/ISE_PROJECT/ProgramMemory.v:21]
+INFO: [Synth 8-256] done synthesizing module 'ProgramMemory' (13#1) [/media/KAYDISK2/MISCComputer/ISE_PROJECT/ProgramMemory.v:21]
+INFO: [Synth 8-638] synthesizing module 'Binary_BCD' [/media/KAYDISK2/MISCComputer/ISE_PROJECT/Binary_BCD.v:23]
+INFO: [Synth 8-256] done synthesizing module 'Binary_BCD' (14#1) [/media/KAYDISK2/MISCComputer/ISE_PROJECT/Binary_BCD.v:23]
+INFO: [Synth 8-638] synthesizing module 'DoubleSevenSegment' [/media/KAYDISK2/MISCComputer/ISE_PROJECT/DoubleSevenSegment.v:21]
+INFO: [Synth 8-638] synthesizing module 'sevensegment' [/media/KAYDISK2/MISCComputer/ISE_PROJECT/sevensegment.v:21]
+INFO: [Synth 8-256] done synthesizing module 'sevensegment' (15#1) [/media/KAYDISK2/MISCComputer/ISE_PROJECT/sevensegment.v:21]
+INFO: [Synth 8-638] synthesizing module 'mux_array__parameterized0' [/media/KAYDISK2/MISCComputer/ISE_PROJECT/mux_array.v:21]
+	Parameter SIZE bound to: 4 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'mux_array__parameterized0' (15#1) [/media/KAYDISK2/MISCComputer/ISE_PROJECT/mux_array.v:21]
+INFO: [Synth 8-256] done synthesizing module 'DoubleSevenSegment' (16#1) [/media/KAYDISK2/MISCComputer/ISE_PROJECT/DoubleSevenSegment.v:21]
+WARNING: [Synth 8-3848] Net SW in module/entity HighLevel does not have driver. [/media/KAYDISK2/MISCComputer/ISE_PROJECT/HighLevel.v:35]
+INFO: [Synth 8-256] done synthesizing module 'HighLevel' (17#1) [/media/KAYDISK2/MISCComputer/ISE_PROJECT/HighLevel.v:21]

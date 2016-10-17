@@ -1,0 +1,140 @@
+--------------------------------------------------------------------------------
+Release 14.2 Trace  (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.2\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 4
+-n 3 -fastpaths -xml ALUTest.twx ALUTest.ncd -o ALUTest.twr ALUTest.pcf -ucf
+implementationConstraints.ucf
+
+Design file:              ALUTest.ncd
+Physical constraint file: ALUTest.pcf
+Device,package,speed:     xc3s100e,cp132,-4 (PRODUCTION 1.27 2012-07-09)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+INFO:Timing:3390 - This architecture does not support a default System Jitter 
+   value, please add SYSTEM_JITTER constraint to the UCF to modify the Clock 
+   Uncertainty calculation.
+INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and 
+   'Phase Error' calculations, these terms will be zero in the Clock 
+   Uncertainty calculation.  Please make appropriate modification to 
+   SYSTEM_JITTER to account for the unsupported Discrete Jitter and Phase 
+   Error.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock CLK to Pad
+------------+------------+------------------+--------+
+            | clk (edge) |                  | Clock  |
+Destination |   to PAD   |Internal Clock(s) | Phase  |
+------------+------------+------------------+--------+
+AN<0>       |    7.722(R)|CLK_BUFGP         |   0.000|
+AN<1>       |    8.985(R)|CLK_BUFGP         |   0.000|
+seg<0>      |   14.443(R)|CLK_BUFGP         |   0.000|
+seg<1>      |   14.296(R)|CLK_BUFGP         |   0.000|
+seg<2>      |   15.315(R)|CLK_BUFGP         |   0.000|
+seg<3>      |   14.293(R)|CLK_BUFGP         |   0.000|
+seg<4>      |   14.593(R)|CLK_BUFGP         |   0.000|
+seg<5>      |   15.087(R)|CLK_BUFGP         |   0.000|
+seg<6>      |   14.470(R)|CLK_BUFGP         |   0.000|
+------------+------------+------------------+--------+
+
+Clock to Setup on destination clock CLK
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK            |    5.314|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+SW<0>          |seg<0>         |   12.500|
+SW<0>          |seg<1>         |   12.402|
+SW<0>          |seg<2>         |   13.372|
+SW<0>          |seg<3>         |   12.399|
+SW<0>          |seg<4>         |   12.699|
+SW<0>          |seg<5>         |   13.144|
+SW<0>          |seg<6>         |   12.527|
+SW<1>          |seg<0>         |   12.434|
+SW<1>          |seg<1>         |   12.336|
+SW<1>          |seg<2>         |   13.306|
+SW<1>          |seg<3>         |   12.333|
+SW<1>          |seg<4>         |   12.633|
+SW<1>          |seg<5>         |   13.078|
+SW<1>          |seg<6>         |   12.461|
+SW<2>          |seg<0>         |   11.537|
+SW<2>          |seg<1>         |   11.432|
+SW<2>          |seg<2>         |   12.409|
+SW<2>          |seg<3>         |   11.429|
+SW<2>          |seg<4>         |   11.729|
+SW<2>          |seg<5>         |   12.181|
+SW<2>          |seg<6>         |   11.564|
+SW<3>          |seg<0>         |   12.438|
+SW<3>          |seg<1>         |   12.289|
+SW<3>          |seg<2>         |   13.310|
+SW<3>          |seg<3>         |   12.277|
+SW<3>          |seg<4>         |   12.586|
+SW<3>          |seg<5>         |   13.082|
+SW<3>          |seg<6>         |   12.465|
+SW<4>          |seg<0>         |   12.456|
+SW<4>          |seg<1>         |   12.358|
+SW<4>          |seg<2>         |   13.328|
+SW<4>          |seg<3>         |   12.355|
+SW<4>          |seg<4>         |   12.655|
+SW<4>          |seg<5>         |   13.100|
+SW<4>          |seg<6>         |   12.483|
+SW<5>          |seg<0>         |   12.698|
+SW<5>          |seg<1>         |   12.600|
+SW<5>          |seg<2>         |   13.570|
+SW<5>          |seg<3>         |   12.597|
+SW<5>          |seg<4>         |   12.897|
+SW<5>          |seg<5>         |   13.342|
+SW<5>          |seg<6>         |   12.725|
+SW<6>          |seg<0>         |   12.312|
+SW<6>          |seg<1>         |   12.207|
+SW<6>          |seg<2>         |   13.184|
+SW<6>          |seg<3>         |   12.204|
+SW<6>          |seg<4>         |   12.504|
+SW<6>          |seg<5>         |   12.956|
+SW<6>          |seg<6>         |   12.339|
+SW<7>          |seg<0>         |   11.333|
+SW<7>          |seg<1>         |   11.184|
+SW<7>          |seg<2>         |   12.205|
+SW<7>          |seg<3>         |   11.172|
+SW<7>          |seg<4>         |   11.481|
+SW<7>          |seg<5>         |   11.977|
+SW<7>          |seg<6>         |   11.360|
+---------------+---------------+---------+
+
+
+Analysis completed Sat Sep 24 13:14:42 2016 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 172 MB
+
+
+

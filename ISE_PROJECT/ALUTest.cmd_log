@@ -1,0 +1,18 @@
+xst -intstyle ise -ifn "E:/MISC Computer/MISCMicroprocessor/ALUTest.xst" -ofn "E:/MISC Computer/MISCMicroprocessor/ALUTest.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc implementationConstraints.ucf -p xc3s100e-cp132-4 "ALUTest.ngc" ALUTest.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o ALUTest_map.ncd ALUTest.ngd ALUTest.pcf 
+par -w -intstyle ise -ol high -t 1 ALUTest_map.ncd ALUTest.ncd ALUTest.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml ALUTest.twx ALUTest.ncd -o ALUTest.twr ALUTest.pcf -ucf implementationConstraints.ucf 
+bitgen -intstyle ise -f ALUTest.ut ALUTest.ncd 
+xst -intstyle ise -ifn "E:/MISC Computer/MISCMicroprocessor/ALUTest.xst" -ofn "E:/MISC Computer/MISCMicroprocessor/ALUTest.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc implementationConstraints.ucf -p xc3s100e-cp132-4 "ALUTest.ngc" ALUTest.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o ALUTest_map.ncd ALUTest.ngd ALUTest.pcf 
+par -w -intstyle ise -ol high -t 1 ALUTest_map.ncd ALUTest.ncd ALUTest.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml ALUTest.twx ALUTest.ncd -o ALUTest.twr ALUTest.pcf -ucf implementationConstraints.ucf 
+bitgen -intstyle ise -f ALUTest.ut ALUTest.ncd 
+xst -intstyle ise -ifn "E:/MISC Computer/MISCMicroprocessor/ALUTest.xst" -ofn "E:/MISC Computer/MISCMicroprocessor/ALUTest.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc implementationConstraints.ucf -p xc3s100e-cp132-4 "ALUTest.ngc" ALUTest.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o ALUTest_map.ncd ALUTest.ngd ALUTest.pcf 
+par -w -intstyle ise -ol high -t 1 ALUTest_map.ncd ALUTest.ncd ALUTest.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml ALUTest.twx ALUTest.ncd -o ALUTest.twr ALUTest.pcf -ucf implementationConstraints.ucf 
+bitgen -intstyle ise -f ALUTest.ut ALUTest.ncd 

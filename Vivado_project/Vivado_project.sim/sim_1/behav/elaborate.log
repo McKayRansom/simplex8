@@ -1,0 +1,13 @@
+Vivado Simulator 2014.4
+Copyright 1986-1999, 2001-2014 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2014.4/bin/unwrapped/lnx64.o/xelab -wto 3d25930f6e014b39bffebccc3c16f5b0 --debug typical --relax -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ComputerTest_behav xil_defaultlib.ComputerTest xil_defaultlib.glbl -log elaborate.log 
+Multi-threading is on. Using 38 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-426] cannot find port LED on this module [/media/KAYDISK2/MISCComputer/ISE_PROJECT/ComputerTest.v:38]
+ERROR: [VRFC 10-426] cannot find port CLOCK on this module [/media/KAYDISK2/MISCComputer/ISE_PROJECT/ComputerTest.v:39]
+ERROR: [VRFC 10-426] cannot find port SW on this module [/media/KAYDISK2/MISCComputer/ISE_PROJECT/ComputerTest.v:40]
+ERROR: [VRFC 10-426] cannot find port ENABLED on this module [/media/KAYDISK2/MISCComputer/ISE_PROJECT/ComputerTest.v:41]
+ERROR: [VRFC 10-426] cannot find port AN on this module [/media/KAYDISK2/MISCComputer/ISE_PROJECT/ComputerTest.v:42]
+ERROR: [VRFC 10-426] cannot find port seg on this module [/media/KAYDISK2/MISCComputer/ISE_PROJECT/ComputerTest.v:43]
+ERROR: [VRFC 10-426] cannot find port LED on this module [/media/KAYDISK2/MISCComputer/ISE_PROJECT/ComputerTest.v:44]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
