@@ -9,81 +9,145 @@ import (
 )
 
 var ops = map[string]uint{
-	"NOOP":  0,
+	"NOP":   0,
 	"LI":    1,
-	"SET":  1,
 	"UI":    2,
-	"SETU":  1,
-	"MOVE":  3,
+	"MOV":   3,
 	"ACC":   4,
 	"ADD":   5,
 	"SUB":   6,
 	"CMP":   7,
-	"SHIFT": 8,
+	"SHIFT":  8,
 	"AND":   9,
 	"OR":    10,
 	"JMP":   11,
-	"STORE": 12,
+	"STORE":  12,
 	"LOAD":  13,
 	"DISP":  14,
 	"INPUT": 15,
+
+	"NOOP":  0,
+	"MOVE":  3,
+	"JMPIF": 11,
+	"EQUAL": 7,
+}
+
+var jumpConditions = map[string]uint {
+	"!input":  6,
+	"equal" :  1,
+	"!equal":  4,
+	"!any"  :  7,
+}
+
+var macros = map[string]func(uint)[]*Instruction{
+	// "MOVE":
+	// 		func (arg uint, arg2 uint)[]*Instruction {
+	// 			return []*Instruction{
+	// 				&Instruction{Opcode: ops["ACC"], Arg: arg},
+	// 				&Instruction{Opcode: ops["MOV"], Arg: arg2},
+	// 			}
+	// 		},
+	"SET":
+			func (arg uint)[]*Instruction {
+				return []*Instruction{
+					&Instruction{Macro: "SETL", Arg: arg},
+					&Instruction{Macro: "SETU", Arg: arg},
+				}
+			},
+}
+
+var subMacros = map[string]func(uint)*Instruction {
+	"SETU":
+			func (arg uint) *Instruction {
+				return &Instruction{Opcode: ops["UI"], Arg: arg / 16}
+			},
+	"SETL":
+			func (arg uint) *Instruction {
+				return &Instruction{Opcode: ops["LI"], Arg: arg % 16}
+			},
 }
 
 type Instruction struct {
 	Opcode   uint
 	Arg      uint
+	Arg2		 uint
 	LabelArg string
+	Macro    string
 }
 
 func (i *Instruction) String() string {
-	return fmt.Sprintf("%04b%04b", i.Opcode, i.Arg)
+	return fmt.Sprintf("'%01x%01x', ", i.Opcode, i.Arg)
 }
 
-func compileLine(command string) (*Instruction, error) {
+func compileLine(command string, instructions []*Instruction) ([]*Instruction, error) {
 	parts := strings.Fields(command)
-
-	if len(parts) == 0 {
-		return nil, nil
+	if len(parts) == 0 { //blank line
+		return instructions, nil
 	}
 
 	op := parts[0]
-
-	opcode, ok := ops[strings.ToUpper(op)]
-	if !ok {
-		return nil, fmt.Errorf("invalid operation: %s", op)
-	}
+	var isMacro = false
+	var inst = &Instruction{}
 
 	if len(parts) == 1 {
 		return nil, fmt.Errorf("'%s' requires argument", op)
 	}
 
-	inst := &Instruction{Opcode: opcode}
+	//check opCodes
+	opcode, ok := ops[strings.ToUpper(op)]
+	if !ok {
+		//check macros
+		_, ok := macros[strings.ToUpper(op)]
+
+		if !ok {
+			return nil, fmt.Errorf("invalid operation: %s", op)
+		} else {
+			isMacro = true;
+			inst.Macro = op
+
+		}
+	} else {
+		inst.Opcode = opcode
+	}
 
 	arg := parts[1]
 
 	if strings.HasPrefix(arg, "@") {
 		label := arg[1:]
-
 		inst.LabelArg = label
-
 	} else {
 		if strings.HasPrefix(arg, "$") {
 			arg = arg[1:]
 		}
 
-		argu, err := strconv.ParseUint(arg, 10, 4)
+		argu, err := strconv.ParseUint(arg, 10, 8)
 		if err != nil {
-			return nil, fmt.Errorf("error parsing argument: %v", err)
-		}
 
-		inst.Arg = uint(argu)
+			argCond := jumpConditions[arg]
+			if argCond > 0 {
+				inst.Arg = argCond
+			} else {
+				return nil, fmt.Errorf("error parsing argument: %v", err)
+			}
+		} else {
+			inst.Arg = uint(argu)
+		}
 	}
 
 	if len(parts) > 2 {
 		return nil, fmt.Errorf("too many arguments")
 	}
+	if !isMacro {
+		instructions = append(instructions, inst)
+	} else {
+		macro := macros[inst.Macro](inst.Arg)
+		macro[0].LabelArg = inst.LabelArg
+		macro[1].LabelArg = inst.LabelArg
+		instructions = append(instructions, macro[0])
+		instructions = append(instructions, macro[1])
+	}
 
-	return inst, nil
+	return instructions, nil
 }
 
 func main() {
@@ -119,6 +183,10 @@ func main() {
 		if pos >= 0 {
 			line = line[:pos]
 		}
+		pos = strings.IndexRune(line, '/')
+		if pos >= 0 {
+			line = line[:pos]
+		}
 
 		// handle labels
 		pos = strings.IndexRune(line, ':')
@@ -129,16 +197,16 @@ func main() {
 			labels[label] = uint(len(instructions))
 		}
 
-		instr, err := compileLine(line)
+		instructions, err = compileLine(line, instructions)
 		if err != nil {
 			fmt.Printf("syntax error on line %d\n", lineNum)
 			fmt.Printf("\t%v\n", err)
 			return
 		}
+		// if instr != nil {
+		// 	instructions = append(instructions, instr)
+		// }
 
-		if instr != nil {
-			instructions = append(instructions, instr)
-		}
 	}
 
 	if err := scanner.Err(); err != nil {
@@ -146,22 +214,31 @@ func main() {
 		return
 	}
 
+	fmt.Printf("compiledLines: %d\n", lineNum)
+	fmt.Printf("instructions: %d\n", len(instructions))
 	// link
-	for _, i := range instructions {
-		if i.LabelArg == "" {
-			continue
+	for num, i := range instructions {
+		if !(i.LabelArg == "") {
+			arg, ok := labels[i.LabelArg]
+			if !ok {
+				fmt.Printf("undefined label '%s'\n", i.LabelArg)
+				return
+			}
+
+			i.Arg = arg
+		}
+		if !(i.Macro == "") {
+			theMacro, ok := subMacros[i.Macro]
+			if !ok {
+				fmt.Printf("undefined macro '%s'\n", i.Macro)
+				return
+			}
+			instructions[num] = theMacro(i.Arg)
 		}
 
-		arg, ok := labels[i.LabelArg]
-		if !ok {
-			fmt.Printf("undefined label '%s'\n", i.LabelArg)
-			return
-		}
-
-		i.Arg = arg
 	}
 
 	for _, i := range instructions {
-		fmt.Println(i.String())
+		fmt.Printf(i.String())
 	}
 }
