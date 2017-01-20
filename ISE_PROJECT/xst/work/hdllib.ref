@@ -11,7 +11,7 @@ MO sevensegment NULL sevensegment.v vlg48/sevensegment.bin 1474958225
 MO ControlLogic NULL ControlLogic.v vlg33/_control_logic.bin 1474958225
 MO decoder3_8 NULL decoder3_8.v vlg08/decoder3__8.bin 1474958225
 MO JumpLogic NULL JumpLogic.v vlg5E/_jump_logic.bin 1474958225
-MO mux NULL mux.v vlg66/mux.bin 1474958225
+MO mux NULL mux.v vlg66/mux.bin 1478110829
 MO ALU NULL ALU.v vlg2A/_a_l_u.bin 1474958225
-MO mux_array NULL mux_array.v vlg3C/mux__array.bin 1474958225
+MO mux_array NULL mux_array.v vlg3C/mux__array.bin 1478110829
 MO ProgramMemory NULL ProgramMemory.v vlg31/_program_memory.bin 1474958225

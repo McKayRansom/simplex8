@@ -3,13 +3,13 @@
 //
 
 var game = {
-	
+
 	//	One-time init per launch.
 	oneTimeInit : function()
 	{
-		
+
 	},
-	
+
 	//
 	//	init, per level session
 	//
@@ -18,17 +18,17 @@ var game = {
 		this.state = 'play';
 		this.simulation = new Simulation();
 		this.delta = 0;
-		this.speed = .01;
+		this.speed = .000001;
 		this.buildHud();
-		
+
 	},
-	
+
 	exit : function()
 	{
 		rat.screenManager.popAllScreens();
 		this.hud = null;
 	},
-	
+
 	//
 	//	Set up game HUD/UI
 	//	create gamescreen object, which is the HUD overlayed over other drawing.
@@ -39,11 +39,11 @@ var game = {
 		rat.screenManager.pushScreen(gameScreen);
 		this.hud = gameScreen;
 	},
-	
+
 	//	update game (every frame)
 	update : function(dt)
 	{
-		//gfx.update(dt);	
+		//gfx.update(dt);
 		//ADD: if we are running a clock
 		if (this.running) {
 			this.simulation.updateDisplay(dt);
@@ -53,18 +53,19 @@ var game = {
 				if (this.simulation.tick()) {
 					//HALT
 					this.running = false;
+					return;
 				}
 			}
 		}
 	},
-	
+
 	//	draw under UI (if needed)
 	draw : function(ctx)
 	{
 		var ctx = ctx;
 		ctx.fillStyle = "#FF0000";
 		// ctx.fillRect(50, 50, 100, 100);
-		
+
 		ctx.fillStyle = "#FFFFFF";
 		ctx.font = "70px ariel";
 		ctx.fillText("McKay's Computer Simulator", 50, 100, 800);
@@ -89,38 +90,42 @@ var game = {
 			}
 			ctx.fillText(this.toHex(i) + ": " + this.simulation.instructions[i], 350, 250 + ((i - startingPoint) * 50), 400);
 		}
-		for (var row = 0; row < 8; row++) {
+		var dist = 0
+		for (var row = 1; row < 129; row*=2) {
 			for (var column = 0; column < 8; column++) {
 				if (this.simulation.display[row][column] > 0) {
 					ctx.fillStyle = "#FF0000";
 				} else {
 					ctx.fillStyle = "#666666";
 				}
-				ctx.fillRect(750 + row * 52, 750 - column * 52, 50, 50);
+
+				ctx.fillRect(750 + dist, 750 - column * 52, 50, 50);
+
 			}
+			dist += 52
 		}
 	},
-	
+
 	//	draw over UI (if needed)
 	//postDraw : function(ctx)
 	//{
 		//ctx.fillStyle = "#101030";
 		//ctx.fillRect(0, 0, rat.graphics.SCREEN_WIDTH, rat.graphics.SCREEN_HEIGHT);
 	//},
-	
+
 	mouseMove : function(pos, ratEvent)
 	{
 		return true;
 	},
-	
+
 	mouseDown : function(pos, ratEvent)
 	{
 		effects.testEffect(pos.x, pos.y);
 		audio.playSound('hit');
-		
+
 		return true;
 	},
-	
+
 	mouseUp : function(pos, ratEvent)
 	{
 		return false;
@@ -138,18 +143,18 @@ var game = {
 		}
 		return false;
 	},
-	
+
 	handleKeyUp : function(event)
 	{
 		var key = event.sysEvent.key;
 		this.simulation.handleKeyUp(key);
 		return false;
 	},
-	
+
 	toHex : function(number)
 	{
 		return number;
 		// return this.simulation.toHex(Math.floor(number/16)) + this.simulation.toHex(number % 16);
 	}
-	
+
 };

@@ -1,0 +1,45 @@
+Release 14.2 - xst P.28xd (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to /home/mckay/mootools/ISE_PROJECT/xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> 
+Parameter xsthdpdir set to /home/mckay/mootools/ISE_PROJECT/xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> 
+WARNING:Xst:3164 - Option "-debug" found multiple times in the command line. Only the first occurence is considered.
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "mux.v" in library work
+Compiling verilog file "mux_array.v" in library work
+Module <mux> compiled
+Compiling verilog file "ALU.v" in library work
+Module <mux_array> compiled
+ERROR:HDLCompilers:28 - "ALU.v" line 45 'clk' has not been declared
+ERROR:HDLCompilers:28 - "ALU.v" line 46 'state' has not been declared
+ERROR:HDLCompilers:28 - "ALU.v" line 49 'ADDER_RESULT' has not been declared
+ERROR:HDLCompilers:28 - "ALU.v" line 53 'ADDER_RESULT' has not been declared
+ERROR:HDLCompilers:28 - "ALU.v" line 57 'SHIFT_RESULT' has not been declared
+ERROR:HDLCompilers:28 - "ALU.v" line 61 'OR_RESULT' has not been declared
+ERROR:HDLCompilers:28 - "ALU.v" line 65 'AND_RESULT' has not been declared
+Module <ALU> compiled
+Analysis of file <"ALU.prj"> failed.
+--> 
+
+
+Total memory usage is 468960 kilobytes
+
+Number of errors   :    7 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

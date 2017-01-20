@@ -12,7 +12,7 @@ function load()
 {
 	if( !rat.system.has.minified )
 	{
-		
+
 		rat.load({
 			//verbose:true,
 			exclude:[],
@@ -26,27 +26,28 @@ function load()
 
 				//"rat/utils/r_hexgrid.js",
 			],
-			
+
 			//	TODO:  load these async, and correctly set up dependencies!
-			
+
 			addSync:[
 				"js/app.js",
 				"js/audio.js",
 				//"js/graphics/gfx.js",
-				
+
 				"js/graphics/effects.js",
 				"js/game.js",
 				"js/simulation.js",
-				
+				"../../goAssembler/instructions.js",
+
 				"js/ui/ui.js",
 				"js/ui/ui_audio.js",
 				"js/ui/game_screen.js",
-				
+
 				"js/utils/firebase.js",
 			],
 			update:function(args)
 			{
-			
+
 			},
 			done: function()
 			{
@@ -63,4 +64,3 @@ function load()
 
 // this will happen once all scripts above it have been run
 rat.load.setEntryPoint( load );
-

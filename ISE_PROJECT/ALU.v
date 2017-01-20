@@ -35,6 +35,37 @@ module ALU(
 	output reg[7:0] FLAGS//FLAGS 0 always equals 1
 );
 	wire[7:0] TOFLAGS;
+	wire[4:0] STATE = {
+		ADD, 
+		SUB, 
+		SHIFT, 
+		OR, 
+		AND
+	};
+	always @(posedge clk) begin
+		case (state)
+			5'b00001: begin 
+				//ADD
+				RESULT <= ADDER_RESULT;			
+				end
+			5'b00010: begin
+				//SUB
+				RESULT <= ADDER_RESULT;			
+				end
+			5'b00100: begin
+				//SHIFT
+				RESULT <= SHIFT_RESULT;
+				end
+			5'b01000: begin
+				//OR
+				RESULT <= OR_RESULT;
+				end
+			5'b10000: begin
+				//AND
+				RESULT <= AND_RESULT;
+				end
+		endcase
+	end
 	
 	wire[7:0] ADDER_INPUT;
 	mux_array #(.SIZE(8)) ADDER_INPUT_SELECT (
@@ -71,7 +102,8 @@ module ALU(
 	assign TOFLAGS[7] = SHIFT_RESULT[8];
 	
 	//AND / OR is boring
-	//STUFFFFFFFF
+	wire[7:0] AND_RESULT = REG & ACC;
+	wire[7:0] OR_RESULT = REG | ACC;
 	
 	//Compare
 	assign TOFLAGS[1] = (REG == ACC);
@@ -92,12 +124,12 @@ module ALU(
 		FLAGS = 8'b00000001;
 	end
 	
-	//SELECT RESULT
-	mux_array #(.SIZE(8)) RESULT_SELECT (
-		.sel(SHIFT),
-		.a(ADDER_RESULT[7:0]),
-		.b(SHIFT_RESULT[7:0]),
-		.o(RESULT)
-	);
+//	//SELECT RESULT
+//	mux_array #(.SIZE(8)) RESULT_SELECT (
+//		.sel(SHIFT),
+//		.a(ADDER_RESULT[7:0]),
+//		.b(SHIFT_RESULT[7:0]),
+//		.o(RESULT)
+//	);
 	
 endmodule

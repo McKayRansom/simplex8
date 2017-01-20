@@ -1,0 +1,5 @@
+set -tmpdir "/home/mckay/mootools/ISE_PROJECT/xst/projnav.tmp"
+set -xsthdpdir "/home/mckay/mootools/ISE_PROJECT/xst"
+elaborate
+-ifn ALU.prj
+-ifmt mixed
