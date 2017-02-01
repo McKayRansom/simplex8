@@ -1,7 +1,19 @@
 ﻿//
 //	game logic and main display
 //
-
+rat.modules.add( "js.game",
+[
+	//	dependencies...
+	"rat.ui.r_ui",
+	
+	"js.simulation",
+	"../../assembler/instructions.js",
+	"js.audio",
+	"js.graphics.effects",
+	"js.ui.game_screen",
+],
+function (rat) 
+{
 var game = {
 
 	//	One-time init per launch.
@@ -35,7 +47,7 @@ var game = {
 	//
 	buildHud : function()
 	{
-		var gameScreen = new GameScreen();
+		var gameScreen = new app.types.GameScreen();
 		rat.screenManager.pushScreen(gameScreen);
 		this.hud = gameScreen;
 	},
@@ -44,10 +56,10 @@ var game = {
 	update : function(dt)
 	{
 		//gfx.update(dt);
-		//ADD: if we are running a clock
 		if (this.running) {
 			this.simulation.updateDisplay(dt);
 			this.delta += dt;
+			//run multiple machine cycles per frame
 			while (this.delta > this.speed) {
 				this.delta -= this.speed;
 				if (this.simulation.tick()) {
@@ -72,10 +84,13 @@ var game = {
 		ctx.font = "50px arial";
 		ctx.textAlign = "right";
 		// ctx.fillText("Template Game", 200, 200, 800);
+		//draw Regissters		
 		ctx.fillText("Registers", 260, 200, 800);
 		for (i = 0; i < 16; i++) {
 			ctx.fillText("$" + this.simulation.toHex(i) + ": " + this.toHex(this.simulation.registers[i]), 200, 250 + (i * 50), 400);
 		}
+	
+		//draw Program (the closes 10 lines of it anyway)
 		ctx.fillText("Program", 500, 200, 800);
 		ctx.textAlign = "left";
 		var startingPoint = Math.max(0, this.simulation.nextInstruction - 5)
@@ -90,6 +105,9 @@ var game = {
 			}
 			ctx.fillText(this.toHex(i) + ": " + this.simulation.instructions[i], 350, 250 + ((i - startingPoint) * 50), 400);
 		}
+
+
+		//draw display
 		var dist = 0
 		for (var row = 1; row < 129; row*=2) {
 			for (var column = 0; column < 8; column++) {
@@ -158,3 +176,7 @@ var game = {
 	}
 
 };
+	//global access
+	window.game = game;
+
+});
