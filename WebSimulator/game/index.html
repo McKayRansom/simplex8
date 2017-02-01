@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Simplex8 Simulator</title>
+
+		<link rel="stylesheet" href="fonts/fontstylesheet.css" type="text/css" charset="utf-8" />
+		<link rel="icon" type="image/png" href="images/Icon.png">
+
+		<style type="text/css">
+			body {
+				overflow:hidden;
+				margin:0px;
+				padding:0px;
+
+				font-family: 'banksiaregular';
+			}
+
+			canvas {
+				overflow:hidden;
+				outline:0;
+				-ms-touch-action: none;
+
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-webkit-user-drag: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				-ms-touch-select: none;
+
+				margin-top: auto;
+				margin-left: auto;
+
+				position:absolute;
+			}
+
+		</style>
+
+	</head>
+
+	<body bgcolor="#000000">
+		<canvas id="canvas" width="1280" height="960"></canvas>
+	</body>
+
+	<!-- Some base rat files needed to load everything else -->
+	<script type="text/javascript" src="rat/r_base.js"></script>
+
+	<!-- boot module that knows how to kick off rat and load its own files -->
+	<script type="text/javascript" src="js/boot.js"></script>
+
+</html>

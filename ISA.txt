@@ -1,0 +1,70 @@
+0 NOOP
+	No operation
+	0000 0000
+1 LI
+	Load op into lower half of accumulator
+	0001 xxxx
+2 UI
+	Load op into upper half of accumulator
+	0010 xxxx
+3 MOVE
+	Move accumulator value into op register
+	0011 xxxx
+4 ACC
+	Move op register value into accumulator
+	0100 xxxx
+5 ADD
+	Add op register and accumulator and overwrite accumulator with result
+	0101 xxxx
+6 SUB
+	Subtract op register and accumulator and overwrite accumulator with result
+	0110 xxxx
+7 CMP
+	If accumulator == op reigster, set EQ flag
+	If accumulator > op register, set GT flag
+	If accumulator < op register, set LT flag
+	0111 xxxx
+8 SHIFT
+	Shift op register left 1 bit, store in accumulator
+	1000 xxxx
+9 AND
+	Computes bitwise and from op register and overwrites accumulator with result
+	1001 xxxx
+10 OR
+	Computes bitwise or from op register and overwrites accumulator with result
+	1010 xxxx
+11 JMP
+	Jump to address specified by accumulator and register 1 if condition is met
+	1011 xxxx
+
+	Conditions:
+	1
+	2
+	3
+	4
+	5
+	6
+	7
+	8
+	9
+	10
+	11
+	12
+	13
+	14
+	15
+	16
+
+
+12 STORE
+	Stores op register at address specified by accumulator + register1
+	1100 xxxx
+13 LOAD
+	Stores value of address accumulator + register1 in register op
+	1101 xxxx
+14 DISP
+
+	1110 xxxx
+15 INPUT
+	Set input flag if specified button is down
+	1111 xxxx

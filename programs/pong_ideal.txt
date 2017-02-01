@@ -1,0 +1,136 @@
+_start:	
+	SET 1 						#SETUP OF VARIABLES
+	MOVE $1 					#Ball object Column
+	SET 1
+	MOVE $2 					#Ball object Row
+	SET 1
+	MOVE $3						#1 is up 0 is down
+	SET 4
+	MOVE $4 					#1 is right 0 is left
+	SET 3
+	MOVE $5 					#Player 1
+	SET 3
+	MOVE $6 					#Player 2
+checkUp: 
+	INPUT 1
+	SET @checkDown
+	JMPIF !input
+	ACC $6 						#moving up
+	ADD $6
+	MOVE $6
+checkDown: 
+	INPUT 2
+	SET @checkUpP2
+	JMPIF !input
+	SHIFT $6 					#moving down
+	MOVE $6
+checkUpP2: 
+	INPUT 3
+	SET @checkDownP2
+	JMPIF !input
+	ACC $5 						#moving up
+	ADD $5
+	MOVE $5
+checkDownP2: 
+	INPUT 4
+	SET @display
+	JMPIF !input
+	SHIFT $5 					#moving down
+	MOVE $5
+display: 
+	SET 15 						#display loop
+	MOVE $7
+	SET 0
+	DISP $7
+	MOVE $7
+	ACC $5 						#player 1
+	DISP $7
+	SET 7
+	MOVE $7
+	ACC $6 						#player 2
+	DISP $7
+	ACC $1 						#ball
+	DISP $2
+#BALL UPDATING
+ballAtTop:  
+	SET 128 					#Ball up if ball at top then dir = down Bound checking loop
+	EQUAL $1
+	SET @ballAtBottom
+	JMPIF !equal
+	SET 0
+	MOVE $3
+ballAtBottom: 
+	SET 1 						#Ball at bottom then dir == up
+	EQUAL $1
+	SET @ballAtLeft
+	JMPIF !equal
+	SET 1
+	MOVE $3
+ballAtLeft: 
+	SET 1 						#at the left side
+	EQUAL $2
+	SET @ballAtRight
+	JMPIF !equal
+	ACC $5 						#collision with player 1
+	EQUAL $1
+	SET @hitTheWall
+	JMPIF !any					#jmp if NOT ANY
+	SET 1
+	MOVE $4
+	SET @ballAtRight
+	JMP 0
+hitTheWall: 
+	#HALT 0						#hit the wall
+ballAtRight: 
+	SET 6						#at the right side
+	EQUAL $2
+	SET @updateBall
+	JMPIF !equal
+	ACC $6 						#collision with player 2
+	EQUAL $1
+	SET @hitTheWall
+	JMPIF !any
+	SET 0
+	MOVE $4
+	SET @updateBall
+	JMP 0
+updateBall: 
+	SET 1
+	EQUAL $8
+	SET 0
+	MOVE $8
+	SET @checkUp
+	JMPIF equal					#input 2x per loop so player moves faster than
+	SET 1
+	MOVE $8
+	SET 1						#update ball position
+	EQUAL $4
+	SET @movingRight
+	JMPIF equal
+	SET 1
+movingLeft: 
+	SUB $2 						#moving left
+	MOVE $2
+	SET @updateUpDown
+	JMP 0
+movingRight: 
+	SET 1 						#moving right
+	ADD $2
+	MOVE $2
+updateUpDown: 
+	SET 1						#update up down
+	EQUAL $3
+	SET @movingUp
+	JMPIF equal
+movingDown: 
+	SHIFT $1 					#moving down
+	MOVE $1
+	SET @end
+	JMP 0
+movingUp:
+	ACC $1 						#moving up
+	ADD $1
+	MOVE $1
+end: 
+	SET @checkUp
+	JMP	0			 			#restart loop

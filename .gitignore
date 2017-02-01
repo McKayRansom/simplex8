@@ -1,0 +1,6 @@
+*.svn-base
+*.svn-base
+WebSimulator/.svn/entries
+WebSimulator/.svn/format
+*.db
+WebSimulator/.svn/wc.db-journal
