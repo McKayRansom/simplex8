@@ -61,7 +61,7 @@ function(rat)
 		if (!color)
 			color = uiSet.buttonColor;
 		
-		var but = rat.ui.makeCheapButton(null, color);
+		var but = rat.ui.makeCoolButton(null, color);
 		//	center at this pos
 		but.setPos(x - uiSet.buttonWidth/2, y - uiSet.buttonHeight/2);
 		but.setSize(uiSet.buttonWidth, uiSet.buttonHeight);

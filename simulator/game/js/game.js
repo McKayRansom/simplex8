@@ -1,6 +1,19 @@
 ﻿//
-//	game logic and main display
+//	main display and UI
+//	simulation logic is handled in simulation.js module.
 //
+/*
+	TODO:
+	
+		* edit register values on the fly
+		* edit memory on the fly, including input/output and display
+		* visual buttons to simulate input buttons?
+		* display input button state?
+		* dump disassembled program to console?
+		* on jump command, show arrow up/down
+		* show marker next to current instruction, not just color
+*/
+
 rat.modules.add( "js.game",
 [
 	//	dependencies...
