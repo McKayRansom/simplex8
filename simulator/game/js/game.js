@@ -36,8 +36,7 @@ var game = {
 		0, 0, 0, 0,
 		0, 0, 0, 0
 	],
-	//this.instructionText : [],
-
+	
 	//	One-time init per launch.
 	oneTimeInit : function()
 	{
@@ -54,16 +53,6 @@ var game = {
 		this.delta = 0;
 		this.speed = .000001;
 		this.buildHud();
-
-		//	OK, how about we disassemble the whole program right now?
-		//	how long could it be?
-		//	Now we don't have to translate again,
-		//	assuming this isn't a self-modifying program,
-		//	but McKay said that wasn't possible anyway.
-		//for (var i = 0; i < this.simulation.instructions.length; i++)
-		//{
-		//	this.instructionText[i] = this.simulation.getInstructionName(this.simulation.instructions[i]);
-		//}
 	},
 
 	exit : function()
@@ -269,7 +258,20 @@ var game = {
 		//	I'm not sure what McKay wanted here.  Is it commented out because he didn't like the hex display?
 		return "" + number;
 		// return this.simulation.toHex(Math.floor(number/16)) + this.simulation.toHex(number % 16);
-	}
+	},
+	
+	dumpDisassembly : function()
+	{
+		//	dump entire disassembled program to console
+		console.log("dumping " + this.simulation.instructions.length + " instructions:");
+		var text = "";
+		for (var i = 0; i < this.simulation.instructions.length; i++)
+		{
+			var instructionText = this.simulation.getInstructionName(this.simulation.instructions[i]);
+			text += instructionText + "\n";
+		}
+		console.log(text);
+	},
 
 };
 	//global access
