@@ -15,13 +15,13 @@ function(rat)
 		//	banksiabold
 		
 		menus : {
-			buttonHeight: 96,	//	height of actual button art, and therefore buttons
+			buttonHeight: 86,	//	height of actual button art, and therefore buttons
 			buttonGap: 32,		//	space between buttons
-			buttonWidth: 520,	//	width of normal button
+			buttonWidth: 400,	//	width of normal button
 			
 			buttonColor : new rat.graphics.Color(255, 133, 0),
 			
-			buttonFont: {font:'banksiabold', style:'bold', size:80, color:new rat.graphics.Color(77, 40, 0)},
+			buttonFont: {font:'banksiabold', style:'bold', size:72, color:new rat.graphics.Color(77, 40, 0)},
 			titleFont: {
 				font:'banksiabold', style:'', size:196, color:new rat.graphics.Color(175, 188, 255),
 				stroke: {width:8, color:new rat.graphics.Color(0, 12, 72), doCleanup:false},

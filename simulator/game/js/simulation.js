@@ -60,8 +60,8 @@ Simulation = function()
 		0, 0, 0, 0,
 		0, 0, 0, 0,
 		0, 0, 0, 0
-	]
-
+	];
+	
 	//display emulation
 	this.display = {
 	'1' : [0, 0, 0, 0, 0, 0, 0, 0],
@@ -221,9 +221,14 @@ Simulation.prototype.updateDisplay = function(dt) {
 
 //run one machine cycle
 Simulation.prototype.tick = function() {
+	
 	//get next instruction
 	var instruction = this.instructions[this.nextInstruction];
-
+	//	trying to tick when we're already at end?  don't do that.
+	if (!instruction) {
+		//finished execution
+		return true;
+	}
 
 	var opCode = instruction.substr(0, 1);
 	var immediate = this.fromHex(instruction.substr(1, 1))
@@ -313,8 +318,13 @@ Simulation.prototype.tick = function() {
 		return true;
 	}
 	//update the instruction name (to be displayed next to the current line)
-	this.name = this.instructionNames[nextInstr.substr(0,1)] + " " + nextInstr.substr(1,1);
+	this.name = this.getInstructionName(nextInstr);
 	return false;
+}
+
+Simulation.prototype.getInstructionName = function(instr)
+{
+	return this.instructionNames[instr.substr(0,1)] + " " + instr.substr(1,1);
 }
 
 Simulation.prototype.handleKeyDown = function(key) {

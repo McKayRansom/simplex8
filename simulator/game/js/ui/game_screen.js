@@ -29,6 +29,28 @@ function(rat)
 		//this.titleBox = tbox;
 		//var pos = tbox.getPos();
 		
+		//	make buttons
+		var x = 1700;
+		var y = 200;
+		var b = ui.makeButtonAt(screen, "tick >", x, y);
+		b.setCallback(function(e, u) {
+			game.runOneTick();
+		});
+		y += ui.menuButtonSpacing.y;
+		
+		var b = ui.makeButtonAt(screen, "run >>", x, y);
+		b.setCallback(function(e, u) {
+			game.toggleRunning();
+		});
+		screen.runButton = b;
+		y += ui.menuButtonSpacing.y;
+		y += ui.menuButtonSpacing.y;
+		
+		var b = ui.makeButtonAt(screen, "reset", x, y);
+		b.setCallback(function(e, u) {
+			game.resetSimulation();
+		});
+		
 		//	if you want to use the standard ui audio toggle buttons:
 		//ui.makeAudioButtons(buttonLayer);
 	};
@@ -58,8 +80,8 @@ function(rat)
 		//	rebuild stuff?
 		
 		//	rebuild audio buttons to position correctly
-		ui.removeAudioButtons(screen.buttonLayer);
-		ui.makeAudioButtons(screen.buttonLayer);
+		//ui.removeAudioButtons(screen.buttonLayer);
+		//ui.makeAudioButtons(screen.buttonLayer);
 	};
 
 	//	update me
@@ -67,6 +89,15 @@ function(rat)
 	//{
 	//	
 	//};
+	
+	GameScreen.prototype.updateButtons = function()
+	{
+		var screen = this;
+		if (game.running)
+			screen.runButton.setTextValue("pause ||");
+		else
+			screen.runButton.setTextValue("run >>");
+	};
 
 	//	mouse down in me
 	//	pass on to game.
