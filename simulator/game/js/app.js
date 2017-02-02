@@ -5,9 +5,8 @@
 //	this license block appears with other comments stripped in compiled version.
 /**
 * @license
-* template, Copyright whoever.  All Rights Reserved.
+* Simplex8 Simulator, Copyright McKay Ransom.  All Rights Reserved.
 * Rat is owned by Wahoo Studios, Inc.  See rat.js license.
-* Firebase (embedded below in compiled version) is owned by Firebase, Inc.  See license URL below.
 */
 
 //	global app object for this project
