@@ -32,22 +32,41 @@ function(rat)
 		//	make buttons
 		var x = 1700;
 		var y = 200;
-		var b = ui.makeButtonAt(screen, "tick >", x, y);
+		var b = ui.makeButtonAt(screen, "tick  |>", x, y);
 		b.setCallback(function(e, u) {
 			game.runOneTick();
 		});
 		ui.applyTooltip(b, "Advance the simulation\nby a single tick.  (T)");
 		y += ui.menuButtonSpacing.y;
 		
-		var b = ui.makeButtonAt(screen, "run >>", x, y);
+		var b = ui.makeButtonAt(screen, "run   >", x, y);
 		b.setCallback(function(e, u) {
 			game.toggleRunning();
 		});
 		ui.applyTooltip(b, "Run/Pause the simulation.  (K)");
 		screen.runButton = b;
 		y += ui.menuButtonSpacing.y;
+		
+		var speedButtons = [
+			{label:'//', speed: 0.1, toolTip: "run very slowly\n(10% speed)."},
+			{label:'/', speed: 0.5, toolTip: "run slowly\n(50% speed)."},
+			{label:'>', speed: 1, toolTip: "run normal speed"},
+			{label:'>>', speed: 2, toolTip: "run 2x speed"},
+		];
+		for (var i = 0; i < speedButtons.length; i++)
+		{
+			var buttonInfo = speedButtons[i];
+			var b = ui.makeButtonAt(screen, buttonInfo.label, x + i * 100, y);
+			b.setWidth(100);
+			b.setTextInset(10);
+			b.setCallback(function(e, myInfo) {
+				game.runAtSpeed(myInfo.speed);
+			}, buttonInfo);
+			ui.applyTooltip(b, buttonInfo.toolTip);
+		}
 		y += ui.menuButtonSpacing.y;
 		
+		y += ui.menuButtonSpacing.y;
 		var b = ui.makeButtonAt(screen, "reset", x, y);
 		b.setCallback(function(e, u) {
 			game.resetSimulation();

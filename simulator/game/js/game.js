@@ -118,11 +118,23 @@ var game = {
 		}
 	},
 	
-	toggleRunning : function()
+	//	set the run speed multiplier to this value, and toggle running.
+	runAtSpeed : function(speed)
 	{
+		this.speedMultiplier = speed;
 		this.running = !this.running;
 		this.hud.updateButtons();
 	},
+	
+	//	toggle run/stop, at normal speed
+	toggleRunning : function()
+	{
+		this.speedMultiplier = 1;
+		this.running = !this.running;
+		this.hud.updateButtons();
+	},
+	
+	//	run one cycle through the simulator
 	runOneTick : function()
 	{
 		//	figure out how much time passes in one tick, so we can update the display simulator by that much time.

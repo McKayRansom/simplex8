@@ -9,6 +9,7 @@ rat.modules.add( "js.ui.ui",
 ],
 function(rat)
 {
+	var useFont = 'arial';	//	'banksiabold'
 	var ui = {
 		
 		//	fonts to use:
@@ -21,15 +22,15 @@ function(rat)
 			
 			buttonColor : new rat.graphics.Color(255, 133, 0),
 			
-			buttonFont: {font:'banksiabold', style:'bold', size:72, color:new rat.graphics.Color(77, 40, 0)},
+			buttonFont: {font:useFont, style:'bold', size:72, color:new rat.graphics.Color(77, 40, 0)},
 			titleFont: {
-				font:'banksiabold', style:'', size:196, color:new rat.graphics.Color(175, 188, 255),
+				font:useFont, style:'', size:196, color:new rat.graphics.Color(175, 188, 255),
 				stroke: {width:8, color:new rat.graphics.Color(0, 12, 72), doCleanup:false},
 			},
-			headingFont: {font:'banksiabold', style:'bold', size:46, color:new rat.graphics.Color(255, 186, 112)},
-			mainFont: {font:'banksiabold', style:'', size:56, color:new rat.graphics.Color(175, 188, 255)},	//	normal text
+			headingFont: {font:useFont, style:'bold', size:46, color:new rat.graphics.Color(255, 186, 112)},
+			mainFont: {font:useFont, style:'', size:56, color:new rat.graphics.Color(175, 188, 255)},	//	normal text
 			
-			tipFont: {font:'banksiabold', style:'', size:36, color:new rat.graphics.Color(220, 220, 200)},	//	normal text
+			tipFont: {font:useFont, style:'', size:36, color:new rat.graphics.Color(220, 220, 200)},	//	normal text
 			
 			titleOffset : 80,
 			backButtonOffset : 300,	//	how far up from bottom to put a back button
