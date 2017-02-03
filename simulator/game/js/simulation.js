@@ -82,8 +82,12 @@ Simulation = function()
 
 	//program memory
 	this.memory = new Array(256);
-	this.memory[0] = 0;
-	this.memory[1] = 0;
+	for (var i = 0; i < this.memory.length; i++)
+	{
+		this.memory[i] = 0;
+	}
+	//this.memory[0] = 0;
+	//this.memory[1] = 0;
 
 }
 

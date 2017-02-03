@@ -12,6 +12,7 @@ rat.modules.add( "js.ui.game_screen",
 [
 	{name: "rat.ui.r_screen", processBefore: true },	//	we inherit from, so process first.
 	"js.ui.ui",	//	we use functions and data here
+	"js.ui.memory_pane",
 ],
 function(rat)
 {
@@ -72,6 +73,12 @@ function(rat)
 			game.resetSimulation();
 		});
 		ui.applyTooltip(b, "Reset the simulation,\nincluding memory, registers,\nand program counter.  (R)");
+		
+		var memPane = new app.types.MemoryPane(screen);
+		memPane.setPos(60, 1100);
+		memPane.setSize(1300, 260);
+		memPane.setUseOffscreen(true);
+		screen.memoryPane = memPane;
 		
 		//	if you want to use the standard ui audio toggle buttons:
 		//ui.makeAudioButtons(buttonLayer);

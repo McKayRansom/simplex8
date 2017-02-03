@@ -118,11 +118,11 @@ var game = {
 		}
 	},
 	
-	//	set the run speed multiplier to this value, and toggle running.
+	//	set the run speed multiplier to this value, and set game to running.
 	runAtSpeed : function(speed)
 	{
 		this.speedMultiplier = speed;
-		this.running = !this.running;
+		this.running = true;
 		this.hud.updateButtons();
 	},
 	
