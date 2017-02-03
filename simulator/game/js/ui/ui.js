@@ -142,6 +142,17 @@ function(rat)
 		return tbox;
 	};
 	
+	//	apply a tooltip in the standard font size we want to use...
+	ui.applyTooltip = function(target, text)
+	{
+		var tip = target.setTextToolTip(text);
+		target.sizeTextToolTip(56);
+		target.positionToolTip('topLeft', {x:0, y:30});
+		
+		tip.container.setColor(rat.graphics.darkGray);
+		tip.container.setFrame(4);	//	thicker frame than default
+	};
+	
 	//	global ui resize handler - may be useful
 	ui.resizeHandler = function()
 	{

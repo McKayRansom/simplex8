@@ -1,3 +1,6 @@
+
+//	global simulation class
+
 Simulation = function()
 {
 	//essential the PC (program counter)
@@ -196,13 +199,26 @@ Simulation.prototype.setFlags = function(immediate) {
 	}
 }
 
-
-Simulation.prototype.updateDisplay = function(dt) {	
+//	simulate display system by reading display-directed memory settings.
+//	I've separated this from updateDisplay so we can run THIS one a lot per frame
+//	and let updateDisplay only update once every frame
+//	TODO: optimize how we're storing memory here - we're calling this tens of thousands of times
+//	per frame, under normal conditions, which we SHOULD, because any given instruction (tick)
+//	could be trying to write to the display!
+//	But I don't really understand how this is being done, so I'm hesitant to change it yet.  :)
+//	(2017.2.2 STT)
+//	TODO: only call this when an instruction could be changing memory?
+//	like a store?
+//	OR, to effectively simulate actual video system, figure out how often it does this equivalent?
+//	Is it on the same clock cycle?
+Simulation.prototype.mapDisplay = function() {
 	if (this.memory[0] > 0) {
 		//take the current output to the display and display it
 		this.display[this.memory[0].toString()] = this.toBinaryArray(this.memory[1]);
 	}
+};
 
+Simulation.prototype.updateDisplay = function(dt) {	
 	//go through each row
 	for (var row = 1; row < 129; row *= 2) {
 		//go through each column
@@ -217,7 +233,7 @@ Simulation.prototype.updateDisplay = function(dt) {
 			}
 		}
 	}
-}
+};
 
 //run one machine cycle
 Simulation.prototype.tick = function() {
@@ -286,6 +302,9 @@ Simulation.prototype.tick = function() {
 			break;
 		case "c": //STORE
 			this.memory[this.registers[0]] = this.registers[immediate];
+			//	STT - this is the only case where display can change, so set it right now.
+			if (this.registers[0] === 0 || this.registers[0] === 1)
+				this.mapDisplay();
 			break;
 		case "d": //LOAD
 			if (!(this.registers[0] == 4)) {
@@ -337,4 +356,4 @@ Simulation.prototype.handleKeyUp = function(key) {
 	if (this.keys[key]) {
 		this.inputs[this.keys[key]] = false;
 	}
-}
+};

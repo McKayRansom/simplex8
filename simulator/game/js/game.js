@@ -19,8 +19,10 @@ rat.modules.add( "js.game",
 	//	dependencies...
 	"rat.ui.r_ui",
 	
-	"js.simulation",
-	"../../assembler/instructions.js",
+	//	moved these to explicit sync load in rat.load call, to guarantee it's ready before instructions.js...
+	//"js/simulation",
+	//"../../assembler/instructions.js",
+	
 	"js.audio",
 	"js.graphics.effects",
 	"js.ui.game_screen",
@@ -51,7 +53,14 @@ var game = {
 		this.state = 'play';
 		this.simulation = new Simulation();
 		this.delta = 0;
-		this.speed = .000001;
+		
+		//	STT:  I have an easier time thinking about this math if we start with a simulated processor speed.
+		this.processorSpeed = 1 * 1024 * 1024;
+		this.speedMultiplier = 1;	//	this is what we control with UI to speed up and slow down the simulation
+		
+		//	old value
+		//this.speed = .000001;	//	1MHz in seconds per cycle (1/1MHz)
+
 		this.buildHud();
 	},
 
@@ -61,6 +70,7 @@ var game = {
 		this.hud = null;
 	},
 	
+	//	reset everything
 	resetSimulation : function()
 	{
 		this.simulation = new Simulation();
@@ -86,16 +96,23 @@ var game = {
 		//gfx.update(dt);
 		if (this.running) {
 			this.simulation.updateDisplay(dt);
-			this.delta += dt;
+			//this.delta += dt;
 			//run multiple machine cycles per frame
 			//	track register change across the whole update, so remember values now
 			this.previousRegisters = rat.utils.copyObject(this.simulation.registers);
-			while (this.delta > this.speed) {
-				this.delta -= this.speed;
+			//while (this.delta > this.speed) {
+
+			//	new approach to speed - try to natively run the speed of the processor...
+			//	which is .. what?  Let's pretend 2MHz first...
+			var runCycles = this.processorSpeed * dt * this.speedMultiplier;
+			
+			for (var i = 0; i < runCycles; i++)
+			{
 				if (this.simulation.tick()) {
 					//HALT
 					this.running = false;
-					return;
+					this.hud.updateButtons();
+					break;
 				}
 			}
 		}
@@ -108,6 +125,10 @@ var game = {
 	},
 	runOneTick : function()
 	{
+		//	figure out how much time passes in one tick, so we can update the display simulator by that much time.
+		var secondsPerCycle = 1 / this.processorSpeed;
+		this.simulation.updateDisplay(secondsPerCycle);
+		
 		this.previousRegisters = rat.utils.copyObject(this.simulation.registers);
 		this.simulation.tick();
 	},
@@ -240,6 +261,8 @@ var game = {
 			this.runOneTick();
 		} else if (key == "k") {
 			this.toggleRunning();
+		} else if (key == "r") {
+			this.resetSimulation();
 		} else {
 			this.simulation.handleKeyDown(key);
 		}

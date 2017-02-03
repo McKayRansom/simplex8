@@ -36,12 +36,14 @@ function(rat)
 		b.setCallback(function(e, u) {
 			game.runOneTick();
 		});
+		ui.applyTooltip(b, "Advance the simulation\nby a single tick.  (T)");
 		y += ui.menuButtonSpacing.y;
 		
 		var b = ui.makeButtonAt(screen, "run >>", x, y);
 		b.setCallback(function(e, u) {
 			game.toggleRunning();
 		});
+		ui.applyTooltip(b, "Run/Pause the simulation.  (K)");
 		screen.runButton = b;
 		y += ui.menuButtonSpacing.y;
 		y += ui.menuButtonSpacing.y;
@@ -50,6 +52,7 @@ function(rat)
 		b.setCallback(function(e, u) {
 			game.resetSimulation();
 		});
+		ui.applyTooltip(b, "Reset the simulation,\nincluding memory, registers,\nand program counter.  (R)");
 		
 		//	if you want to use the standard ui audio toggle buttons:
 		//ui.makeAudioButtons(buttonLayer);

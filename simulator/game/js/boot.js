@@ -25,6 +25,8 @@ function load()
 		],
 		
 		addSync : [
+			"js/simulation.js",
+			"../../assembler/instructions.js",
 			//	you can load files in a synchronous order here, if you don't want to
 			//	specify dependencies, and just want to load your files:
 			//	js/blah.js
