@@ -1,3 +1,4 @@
+#The newest version, testing and faster speed
 #REGISTERS
 #2-7 ball and player VARIABLES
 #8-10 counters
@@ -22,19 +23,19 @@ _start:
 	MOVE $9
 	MOVE $10
 loop:
-  CALL @display
+	CALL @display
 
-  SET 1						#input
-  ADD $9
-  MOVE $9
+	SET 1						#input
+	ADD $9
+	MOVE $9
 
-  SET 255    			#count to
-  AND $9
-  SET @loop
-  JMPIF !equal
-  CALL @input
-  SET 0
-  MOV $9
+	SET 255    			#count to
+	AND $9
+	SET @loop
+	JMPIF !equal
+	CALL @input
+	SET 0
+	MOV $9
 
 	SET 1
 	ADD $10
@@ -48,8 +49,8 @@ loop:
 	SET 0
 	MOV $10
 
-  SET @loop
-  JMP 0
+	SET @loop
+	JMP 0
 
 display:
 	SET 6
@@ -78,7 +79,7 @@ display:
 	CALL @WAIT
 
 	SET 128  					#player 2
-  MOVE $1
+	MOVE $1
 	MOVE $11
 	SET 0
 	DISP $0
@@ -93,23 +94,23 @@ display:
 
 	CALL @WAIT
 
-  SET 128
-  MOVE $1
+	SET 128
+	MOVE $1
 	SET 0							#ball
 	DISP $0
-  LI 6
-  MOVE $11
-  LI 2
+	LI 6
+	MOVE $11
+	LI 2
 	DISP $11 					#RED 6
-  LI 1
+	LI 1
 	DISP $2
 	LI 0
 	DISP $3
 
 	CALL @WAIT
 
-  SET 0
-  MOVE $1
+	SET 0
+	MOVE $1
 	LI 6 #LOAD CALL ADDRESS
 	LOAD $15
 	LI 5
@@ -127,7 +128,7 @@ wait_loop:
 	MOVE $11
 	CMP $13
 	RET equal
-  WAIT 10
+	WAIT 10
 	SET @wait_loop
 	JMP 0
 
@@ -145,10 +146,10 @@ input:
 	JMPIF !any
 	ACC $6 						#moving up
 	ADD $6
-  MOVE $11
-  SET @checkDown
-  JMPIF overflow
-  ACC $11
+	MOVE $11
+	SET @checkDown
+	JMPIF overflow
+	ACC $11
 	MOVE $6
 checkDown:
 	SET 2
@@ -157,10 +158,10 @@ checkDown:
 	JMPIF !any
 	ACC $6
 	SHIFT $0 					#moving down
-  MOVE $11
-  SET @checkUpP2
-  JMPIF shiftOverflow
-  ACC $11
+	MOVE $11
+	SET @checkUpP2
+	JMPIF shiftOverflow
+	ACC $11
 	MOVE $6
 checkUpP2:
 	SET 4
@@ -169,10 +170,10 @@ checkUpP2:
 	JMPIF !any
 	ACC $7 						#moving up
 	ADD $7
-  MOVE $11
-  SET @checkDownP2
-  JMPIF overflow
-  ACC $11
+	MOVE $11
+	SET @checkDownP2
+	JMPIF overflow
+	ACC $11
 	MOVE $7
 checkDownP2:
 	SET 8
@@ -181,10 +182,10 @@ checkDownP2:
 	JMPIF !any
 	ACC $7
 	SHIFT $0 					#moving down
-  MOVE $11
-  SET @inputEnd
-  JMPIF shiftOverflow
-  ACC $11
+	MOVE $11
+	SET @inputEnd
+	JMPIF shiftOverflow
+	ACC $11
 	MOVE $7
 inputEnd:
 	RET 0

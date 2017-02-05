@@ -1,3 +1,6 @@
+#First version of pong that works
+#kept here so I can look back if I break something
+#slower and has 2-dot paddles
 #REGISTERS
 #2-7 ball and player VARIABLES
 #8-10 counters

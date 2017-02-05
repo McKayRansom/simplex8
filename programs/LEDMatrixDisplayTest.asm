@@ -1,3 +1,4 @@
+#test of LED Dot matrix
 NOP 0
 LI 15
 UI 15

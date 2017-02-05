@@ -1,3 +1,4 @@
+#Print Hello on LCD character display 
 NOP 0 #4 = RS, 5 = E, then = RW
 LI 0 #SET INSTRUCTION
 UI 0

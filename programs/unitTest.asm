@@ -1,3 +1,4 @@
+#used in debugging the hardward Simplex8
 #unit test of all functions
 
 SET 255
