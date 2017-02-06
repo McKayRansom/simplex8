@@ -88,8 +88,8 @@ Simulation = function()
 			//	so, the longer it's been, the more faded that color.
 			this.display[row][col] = {
 				red:99, green:99, blue:99,
-				show : "#202020",	//	calculated color after time
-				lastCombined : 0x202020,
+				show : "#323232",	//	will get calculated color after time
+				lastCombined : 0x323232,
 			};
 		}
 	};
@@ -302,9 +302,11 @@ Simulation.prototype.updateDisplay = function(dt) {
 			//	map to useful displayable display...
 			//	temp hack to get something displayed...
 			//	But I'm set up above, I hope, to simulate mixed colors...
-			var r = 20;
-			var g = 20;
-			var b = 20;
+			
+			//	baseline gray so you can see boxes
+			var r = 50;
+			var g = 50;
+			var b = 50;
 			var sensitive = 0.05;
 			if (dot.red < sensitive)
 				r = 255;

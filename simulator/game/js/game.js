@@ -233,7 +233,13 @@ var game = {
 			for (var column = 0; column < 8; column++) {
 				var show = this.simulation.display[row][column].show;
 				ctx.fillStyle = show;
-				ctx.fillRect(displayX + (8-column) * space, displayY + (8-row) * space, size, size);
+				
+				//ctx.fillRect(displayX + (8-column) * space, displayY + (8-row) * space, size, size);
+				
+				//	try circles.  :)
+				ctx.beginPath();
+				ctx.arc(displayX + (8-column) * space + space/2, displayY + (8-row) * space + space/2, size/2, 0, Math.PI * 2);
+				ctx.fill();
 			}
 		}
 		
