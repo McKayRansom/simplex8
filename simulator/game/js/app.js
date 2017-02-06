@@ -91,6 +91,8 @@ function(rat)
 		rat.setUpdate(app.update);	//	rat will call our "update" function below, each frame
 
 		rat.addEventListener('resize', app.resizeHandler);
+		
+		rat.console.allow(true);
 
 		//	helpful debug display
 		//rat.system.debugDrawTiming = true;
