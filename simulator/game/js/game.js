@@ -95,7 +95,6 @@ var game = {
 	{
 		//gfx.update(dt);
 		if (this.running) {
-			this.simulation.updateDisplay(dt);
 			//this.delta += dt;
 			//run multiple machine cycles per frame
 			//	track register change across the whole update, so remember values now
@@ -115,6 +114,7 @@ var game = {
 					break;
 				}
 			}
+			this.simulation.updateDisplay(dt);
 		}
 	},
 	
@@ -139,10 +139,10 @@ var game = {
 	{
 		//	figure out how much time passes in one tick, so we can update the display simulator by that much time.
 		var secondsPerCycle = 1 / this.processorSpeed;
-		this.simulation.updateDisplay(secondsPerCycle);
 		
 		this.previousRegisters = rat.utils.copyObject(this.simulation.registers);
 		this.simulation.tick();
+		this.simulation.updateDisplay(secondsPerCycle);
 	},
 
 	//	draw under UI (if needed)
@@ -224,6 +224,20 @@ var game = {
 		}
 
 		//draw display
+		//	note that 0,0 is bottom right!
+		var space = 52;
+		var size = 50;
+		var displayX = 850;
+		var displayY = 500;
+		for (var row = 0; row < 8; row++) {
+			for (var column = 0; column < 8; column++) {
+				var show = this.simulation.display[row][column].show;
+				ctx.fillStyle = show;
+				ctx.fillRect(displayX + (8-column) * space, displayY + (8-row) * space, size, size);
+			}
+		}
+		
+		/*
 		var dist = 0
 		var displayX = 850;
 		for (var row = 1; row < 129; row*=2) {
@@ -239,6 +253,7 @@ var game = {
 			}
 			dist += 52
 		}
+		*/
 	},
 
 	//	draw over UI (if needed)

@@ -61,17 +61,19 @@ display:
 	SET 5
 	MOVE $13
 
-	SET 128
+	#player 1
+	
+	SET 128				# io memory
 	MOVE $1
-	SET 1 						#display loop
+	SET 1 				# which column this player is in (1 = rightmost)
 	MOVE $11
 	LI 0
 	DISP $0
-	LI 5
+	LI 5						# GREEN (5)
 	MOVE $12
 	LI 2
 	DISP $12					#GREEN 5
-	LI 1	 						#player 1
+	LI 1	
 	DISP $6
 	LI 0
 	DISP $11
@@ -83,14 +85,14 @@ display:
 	MOVE $11
 	SET 0
 	DISP $0
-	LI 3
-	MOVE $12
-	LI 2
-	DISP $12					#BLUE 3
-	LI 1
-	DISP $7
-	LI 0
-	DISP $11
+	LI 3						# BLUE (3)
+	MOVE $12					# store color in register 12
+	LI 2						# select color
+	DISP $12					# store BLUE 3
+	LI 1						# select rows
+	DISP $7						# store which rows this player is in
+	LI 0						# select columns
+	DISP $11					# store which column this player is in (128 = leftmost)
 
 	CALL @WAIT
 
