@@ -98,7 +98,8 @@ Simulation = function()
 	this.displayLinger = .4;
 
 	//program memory
-	this.memory = new Array(256);
+	//	todo: this should be 32K, right?  Why not clear it?
+	this.memory = new Array(1024);
 	for (var i = 0; i < this.memory.length; i++)
 	{
 		this.memory[i] = 0;
@@ -384,18 +385,28 @@ Simulation.prototype.tick = function() {
 			this.setFlags(immediate);
 			break;
 		case 6: //SUB
+			//	temp conditional flag setting based on subtraction.
+			//	todo: this should be in setFlags?
+			if (this.registers[0] < this.registers[immediate])
+				this.flags[1] = true;	//	LT
+			else
+				this.flags[1] = false;
+			if (this.registers[0] > this.registers[immediate])
+				this.flags[2] = true;	//	GT
+			else
+				this.flags[2] = false;
 			this.registers[0] = -this.registers[0] + this.registers[immediate];
 			this.setFlags(immediate);
 			break;
-		case 7: //EQUAL
+		case 7: //EQUAL (not used)
 			break;
 		case 8: //SHIFT
-			if (this.registers[0] % 2 == 1) {
+			if (this.registers[immediate] % 2 == 1) {
 				this.flags[6] = true
 			} else {
 				this.flags[6] = false
 			}
-			this.registers[0] = Math.floor(this.registers[0] / 2)
+			this.registers[immediate] = this.registers[immediate] >>> 1;	//	zero-fill right shift (don't keep sign)
 			this.setFlags(immediate);
 			break;
 		case 9: //AND
@@ -414,26 +425,29 @@ Simulation.prototype.tick = function() {
 			}
 			break;
 		case 0xC: //STORE
-			//	handle memory-mapped IO
-			if (this.registers[1] & (0x80))
+			if (this.registers[1] & (0x80))	//	handle memory-mapped IO
 			{
 				this.ioMemory[this.registers[0]] = this.registers[immediate];
 				this.mapDisplay(this.registers[0]);
-			} else {
+			} else {	//	normal write
 				this.memory[this.registers[0]] = this.registers[immediate];
 			}
 			break;
 		case 0xD: //LOAD
-			if (!(this.registers[0] == 4)) {
-				this.registers[immediate] = this.memory[this.registers[0]];
-			} else {
-				//we are accessing memory mapped input so simulate that
-				this.registers[immediate] = 0;
-				for (var i = 1; i < 5; i++) {
-					if (this.inputs[i]) {
-						this.registers[immediate] += Math.pow(2, (i-1));
+			if (this.registers[1] & (0x80))	//	handle memory-mapped IO
+			{
+				//	todo: cleaner memory-mapped IO here!  just read straight in from ioMemory, but that isn't being set yet...
+				if (this.registers[0] === 4)	//	read input flags
+				{
+					this.registers[immediate] = 0;
+					for (var i = 1; i < 5; i++) {
+						if (this.inputs[i]) {
+							this.registers[immediate] += Math.pow(2, (i-1));
+						}
 					}
 				}
+			} else {	//	normal read
+				this.registers[immediate] = this.memory[this.registers[0]];
 			}
 			break;
 		case 0xE: //DISP REMOVED

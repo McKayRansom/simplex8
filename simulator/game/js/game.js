@@ -6,12 +6,28 @@
 	TODO:
 	
 		* edit register values on the fly
+		
 		* edit memory on the fly, including input/output and display
+		* page through memory 256 bytes at a time?  or 128 or something?
+			anyway, buttons to cycle through.
+			* store current show-memory offset in localstorage
+		* display memory-mapped io
+		
+		* show condition flags
+		
 		* visual buttons to simulate input buttons?
 		* display input button state?
 		* dump disassembled program to console?
-		* on jump command, show arrow up/down
+		* on jump command, show arrow up/down showing where it's headed...
 		* show marker next to current instruction, not just color
+		
+		* better disassembly of some instructions like
+			* JMPIF - show condition
+		
+		* step-back, or set PC directly
+		
+		* breakpoints!
+		* conditional breakpoints!  :)
 */
 
 rat.modules.add( "js.game",
@@ -224,7 +240,7 @@ var game = {
 		}
 
 		//draw display
-		//	note that 0,0 is bottom right!
+		//	note that 0,0 is bottom left!
 		var space = 52;
 		var size = 50;
 		var displayX = 850;
@@ -238,7 +254,7 @@ var game = {
 				
 				//	try circles.  :)
 				ctx.beginPath();
-				ctx.arc(displayX + (8-column) * space + space/2, displayY + (8-row) * space + space/2, size/2, 0, Math.PI * 2);
+				ctx.arc(displayX + (column) * space + space/2, displayY + (8-row) * space + space/2, size/2, 0, Math.PI * 2);
 				ctx.fill();
 			}
 		}
