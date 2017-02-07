@@ -401,12 +401,13 @@ Simulation.prototype.tick = function() {
 		case 7: //EQUAL (not used)
 			break;
 		case 8: //SHIFT
-			if (this.registers[immediate] % 2 == 1) {
+			if (this.registers[0] % 2 == 1) {
 				this.flags[6] = true
 			} else {
 				this.flags[6] = false
 			}
-			this.registers[immediate] = this.registers[immediate] >>> 1;	//	zero-fill right shift (don't keep sign)
+			this.registers[0] = this.registers[0] >>> 1;	//	zero-fill right shift (don't keep sign)
+			//	this seems wrong to me: why is immediate even a factor here, since there really isn't one...?  Oh well...
 			this.setFlags(immediate);
 			break;
 		case 9: //AND
