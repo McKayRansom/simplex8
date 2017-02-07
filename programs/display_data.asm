@@ -130,7 +130,10 @@ goahead:
 	
 moveon:
 	#	move to next pixel
-	SHIFT $8
+	#SHIFT $8
+	ACC $8
+	SHIFT 0
+	MOVE $8
 	
 	#	if the one bit we're using here shifted off the end, that's the end of my row!
 	#	so, if that's not the case, continue...
@@ -142,7 +145,10 @@ moveon:
 	MOVE $8
 	
 	#	move to next row
-	SHIFT $9
+	#SHIFT $9
+	ACC $9
+	SHIFT 0
+	MOVE $9
 	
 	#	was that the last one there? shifted off end?
 	SET @dcontinue
