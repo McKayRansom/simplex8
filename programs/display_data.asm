@@ -150,69 +150,50 @@ loaddata:
 	
 	# start storing our image info (which will be 8 x 8 x 3 bytes) at memory 0
 	
-	SET 255		#	actual value to store
-	MOV $4		#	move that to r4
-	SET 0		#	memory address
-	STORE $4	#	write it
-	
-	SET 10
-	MOV $4
+	#	set up r2 to point to destination for our data
+	#	which is address 0
+	SET 0
+	MOV $2
+	#	and set up spacing for data, which is 1 byte per
 	SET 1
-	STORE $4
+	MOV $3
 	
-	SET 10
-	MOV $4
-	SET 2
-	STORE $4
+	#	now our data
+	RDATA  255 255 255    255 255 255    255 255 255    255 255 255    255 255 255    255 255 255    255 255 255    255 255 255
+	RDATA    0   0   0    255 255 255    255   0   0      0 255   0      0 0   255    255 255 0      255   0 255      0 255 255
+	RDATA    0 255 255      0 255 255      0 255 255      0 255 255      0 255 255      0 255 255      0 255 255      0 255 255
+	RDATA    0   0   0    255 255 255    255   0   0      0 255   0      0 0   255    255 255 0      255   0 255      0 255 255
+	RDATA  255 000 255    255 000 255    255 000 255    255 000 255    255 000 255    255 000 255    255 000 255    255 000 255
+	RDATA    0   0   0    255 255 255    255   0   0      0 255   0      0 0   255    255 255 0      255   0 255      0 255 255
+	RDATA  255 000 000    255 000 000    255 000 000    255 000 000    000 000 255    000 000 255    000 000 255    000 000 255
+	RDATA    0   0   0    255 255 255    255   0   0      0 255   0      0 0   255    255 255 0      255   0 255      0 255 255
+	
+	#	EACH value above translates to a block of code like this:
+	#SET value
+	#MOV $4
+	#ACC $2
+	#STORE $4
+	#ADD $3
+	#MOV $2
+	
+	#-------------------------------------------------
+	#	old
+	#SET 255		#	actual value to store
+	#MOV $4		#	move that to r4
+	#SET 0		#	memory address
+	#STORE $4	#	write it
+	
+	#SET 10
+	#MOV $4
+	#SET 1
+	#STORE $4
+	
+	#SET 10
+	#MOV $4
+	#SET 2
+	#STORE $4
 	
 	#oh my gosh I'm already bored.
-		
-	SET 128
-	MOV $4
-	SET 3
-	STORE $4
-	
-	SET 20
-	MOV $4
-	SET 4
-	STORE $4
-	
-	SET 128
-	MOV $4
-	SET 5
-	STORE $4
-	
-	# p3
-	SET 0
-	MOV $4
-	SET 6
-	STORE $4
-	
-	SET 255
-	MOV $4
-	SET 7
-	STORE $4
-	
-	SET 0
-	MOV $4
-	SET 8
-	STORE $4
-	
-	# p4
-	SET 0
-	MOV $4
-	SET 9
-	STORE $4
-	
-	SET 0
-	MOV $4
-	SET 10
-	STORE $4
-	
-	SET 255
-	MOV $4
-	SET 11
-	STORE $4
 	
 	#	return
 	LI 0
