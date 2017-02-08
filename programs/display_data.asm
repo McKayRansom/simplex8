@@ -1,5 +1,5 @@
 # Let's try some data-driven display
-# Also, let's try turning on them on a pixel at a time,
+# Also, let's try turning on a pixel at a time,
 # simulating the worst case where each color is unique anyway.
 # So, for that, we just need RGB values in sequence.
 # For my convenience, we're going to store RGB values for each pixel,
@@ -40,26 +40,20 @@ dloop:
 	ADD $13
 	MOVE $2		#	update current pixel source address
 	
-	#	let's decide right now which colors to turn on
-	#	using registers 4,5,6
-#	SET 6
-#	MOV $10
-#	SET 5
-#	MOV $11
-#	SET 3
-#	MOV $12
-
-	SET 0
+	#	Figure out which colors to turn on based on source data.
+	#	We want register 4 to hold the final value we'll write out.
+	#	This will start out with the value 7 (bits 111),
+	#	and we'll turn off the proper bit for any color we want to display (active low)
+	SET 7
 	MOVE $4
-	MOVE $5
-	MOVE $6
-
+	
 checkred:	
 	SET 127
 	SUB	$10	#	red
 	SET @checkgreen
 	JMP gt
-	SET 6
+	
+	SET 6	#	we know the value was 7, so just directly set to clear the bit
 	MOVE $4
 	
 checkgreen:
@@ -67,23 +61,28 @@ checkgreen:
 	SUB	$11	#	green
 	SET @checkblue
 	JMP gt
-	SET 5
-	MOVE $5
+	
+	SET 5	#	clear the green bit
+	AND $4
+	MOVE $4
 	
 checkblue:
 	SET 127
 	SUB	$12	#	blue
 	SET @goahead
 	JMP gt
-	SET 3
-	MOVE $6
-
+	
+	SET 3	#	clear the blue bit
+	AND $4
+	MOVE $4
+	
 goahead:
 	# io memory
 	SET 128
 	MOV 1
 	
 	#	first, clear the color selector while we set up other values
+	#	(row and col have some old value...)
 	#	is this legit?  we usually clear the row/col selectors...
 	SET 7	#	this is "no color" (no low value)
 	MOV $3		# 0 in r3
@@ -100,34 +99,11 @@ goahead:
 	
 	#	and set the color we want
 	LI 2	#	pick color
-	#	this is a little insane.
-	#	it works in the simulator,
-	#	but probably doesn't work in the real hardware
-	STORE $4
-	STORE $5
-	STORE $6
+	STORE $4	#	set the color we calculated above
 	
 	#	todo - pick color based on what phase we're in and how strong the color value is.
 	#	for now, just set r/g/b on off based on R value being >= 128
-#	ACC $10	#	red
-#	CMP	127
-#	SET @checkgreen
-#	JMP !gt
-	
-	#	bleah, we're setting this i/o flag repeatedly, but it's because I still don't really know
-	#	how the display hardware works.
-#	LI	6	#	red code
-#	MOV	$5
-#	SET 128
-#	MOV 1
-#	UI 0
-#	LI 2	# pick color
-#	STORE $5
 
-#checkgreen:
-	
-	
-	
 moveon:
 	#	move to next pixel
 	#SHIFT $8
