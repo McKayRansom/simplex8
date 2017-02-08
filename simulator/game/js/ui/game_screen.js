@@ -58,7 +58,7 @@ function(rat)
 		y += ui.menuButtonSpacing.y;
 		
 		var speedButtons = [
-			{label:'//', speed: 0.1, toolTip: "run very slowly\n(10% speed)."},
+			{label:'//', speed: 0.05, toolTip: "run very slowly\n(5% speed)."},
 			{label:'/', speed: 0.5, toolTip: "run slowly\n(50% speed)."},
 			{label:'>', speed: 1, toolTip: "run normal speed"},
 			{label:'>>', speed: 2, toolTip: "run 2x speed"},

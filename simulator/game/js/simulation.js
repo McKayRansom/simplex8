@@ -308,7 +308,8 @@ Simulation.prototype.updateDisplay = function(dt) {
 			var r = 50;
 			var g = 50;
 			var b = 50;
-			var sensitive = 0.05;
+			//	how quickly (in seconds) we fade.
+			var sensitive = 0.04;
 			if (dot.red < sensitive)
 				r = 255;
 				//r = ((1-dot.red) * 235)|0 + 20;
