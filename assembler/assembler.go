@@ -143,23 +143,72 @@ func (i *Instruction) String() string {
 	return fmt.Sprintf("%01x%01x", i.Opcode, i.Arg)
 }
 
+//	compile a single instruction line into instructions
 func compileLine(command string, instructions []*Instruction) ([]*Instruction, error) {
 	parts := strings.Fields(command)
 	if len(parts) == 0 { //blank line
 		return instructions, nil
 	}
 
+	//	first part is opcode
 	op := parts[0]
 	var isMacro = false
 	var inst = &Instruction{}
 
+	//	all operations require an argument
 	if len(parts) == 1 {
 		return nil, fmt.Errorf("'%s' requires argument", op)
+	}
+	
+	//	**********************************
+	//	This is Steve's first time writing go code, so take it easy on him.
+	//	In order to allow many arguments to the RDATA instruction,
+	//	I'm just jumping in right here and parsing RDATA directly, if it's there.
+	//
+	//	The way RDATA ("relative data") works is we assume they have r2 set to the address where data should go,
+	//	and r3 set to the space between data (increment)
+	//	And our only job here is to load up each individual value...
+	//	Each value translates, unfortunately, to 7 instructions.
+	//	This is not ideal, but it was pretty easy to implement,
+	//	and it makes it easy to edit data in code.
+	//	Slightly better would be:
+	//		START_DATA address_in_memory (some kind of label?)
+	//		DATA x y z etc
+	//	and each data block would only need 6 instructions.  Not a ton better.  :)
+	if (op == "RDATA") {
+		//println("Hey, some data.")
+		var partLen = len(parts)
+		for i := 1; i < partLen; i++ {
+			
+			value, err := strconv.ParseUint(parts[i], 10, 8)
+			if err != nil {
+				return nil, fmt.Errorf("error parsing argument: %v", err)
+			}
+				
+			var uvalue = uint(value);
+			
+			//debug: fmt.Printf("data: %d\n", uvalue)
+			
+			var block = []*Instruction{
+				&Instruction{Opcode: ops["UI"], Arg: (uvalue % 256)/16},
+				&Instruction{Opcode: ops["LI"], Arg: uvalue % 16},				
+				&Instruction{Opcode: ops["MOV"], Arg: 4},
+				&Instruction{Opcode: ops["ACC"], Arg: 2},
+				&Instruction{Opcode: ops["STORE"], Arg: 4},
+				&Instruction{Opcode: ops["ADD"], Arg: 3},
+				&Instruction{Opcode: ops["MOV"], Arg: 2},
+			}
+			for _, oneline := range block {
+				instructions = append(instructions, oneline)
+			}
+		}
+		
+		return instructions, nil
 	}
 
 	//check opCodes
 	opcode, ok := ops[strings.ToUpper(op)]
-	if !ok {
+	if !ok {	//	not found - check macros
 		//check macros
 		_, ok := macros[strings.ToUpper(op)]
 
@@ -173,7 +222,7 @@ func compileLine(command string, instructions []*Instruction) ([]*Instruction, e
 	} else {
 		inst.Opcode = opcode
 	}
-
+	
 	arg := parts[1]
 
 	if strings.HasPrefix(arg, "@") {
