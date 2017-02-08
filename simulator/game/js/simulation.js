@@ -293,11 +293,11 @@ Simulation.prototype.updateDisplay = function(dt) {
 			//	is this dot being controlled? 
 			if (((1 << row) & rowFlags) && ((1 << col) & colFlags))
 			{
-				if (colorFlags === 0x6)
+				if ((colorFlags & 0x01) === 0)	//	see if this bit is clear, e.g. 110
 					dot.red = 0;	//	reset timer
-				else if (colorFlags === 0x5)
+				if ((colorFlags & 0x02) === 0)	//	see if this bit is clear, e.g. 101
 					dot.green = 0;	//	reset timer
-				else if (colorFlags === 0x3)
+				if ((colorFlags & 0x04) === 0)	//	see if this bit is clear, e.g. 011
 					dot.blue = 0;	//	reset timer
 			}
 			//	map to useful displayable display...
