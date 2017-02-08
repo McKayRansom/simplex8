@@ -150,15 +150,23 @@ var game = {
 		this.hud.updateButtons();
 	},
 	
-	//	run one cycle through the simulator
-	runOneTick : function()
+	//	run individual cycles through the simulator
+	//	This is different from the running update code above,
+	//	which runs as many cycles as needed for a given delta-time to pass.
+	//	This one is tick-count oriented, and that one is time oriented.
+	runTick : function(tickCount)
 	{
+		if (!tickCount)
+			tickCount = 1;
 		//	figure out how much time passes in one tick, so we can update the display simulator by that much time.
 		var secondsPerCycle = 1 / this.processorSpeed;
 		
 		this.previousRegisters = rat.utils.copyObject(this.simulation.registers);
-		this.simulation.tick();
-		this.simulation.updateDisplay(secondsPerCycle);
+		for (var i = 0; i < tickCount; i++)
+		{
+			this.simulation.tick();
+		}
+		this.simulation.updateDisplay(secondsPerCycle * tickCount);
 	},
 
 	//	draw under UI (if needed)
@@ -307,7 +315,9 @@ var game = {
 	{
 		var key = event.sysEvent.key;
 		if (key == "t") {
-			this.runOneTick();
+			this.runTick(1);
+		} else if (key == "y") {
+			this.runTick(10);
 		} else if (key == "k") {
 			this.toggleRunning();
 		} else if (key == "r") {

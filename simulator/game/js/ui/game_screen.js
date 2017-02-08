@@ -32,12 +32,21 @@ function(rat)
 		
 		//	make buttons
 		var x = 1700;
-		var y = 200;
+		var y = 150;
 		var b = ui.makeButtonAt(screen, "tick  |>", x, y);
 		b.setCallback(function(e, u) {
-			game.runOneTick();
+			game.runTick(1);
 		});
 		ui.applyTooltip(b, "Advance the simulation\nby a single tick.  (T)");
+		y += ui.menuButtonSpacing.y;
+		
+		var b = ui.makeButtonAt(screen, "10 |>", x, y);
+		b.setWidth(200);
+		b.setTextInset(10);
+		b.setCallback(function(e, u) {
+			game.runTick(10);
+		});
+		ui.applyTooltip(b, "Advance the simulation\nby 10 ticks.  (Y)");
 		y += ui.menuButtonSpacing.y;
 		
 		var b = ui.makeButtonAt(screen, "run   >", x, y);
