@@ -130,6 +130,7 @@ var game = {
 					break;
 				}
 			}
+			//	and update the display only after that's done.
 			this.simulation.updateDisplay(dt);
 		}
 	},
@@ -179,6 +180,12 @@ var game = {
 		ctx.fillStyle = "#FFFFFF";
 		ctx.font = "70px arial";
 		ctx.fillText("Simplex8 Simulator", 50, 100, 800);
+		
+		ctx.font = "40px arial";
+		ctx.textAlign = "right";
+		ctx.fillText("" + this.simulation.cycleCount, 1300, 200, 200);
+		ctx.textAlign = "left";
+		ctx.fillText("cycle:", 900, 200, 800);
 		
 		//draw Registers		
 		

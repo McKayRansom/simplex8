@@ -3,8 +3,11 @@
 
 Simulation = function()
 {
-	//essential the PC (program counter)
+	//	the PC (program counter)
 	this.nextInstruction = 0;
+	
+	//	how many cycles (ticks) we've run.
+	this.cycleCount = 0;
 	
 	//	convert all instructions to binary now, instead of every tick.
 	this.processInstructions();
@@ -18,8 +21,8 @@ Simulation = function()
 		false, //input???
 		false, //any
 		false, //shiftOverflow
-	]
-
+	];
+	
 	//map of inputs (Simulating IO)
 	this.inputs = [
 		true,
@@ -27,7 +30,7 @@ Simulation = function()
 		false,
 		false,
 		false,
-	]
+	];
 	
 	//the name of the current instruction for display next to the current line.
 	//this.name = "NOOP"
@@ -50,7 +53,7 @@ Simulation = function()
 		'd' :'LOAD',
 		'e' :'DISP',
 		'f' :'INPUT'
-	}
+	};
 
 	//input map
 	this.keys = {
@@ -58,7 +61,7 @@ Simulation = function()
 		"ArrowDown": 4,
 		"w": 1,
 		"s": 2
-	}
+	};
 
 	//register values
 	this.registers = [
@@ -464,6 +467,9 @@ Simulation.prototype.tick = function() {
 			break;
 		default:
 	}
+	
+	this.cycleCount++;
+	
 	var nextInstr = this.binInstructions[this.nextInstruction]
 	if (!nextInstr) {
 		//finished execution
