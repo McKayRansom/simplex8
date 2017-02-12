@@ -1,7 +1,5 @@
-# Let's try some data-driven display
-# Also, let's try turning on a pixel at a time,
-# simulating the worst case where each color is unique anyway.
-# So, for that, we just need RGB values in sequence.
+#	A weird idea: bake loop-bit-checking masks into our image data.
+#	(mask to check with loop variable)
 #
 #	This is working pretty well in the simulator, though not on hardware?
 
@@ -38,7 +36,7 @@ display:
 	
 	SET 0
 	MOVE $5
-	SET 8
+	SET 1
 	MOVE $6
 
 	#	This displayframe loop is currently about 5800 cycles,
@@ -79,12 +77,11 @@ dloop:
 	MOVE $4
 	
 checkred:	
-	#SET 129
-	#	this says "is current loop value >== our red value? if so, don't set that light"
-	ACC $5
-	SUB	$10	#	red
+	ACC $5	#	loop counter
+	AND	$10	#	red value
+	AND $10 #	check if they're actually equal
 	SET @checkgreen
-	JMP !lt
+	JMP !equal
 	
 	SET 6	#	we know the value was 7 above, so just directly set to clear the bit
 	MOVE $4
@@ -92,9 +89,10 @@ checkred:
 checkgreen:
 	#SET 127
 	ACC $5
-	SUB	$11	#	green
+	AND	$11	#	green
+	AND	$11
 	SET @checkblue
-	JMP !lt
+	JMP !equal
 	
 	SET 5	#	this has a cleared green bit
 	AND $4	#	and with whatever was there to clear that bit
@@ -103,9 +101,10 @@ checkgreen:
 checkblue:
 	#SET 127
 	ACC $5
-	SUB	$12	#	blue
+	AND	$12	#	blue
+	AND	$12
 	SET @goahead
-	JMP !lt
+	JMP !equal
 	
 	SET 3	#	this has a cleared blue bit
 	AND $4	#	and with whatever was there to clear that bit
@@ -187,9 +186,14 @@ moveon:
 	
 	#	start over entirely!
 	#	todo: reset variables instead of this hacky reset?
-	#	either way, increment looper, and let it wrap around
+	#	either way, increment looper, and wrap when it's done...
 	ACC	$5
 	ADD $6		#	loop at this speed
+	MOVE $5
+	
+	#	wrap at 32 (256/8)
+	#	actually, it already is.  Hmm...
+	
 	MOVE $5
 	
 	SET @displayframe
@@ -219,12 +223,26 @@ loaddata:
 	MOV $3
 	
 	#	now our data
-	RDATA  255 255 255    224 224 224    192 192 192    160 160 160    128 128 128     96  96  96     64  64  64     32  32  32
+	#RDATA  255 255 255    224 224 224    192 192 192    160 160 160    128 128 128     96  96  96     64  64  64     32  32  32
+	#RDATA    0   0   0    255 255 255    255   0   0      0 255   0      0 0   255    255 255   0    255   0 255      0 255 255
+	#RDATA    0 255   0      0 224   0      0 192   0      0 160   0      0 128   0      0  96   0      0  64   0      0  32   0
+	#RDATA    0   0   0    255 255 255    255   0   0      0 255   0      0 0   255    255 255   0    255   0 255      0 255 255
+	#RDATA  255 000 255    255 000 255    255 000 255    255 000 255    255 000 255    255 000 255    255 000 255    255 000 255
+	#RDATA    0   0   0    255 255 255    255   0   0      0 255   0      0 0   255    255 255   0    255   0 255      0 255 255
+	#RDATA  255 000 000    255 000 000    255 000 000    255 000 000    000 000 255    000 000 255    000 000 255    000 000 255
+	#RDATA    0   0   0    255 255 255    255   0   0      0 255   0      0 0   255    255 255   0    255   0 255      0 255 255
+	
+	RDATA    0   0   0      1   1   1      3   3   3      7   7   7     15  15  15     31  31  31     63  63  63    127 127 127
 	RDATA    0   0   0    255 255 255    255   0   0      0 255   0      0 0   255    255 255   0    255   0 255      0 255 255
-	RDATA    0 255   0      0 224   0      0 192   0      0 160   0      0 128   0      0  96   0      0  64   0      0  32   0
+	RDATA    0   0   0      0   1   0      0   3   0      0   7   0      0  15   0      0  31  0     0  63  0    0 127 0
 	RDATA    0   0   0    255 255 255    255   0   0      0 255   0      0 0   255    255 255   0    255   0 255      0 255 255
-	RDATA  255 000 255    255 000 255    255 000 255    255 000 255    255 000 255    255 000 255    255 000 255    255 000 255
-	RDATA    0   0   0    255 255 255    255   0   0      0 255   0      0 0   255    255 255   0    255   0 255      0 255 255
+	
+	# dark green
+	RDATA  255 000 255    255 1 255    255 3 255    255 7 255    255 15 255    255 31 255    255 31 255    255 31 255
+	
+	RDATA  255 000 255    2 0 2    3 0 3    7 0 7    15 0 15    31 0 31    31 0 31    31 0 31
+	
+	#RDATA    0   0   0    255 255 255    255   0   0      0 255   0      0 0   255    255 255   0    255   0 255      0 255 255
 	RDATA  255 000 000    255 000 000    255 000 000    255 000 000    000 000 255    000 000 255    000 000 255    000 000 255
 	RDATA    0   0   0    255 255 255    255   0   0      0 255   0      0 0   255    255 255   0    255   0 255      0 255 255
 	

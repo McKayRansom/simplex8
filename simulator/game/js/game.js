@@ -132,6 +132,7 @@ var game = {
 			}
 			//	and update the display only after that's done.
 			this.simulation.updateDisplay(dt);
+			this.simulation.interpretDisplay();
 		}
 	},
 	
@@ -168,6 +169,7 @@ var game = {
 			this.simulation.tick();
 		}
 		this.simulation.updateDisplay(secondsPerCycle * tickCount);
+		this.simulation.interpretDisplay();
 	},
 
 	//	draw under UI (if needed)

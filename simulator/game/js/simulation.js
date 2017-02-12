@@ -81,6 +81,11 @@ Simulation = function()
 	//	this display block here is more of an emulation of what the eye has seen
 	//	over the last little bit of time...
 	
+	//this.displayTrackBlockSize = 4096;	//	how big a time window to watch for light being on/off
+	this.displayTrackBlockSize = 2048;	//	how big a time window to watch for light being on/off
+	this.displayTrackBlockCount = 32;	//	how many blocks back to look (use bits for this, for memory optimization)
+	this.lastDisplayCheck = 0;
+	
 	this.display = [];
 	for (var row = 0; row < 8; row++)
 	{
@@ -91,6 +96,7 @@ Simulation = function()
 			//	so, the longer it's been, the more faded that color.
 			this.display[row][col] = {
 				red:99, green:99, blue:99,
+				redBlocks:0x0,greenBlocks:0x0,blueBlocks:0x0,
 				show : "#323232",	//	will get calculated color after time
 				lastCombined : 0x323232,
 			};
@@ -275,13 +281,40 @@ Simulation.prototype.mapDisplay = function(address) {
 //	We do a couple of things here...
 //	For one thing, we update what colors are being displayed where, depending on io memory,
 //	and we also update fade timers...
+//
+//	New approach to fading:
+//		When updating, set a tracking bit for any light that turns on.
+//		and keep those bits around for a while.
+//		After so many cycles, move on to tracking a new set of bits, but keep the old
+//		This way, we have a kind of sample history of when a light was on/off over time.
+//		We can use that to decide how bright a light should be perceived as being...
+
 Simulation.prototype.updateDisplay = function(dt) {	
 	
 	var rowFlags = this.ioMemory[this.ioLEDRows];
 	var colFlags = this.ioMemory[this.ioLEDCols];
 	
 	var colorFlags = (this.ioMemory[this.ioLEDColor] & 0x07);
+	
+	//	has it been long enough to move to a new light sample block?
+	var	advanceSample = false;
+	if (this.cycleCount > this.lastDisplayCheck + this.displayTrackBlockSize)
+	{
+		this.lastDisplayCheck = this.cycleCount;
+		advanceSample = true;
 		
+		for (var row = 0; row < 8; row++)
+		{
+			for (var col = 0; col < 8; col++)
+			{
+				var dot = this.display[row][col];
+				dot.redBlocks = dot.redBlocks << 1;
+				dot.greenBlocks = dot.greenBlocks << 1;
+				dot.blueBlocks = dot.blueBlocks << 1;
+			}
+		}
+	}
+
 	for (var row = 0; row < 8; row++)
 	{
 		for (var col = 0; col < 8; col++)
@@ -297,38 +330,22 @@ Simulation.prototype.updateDisplay = function(dt) {
 			if (((1 << row) & rowFlags) && ((1 << col) & colFlags))
 			{
 				if ((colorFlags & 0x01) === 0)	//	see if this bit is clear, e.g. 110
+				{
+					dot.redBlocks |= 0x01;
 					dot.red = 0;	//	reset timer
+				}
 				if ((colorFlags & 0x02) === 0)	//	see if this bit is clear, e.g. 101
+				{
+					dot.greenBlocks |= 0x01;
 					dot.green = 0;	//	reset timer
+				}
 				if ((colorFlags & 0x04) === 0)	//	see if this bit is clear, e.g. 011
+				{
+					dot.blueBlocks |= 0x01;
 					dot.blue = 0;	//	reset timer
+				}
 			}
-			//	map to useful displayable display...
-			//	temp hack to get something displayed...
-			//	But I'm set up above, I hope, to simulate mixed colors...
 			
-			//	baseline gray so you can see boxes
-			var r = 50;
-			var g = 50;
-			var b = 50;
-			//	how quickly (in seconds) we fade.
-			var sensitive = 0.04;
-			if (dot.red < sensitive)
-				r = 255;
-				//r = ((1-dot.red) * 235)|0 + 20;
-			if (dot.green < sensitive)
-				g = 255;
-				//g = ((1-dot.green) * 235)|0 + 20;
-			if (dot.blue < sensitive)
-				b = 255;
-				//b = ((1-dot.blue) * 235)|0 + 20;
-			
-			if (dot.lastCombined != ((r << 16) | (g << 8) | b))	//	changed?
-			{
-				//	if didn't change, don't go creating a new javascript string, which is slow
-				this.display[row][col].show = "rgba(" + r + "," + g + "," + b + ",1)";
-				dot.lastCombined = ((r << 16) | (g << 8) | b);
-			}
 		}
 	}
 	
@@ -349,6 +366,109 @@ Simulation.prototype.updateDisplay = function(dt) {
 	}
 	*/
 };
+
+//
+//	Based on what we know about our lights over time,
+//	calculate a "show" value for display purposes.
+//	This is only called by game when it thinks it needs to update display...
+Simulation.prototype.interpretDisplay = function() {
+	
+	//	count number of bits on in this 32-bit value
+	function countBits(i)
+	{
+		//	http://stackoverflow.com/questions/109023/how-to-count-the-number-of-set-bits-in-a-32-bit-integer
+		i = i - ((i >>> 1) & 0x55555555);
+		i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
+		return (((i + (i >>> 4)) & 0x0F0F0F0F) * 0x01010101) >>> 24;
+	}
+	
+	function dotBlockToColor(dotBlocks)
+	{
+		var val = 50;	//	baseline gray to show dots even when off
+		
+		//	we expect 8 bits on in all that time,
+		//	32 bits, and we'll give it 4 blocks to cycle through and come back on...
+		//	at 2048, that's about 8192 cycles...
+		var bitsOn = countBits(dotBlocks & 0xFFFFFFFF);
+		val = 50 + ((205 * bitsOn/8)|0);
+		if (val > 255)
+				val = 255;
+		
+		/*
+		//	If it was on any time in the last few blocks, make it full bright
+		//	We adjust sensitivity here...
+		//	basically, the number of bits we track here * displayTrackBlockSize
+		//	e.g. 4 * 2048 = 8192 cycles, which at 1MHz is 1/128th of a second.
+		//	determines how long lights are on before we start fading them.
+		//	I don't know how long the hardware takes.
+		//	I'll need to play with that and see.
+		var recentMask = 0x0F;	//	look at these bits
+		if (dotBlocks & recentMask)
+			val = 255;
+		else if (dotBlocks) {	//	has it been on at all in a while?
+			var bitsOn = countBits(dotBlocks);// & 0xFFFFFFF0);	//	look at the other bits
+			//	OK, I kinda expect 7 or more of those to be set...
+			//	but that needs to be adjusted depending on various other factors...
+			//	7 comes from : 28 (number of bits I haven't looked at) divided by 4 (number we look at at a time)
+			
+			val = 50 + ((205 * bitsOn/7)|0);
+			
+			//	and cap
+			if (val > 255)
+				val = 255;
+				
+		}
+		*/
+		return val;
+	}
+	
+	//var	curColor = {r:0, g:0, b:0};
+	
+	for (var row = 0; row < 8; row++)
+	{
+		for (var col = 0; col < 8; col++)
+		{
+			var dot = this.display[row][col];
+			//	map to useful displayable display...
+			
+			//var r = 50;
+			//var g = 50;
+			//var b = 50;
+			
+			var r = dotBlockToColor(dot.redBlocks);
+			var g = dotBlockToColor(dot.greenBlocks);
+			var b = dotBlockToColor(dot.blueBlocks);
+			
+			/*
+			//	temp hack to get something displayed...
+			//	But I'm set up above, I hope, to simulate mixed colors...
+			
+			//	baseline gray so you can see boxes
+			var r = 50;
+			var g = 50;
+			var b = 50;
+			//	how quickly (in seconds) we fade.
+			var sensitive = 0.04;
+			if (dot.red < sensitive)
+				r = 255;
+				//r = ((1-dot.red) * 235)|0 + 20;
+			if (dot.green < sensitive)
+				g = 255;
+				//g = ((1-dot.green) * 235)|0 + 20;
+			if (dot.blue < sensitive)
+				b = 255;
+				//b = ((1-dot.blue) * 235)|0 + 20;
+			*/
+			
+			if (dot.lastCombined != ((r << 16) | (g << 8) | b))	//	changed?
+			{
+				//	if didn't change, don't go creating a new javascript string, which is slow
+				this.display[row][col].show = "rgba(" + r + "," + g + "," + b + ",1)";
+				dot.lastCombined = ((r << 16) | (g << 8) | b);
+			}
+		}
+	}
+}
 
 //run one machine cycle
 Simulation.prototype.tick = function() {
