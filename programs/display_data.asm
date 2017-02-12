@@ -2,8 +2,9 @@
 # Also, let's try turning on a pixel at a time,
 # simulating the worst case where each color is unique anyway.
 # So, for that, we just need RGB values in sequence.
-# For my convenience, we're going to store RGB values for each pixel,
-# but it might be optimal to split out the R G and B layers...?
+#
+#	This is working pretty well in the simulator, though not on hardware?
+
 
 #	jump to load my data below so it's out of the way...
 	SET @start
@@ -16,21 +17,51 @@ start:
 	
 display:
 	#	display whatever's at memory 0, pixel by pixel
+	
+	#	registers used
+	#		2	pixel data source address
+	#		13	incrementer (holds the value 1)
+	#		3	clearer (holds the value 0)
+	
+	#		5	current loop counter (0-255)
+	#		6	loop speed (see below)
+	
+	#		4	color bits (active low)
+	#		8	column (flagged in a single bit that slides up)
+	#		9	row (flagged in a single bit that slides up)
+	
+	#		10, 11, 12		r, g, b
+	
+	#	do this multiple loops... start at loop 0, and just let this thing wrap...
+	#	also, dang, we need to do this a lot faster, so we actually loop it more than 1 each time
+	#	see $6 usage below...
+	
 	SET 0
-	MOVE $2	#	pixel data source address
-	SET 1
-	MOVE $13	#	incrementer
-	
-	SET 128	#	start at highest bit so I can use right shift to go to next bit (don't have left shift)
-	MOVE $8	#	col bit
-	MOVE $9	#	row bit
-	
-	SET 6	# red test
 	MOVE $5
+	SET 8
+	MOVE $6
+
+	#	This displayframe loop is currently about 5800 cycles,
+	#	for the full 8x8 display.
+	#	At 1MHz, we're updating the full display at 180 fps
+	#	which should be OK!
+	
+displayframe:
+	SET 0
+	MOVE $2		#	pixel data source address
+	SET 1
+	MOVE $13	#	incrementer (just holds the value 1 for use below)
+	
+	SET 0
+	MOVE $3		#	clearer (just holds the value 0 for use below)
+	
+	SET 128		#	start at highest bit so I can use right shift to go to next bit (don't have left shift)
+	MOVE $8		#	col bit
+	MOVE $9		#	row bit
 	
 dloop:
 	
-	#	read r g b values into registers
+	#	read r g b values into registers, whatever's currently at our read register, which is r2
 	ACC	$2
 	LOAD $10	#r
 	ADD $13
@@ -48,62 +79,86 @@ dloop:
 	MOVE $4
 	
 checkred:	
-	SET 127
+	#SET 129
+	#	this says "is current loop value >== our red value? if so, don't set that light"
+	ACC $5
 	SUB	$10	#	red
 	SET @checkgreen
-	JMP gt
+	JMP !lt
 	
-	SET 6	#	we know the value was 7, so just directly set to clear the bit
+	SET 6	#	we know the value was 7 above, so just directly set to clear the bit
 	MOVE $4
 	
 checkgreen:
-	SET 127
+	#SET 127
+	ACC $5
 	SUB	$11	#	green
 	SET @checkblue
-	JMP gt
+	JMP !lt
 	
-	SET 5	#	clear the green bit
-	AND $4
+	SET 5	#	this has a cleared green bit
+	AND $4	#	and with whatever was there to clear that bit
 	MOVE $4
 	
 checkblue:
-	SET 127
+	#SET 127
+	ACC $5
 	SUB	$12	#	blue
 	SET @goahead
-	JMP gt
+	JMP !lt
 	
-	SET 3	#	clear the blue bit
-	AND $4
+	SET 3	#	this has a cleared blue bit
+	AND $4	#	and with whatever was there to clear that bit
 	MOVE $4
 	
 goahead:
+
+	#	At this point we're ready to turn on lights...
+	#		r4 color bits
+	#		r8 cols
+	#		r9 rows
+	
 	# io memory
 	SET 128
 	MOV 1
 	
+	UI 0
+	LI 0		# pick cols
+	STORE $3	# store 0 there to clear column selector
+	
+	#	set the color
+	LI 2	#	pick color selector
+	STORE $4
+	
+	#	set row
+	LI 1	#	pick row selector
+	STORE $9
+	
+	#	set col
+	LI 0	#	pick col selector
+	STORE $8
+	
+	#	old
 	#	first, clear the color selector while we set up other values
 	#	(row and col have some old value...)
 	#	is this legit?  we usually clear the row/col selectors...
-	SET 7	#	this is "no color" (no low value)
-	MOV $3		# 0 in r3
-	UI 0
-	LI 2	# clear color
-	STORE $3
+	#SET 7	#	this is "no color" (no low value)
+	#MOV $3		# 0 in r3
+	#UI 0
+	#LI 2	# clear color
+	#STORE $3
+	#
+	##	now set the column/row we want
+	#UI 0
+	#LI 0	# pick cols
+	#STORE $8
+	#LI 1	# pick rows
+	#STORE $9
+	#
+	##	and set the color we want
+	#LI 2	#	pick color
+	#STORE $4	#	set the color we calculated above
 	
-	#	now set the column/row we want
-	UI 0
-	LI 0	# pick cols
-	STORE $8
-	LI 1	# pick rows
-	STORE $9
-	
-	#	and set the color we want
-	LI 2	#	pick color
-	STORE $4	#	set the color we calculated above
-	
-	#	todo - pick color based on what phase we're in and how strong the color value is.
-	#	for now, just set r/g/b on off based on R value being >= 128
-
 moveon:
 	#	move to next pixel
 	#SHIFT $8
@@ -131,8 +186,13 @@ moveon:
 	JMPIF !shiftOverflow
 	
 	#	start over entirely!
-	#	todo: reset variables instead of this hacky reset...
-	SET @display
+	#	todo: reset variables instead of this hacky reset?
+	#	either way, increment looper, and let it wrap around
+	ACC	$5
+	ADD $6		#	loop at this speed
+	MOVE $5
+	
+	SET @displayframe
 	JMP 0
 	
 dcontinue:
@@ -159,7 +219,7 @@ loaddata:
 	MOV $3
 	
 	#	now our data
-	RDATA  255 255 255    255 255 255    255 255 255    255 255 255    255 255 255    255 255 255    255 255 255    255 255 255
+	RDATA  255 255 255    224 224 224    192 192 192    160 160 160    128 128 128     96  96  96     64  64  64     32  32  32
 	RDATA    0   0   0    255 255 255    255   0   0      0 255   0      0 0   255    255 255 0      255   0 255      0 255 255
 	RDATA    0 255 255      0 255 255      0 255 255      0 255 255      0 255 255      0 255 255      0 255 255      0 255 255
 	RDATA    0   0   0    255 255 255    255   0   0      0 255   0      0 0   255    255 255 0      255   0 255      0 255 255
