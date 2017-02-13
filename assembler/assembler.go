@@ -381,7 +381,7 @@ func main() {
 	file.Close();
 
 	file, err = os.Create("../arduino_program_loader/instructions.c")
-	file.WriteString("int instructions[] = {\n")
+	file.WriteString("#include <avr/pgmspace.h>\nconst int program[] PROGMEM = {\n")
 	counter = 0
 	for _, i := range instructions {
 		file.WriteString("0x")
@@ -392,7 +392,7 @@ func main() {
 			file.WriteString("\n")
 		}
 	}
-	file.WriteString("0x00\n };\nint* program = &instructions;\nint program_length = ");
+	file.WriteString("0x00\n };\nint program_length = ");
 	file.WriteString(strconv.Itoa(len(instructions)));
 	file.WriteString(";\n");
 	file.Close();

@@ -1,5 +1,6 @@
 #include <stdlib.h>
-//#include "instructions.c"
+#include <avr/pgmspace.h>
+//#include <instructions.c>
 
 #define WE 11 //active LOW!!!
 #define OE 10
@@ -51,12 +52,17 @@ byte readIO() {
   return result;
 }
 
-extern int* program;
+extern const int program[] PROGMEM;
 extern int program_length;
 
 void setup() {
   Serial.begin(9600);
   delay(500);
+  Serial.println("program 0:");
+  Serial.println(pgm_read_word_near(program), BIN);
+  Serial.println("program length:");
+  Serial.println(program_length, DEC);
+
   pinMode(CE, OUTPUT);
   digitalWrite(CE, HIGH);
   delay(500);
@@ -114,11 +120,11 @@ bool checkValue(byte value) {
 
 void programEEPROM() {
   for (int i = 0; i< program_length; i++) {
-    Serial.println("WritingLine: ");
-    Serial.println(i, DEC);
-    Serial.println(program[i], BIN);
+    //Serial.println("WritingLine: ");
+    //Serial.println(i, DEC);
+    //Serial.println(pgn_read_word_near(program), BIN);
 
-    writeByte(program[i]);
+    writeByte(pgm_read_word_near(program + i));
     // setIOMode(INPUT);
     // digitalWrite(OE, LOW);
     delay(20);
@@ -136,26 +142,26 @@ void programEEPROM() {
   Serial.println(program_length, DEC);
   delay(1000); // delay for 1 sec for write to complete
   //check all values
-  // resetPC();
+  resetPC();
   setIOMode(INPUT);
   digitalWrite(OE, LOW);
-  // delay(5);
-  // for (int i = 0; i< program_length; i++) {
-  //   delayMicroseconds(1);
-  //   if (!checkValue(program[i])) { //there was an error
-  //     Serial.println("error writing value:");
-  //     // Serial.println(value, DEC);
-  //     Serial.println("expected: ");
-  //     Serial.println(program[i], BIN);
-  //     Serial.println("got: ");
-  //     Serial.println(readIO(), BIN);
-  //
-  //     return;
-  //   }
-  //   delayMicroseconds(1);
-  //   incrPC();
-  // }
-  // resetPC();
+  delay(5);
+  for (int i = 0; i< program_length; i++) {
+    delayMicroseconds(1);
+    if (!checkValue(pgm_read_word_near(program + i))) { //there was an error
+      Serial.println("error writing value:");
+	  Serial.println(i, DEC);
+      // Serial.println(value, DEC);
+      Serial.println("expected: ");
+      Serial.println(pgm_read_word_near(program + i), BIN);
+      Serial.println("got: ");
+      Serial.println(readIO(), BIN);
+       return;
+    }
+     delayMicroseconds(1);
+     incrPC();
+   }
+   resetPC();
   Serial.println("Succesfully programmed the EEPROM");
 }
 

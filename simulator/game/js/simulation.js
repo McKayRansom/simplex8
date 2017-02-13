@@ -235,28 +235,48 @@ Simulation.prototype.testJumpCondition = function(condition) {
 	return false;
 }
 
-//set flags after an arithmetic function.
-Simulation.prototype.setFlags = function(immediate) {
+//set flags that are set based on register contents before the operation
+Simulation.prototype.setPreFlags = function(immediate) {
 	var EQUALS = 0;
-	var OVERFLOW = 3;
-	var INPUT = 4;
-	var AND = 5;
+	//var LT = 1;
+	//var GT = 2;
+	var SHIFT_OVERFLOW = 6;
 	if (this.registers[0] == this.registers[immediate]) {
 		this.flags[EQUALS] = true;
 	} else {
 		this.flags[EQUALS] = false;
 	}
+	if ((this.registers[0] % 2) == 1) {//shift overflow
+		this.flags[SHIFT_OVERFLOW] = true;
+	} else {
+		this.flags[SHIFT_OVERFLOW] = false;
+	}
+	if (this.registers[0] < this.registers[immediate])
+		this.flags[1] = true;	//	LT
+	else
+		this.flags[1] = false;
+	if (this.registers[0] > this.registers[immediate])
+		this.flags[2] = true;	//	GT
+	else
+		this.flags[2] = false;
+}
+
+//set flags that are set after the arithmetic operation is preformed
+Simulation.prototype.setPostFlags = function(immediate) {
+	var OVERFLOW = 3;
+//	var INPUT = 4;
+	var ANY = 5;
 	var a = this.toBinaryArray(this.registers[0]);
 	var b = this.toBinaryArray(this.registers[immediate]);
-	this.flags[AND] = false;
+	this.flags[ANY] = false;
 	for ( var i = 0; i < 8; i++) {
 		if ( a[i] && b[i]) {
-			this.flags[AND] = true;
+			this.flags[ANY] = true;
 			break;
 		}
 	}
 	if (this.registers[0] > 255) {
-		this.registers[0] = this.registers[0] & 255;
+		this.registers[0] = this.registers[0] % 256;
 		this.flags[OVERFLOW] = true;
 	} else {
 		this.flags[OVERFLOW] = false;
@@ -500,48 +520,38 @@ Simulation.prototype.tick = function() {
 		case 3: //MOVE
 			this.registers[immediate] = this.registers[0];
 			break;
-			break;
 		case 4: //ACC
 			this.registers[0] = this.registers[immediate];
 			break;
 		case 5: //ADD
+			this.setPreFlags(immediate);
 			this.registers[0] = this.registers[0] + this.registers[immediate];
-			this.setFlags(immediate);
+			this.setPostFlags(immediate);
 			break;
 		case 6: //SUB
 			//	temp conditional flag setting based on subtraction.
 			//	todo: this should be in setFlags?
-			if (this.registers[0] < this.registers[immediate])
-				this.flags[1] = true;	//	LT
-			else
-				this.flags[1] = false;
-			if (this.registers[0] > this.registers[immediate])
-				this.flags[2] = true;	//	GT
-			else
-				this.flags[2] = false;
+			this.setPreFlags(immediate);
 			this.registers[0] = -this.registers[0] + this.registers[immediate];
-			this.setFlags(immediate);
+			this.setPostFlags(immediate);
 			break;
 		case 7: //EQUAL (not used)
 			break;
 		case 8: //SHIFT
-			if (this.registers[0] % 2 == 1) {
-				this.flags[6] = true
-			} else {
-				this.flags[6] = false
-			}
+			this.setPreFlags(immediate);
 			this.registers[0] = this.registers[0] >>> 1;	//	zero-fill right shift (don't keep sign)
+			this.setPostFlags(immediate);
 			//	this seems wrong to me: why is immediate even a factor here, since there really isn't one...?  Oh well...
-			this.setFlags(immediate);
 			break;
 		case 9: //AND
-			this.setFlags(immediate);
+			this.setPreFlags(immediate);
 			this.registers[0] = this.registers[0] & this.registers[immediate];
-
+			this.setPostFlags(immediate);
 			break;
 		case 0xA: //OR
-			this.setFlags(immediate);
+			this.setPreFlags(immediate);
 			this.registers[0] = this.registers[0] | this.registers[immediate];
+			this.setPostFlags(immediate);
 			break;
 		case 0xB: //JMP
 			//no condition:
