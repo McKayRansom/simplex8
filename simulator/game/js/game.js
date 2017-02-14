@@ -130,7 +130,8 @@ var game = {
 					break;
 				}
 			}
-			//	and update the display only after that's done.
+			//	and update the display only after that's done,
+			//	to save time.
 			this.simulation.updateDisplay(dt);
 			this.simulation.interpretDisplay();
 		}
