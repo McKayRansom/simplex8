@@ -1,7 +1,16 @@
 #	A weird idea: bake loop-bit-checking masks into our image data.
-#	(mask to check with loop variable)
+#	This way, during the display loop, we can do a simple mask comparison
+#	in order to turn lights on/off instead of more complex conditional checks...
 #
-#	This is working pretty well in the simulator, though not on hardware?
+#	If the current display frame loop (which runs from 0-255 and loops back around)
+#	has the correct bits matching the mask in image data,
+#	then turn the light on.
+#	For instance, a bit value of 0001 in image data will result in the light being turned on every other frame!
+#	A bit value of 0011 will result in the light being turned on every 4th frame
+#	etc.  A nice way to define dark colors, though fairly limited - it only makes sense to use powers of 2 minus 1.
+#	1: every other frame. 3: every 4th frame.  7: every 8th frame.  15: every 16th frame.  etc...
+#
+#	This is working pretty well in the simulator, though not on hardware.
 
 
 #	jump to load my data below so it's out of the way...
@@ -231,12 +240,12 @@ loaddata:
 	#RDATA    255  255  255    255 255 255   3   3   3      7   7   7     3  3  3     7 7 7   3   3   3      255 255 255
 	#RDATA    255  255  255    255 255 255    1 3 3      255 255 255     255 255 255   255 255 255    1 3 3      255 255 255
 	
-	#	new approach with masks
+	#	a sample of our new approach with masks:
 	RDATA    0   0   0      1   1   1      3   3   3      7   7   7     15  15  15     31  31  31     63  63  63    127 127 127
 	RDATA    0   0   0    255 255 255    255   0   0      0 255   0      0 0   255    255 255   0    255   0 255      0 255 255
 	RDATA    0   0   0      0   1   0      0   3   0      0   7   0      0  15   0      0  31  0     0  63  0    0 127 0
 	RDATA    0   0   0    255 255 255    255   0   0      0 255   0      0 0   255    255 255   0    255   0 255      0 255 255
-	# dark green?
+	# dark green row is here:
 	RDATA  255 000 255    255 1 255    255 3 255    255 7 255    255 15 255    255 31 255    255 31 255    255 31 255
 	RDATA  255 000 255    2 0 2    3 0 3    7 0 7    15 0 15    31 0 31    31 0 31    31 0 31
 	RDATA  255 000 000    255 000 000    255 000 000    255 000 000    000 000 255    000 000 255    000 000 255    000 000 255
@@ -249,6 +258,7 @@ loaddata:
 	#STORE $4
 	#ADD $3
 	#MOV $2
+	#	that's 7 instructions, so a single image's data adds 1344 instructions.
 	
 	#	return
 	LI 0
