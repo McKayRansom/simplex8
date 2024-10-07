@@ -58,14 +58,14 @@ pub struct App {
 }
 
 struct TodoList {
-    items: Vec<TodoItem>,
+    items: Vec<MemoryItem>,
     state: ListState,
 }
 
 #[derive(Debug)]
-struct TodoItem {
-    todo: String,
-    info: String,
+struct MemoryItem {
+    address: u16,
+    value: u8,
     status: Status,
 }
 
@@ -80,34 +80,32 @@ impl Default for App {
         Self {
             should_exit: false,
             todo_list: TodoList::from_iter([
-                (Status::Todo, "Rewrite everything with Rust!", "I can't hold my inner voice. He tells me to rewrite the complete universe with Rust"),
-                (Status::Completed, "Rewrite all of your tui apps with Ratatui", "Yes, you heard that right. Go and replace your tui with Ratatui."),
-                (Status::Todo, "Pet your cat", "Minnak loves to be pet by you! Don't forget to pet and give some treats!"),
-                (Status::Todo, "Walk with your dog", "Max is bored, go walk with him!"),
-                (Status::Completed, "Pay the bills", "Pay the train subscription!!!"),
-                (Status::Completed, "Refactor list example", "If you see this info that means I completed this task!"),
+                (Status::Todo, 0x1234 as i32, 12 as i32),
+                (Status::Completed, 0x5678, 13),
+                (Status::Todo, 0xABCD, 14),
+                (Status::Todo, 0x1234, 15),
             ]),
         }
     }
 }
 
-impl FromIterator<(Status, &'static str, &'static str)> for TodoList {
-    fn from_iter<I: IntoIterator<Item = (Status, &'static str, &'static str)>>(iter: I) -> Self {
+impl FromIterator<(Status, i32, i32)> for TodoList {
+    fn from_iter<I: IntoIterator<Item = (Status, i32, i32)>>(iter: I) -> Self {
         let items = iter
             .into_iter()
-            .map(|(status, todo, info)| TodoItem::new(status, todo, info))
+            .map(|(status, address, value)| MemoryItem::new(status,address as u16, value as u8))
             .collect();
         let state = ListState::default();
         Self { items, state }
     }
 }
 
-impl TodoItem {
-    fn new(status: Status, todo: &str, info: &str) -> Self {
+impl MemoryItem {
+    fn new(status: Status, address: u16, value: u8) -> Self {
         Self {
+            address,
+            value,
             status,
-            todo: todo.to_string(),
-            info: info.to_string(),
         }
     }
 }
@@ -186,19 +184,19 @@ impl Widget for &mut App {
         .areas(area);
 
         let [list_area, item_area] =
-            Layout::vertical([Constraint::Fill(1), Constraint::Fill(1)]).areas(main_area);
+            Layout::horizontal([Constraint::Fill(1), Constraint::Fill(1)]).areas(main_area);
 
         App::render_header(header_area, buf);
         App::render_footer(footer_area, buf);
-        self.render_list(list_area, buf);
-        self.render_selected_item(item_area, buf);
+        self.render_program_memory(list_area, buf);
+        self.render_registers(item_area, buf);
     }
 }
 
 /// Rendering logic for the app
 impl App {
     fn render_header(area: Rect, buf: &mut Buffer) {
-        Paragraph::new("Ratatui List Example")
+        Paragraph::new("SIMPLEX8 SIMULATOR")
             .bold()
             .centered()
             .render(area, buf);
@@ -210,10 +208,10 @@ impl App {
             .render(area, buf);
     }
 
-    fn render_list(&mut self, area: Rect, buf: &mut Buffer) {
+    fn render_program_memory(&mut self, area: Rect, buf: &mut Buffer) {
         let block = Block::new()
-            .title(Line::raw("TODO List").centered())
-            .borders(Borders::TOP)
+            .title(Line::raw("PROGRAM MEMORY").centered())
+            .borders(Borders::ALL)
             .border_set(symbols::border::EMPTY)
             .border_style(TODO_HEADER_STYLE)
             .bg(NORMAL_ROW_BG);
@@ -242,28 +240,19 @@ impl App {
         StatefulWidget::render(list, area, buf, &mut self.todo_list.state);
     }
 
-    fn render_selected_item(&self, area: Rect, buf: &mut Buffer) {
-        // We get the info depending on the item's state.
-        let info = if let Some(i) = self.todo_list.state.selected() {
-            match self.todo_list.items[i].status {
-                Status::Completed => format!("✓ DONE: {}", self.todo_list.items[i].info),
-                Status::Todo => format!("☐ TODO: {}", self.todo_list.items[i].info),
-            }
-        } else {
-            "Nothing selected...".to_string()
-        };
+    fn render_registers(&self, area: Rect, buf: &mut Buffer) {
 
         // We show the list item's info under the list in this paragraph
         let block = Block::new()
-            .title(Line::raw("TODO Info").centered())
-            .borders(Borders::TOP)
+            .title(Line::raw("REGISTERS").centered())
+            .borders(Borders::ALL)
             .border_set(symbols::border::EMPTY)
             .border_style(TODO_HEADER_STYLE)
             .bg(NORMAL_ROW_BG)
-            .padding(Padding::horizontal(1));
+            .padding(Padding::uniform(1));
 
         // We can now render the item info
-        Paragraph::new(info)
+        Paragraph::new("Here will go the registers! \n 1 \n 2 \n ...")
             .block(block)
             .fg(TEXT_FG_COLOR)
             .wrap(Wrap { trim: false })
@@ -279,14 +268,13 @@ const fn alternate_colors(i: usize) -> Color {
     }
 }
 
-impl From<&TodoItem> for ListItem<'_> {
-    fn from(value: &TodoItem) -> Self {
-        let line = match value.status {
-            Status::Todo => Line::styled(format!(" ☐ {}", value.todo), TEXT_FG_COLOR),
-            Status::Completed => {
-                Line::styled(format!(" ✓ {}", value.todo), COMPLETED_TEXT_FG_COLOR)
-            }
+impl From<&MemoryItem> for ListItem<'_> {
+    fn from(value: &MemoryItem) -> Self {
+        let style = match value.status {
+            Status::Todo =>  TEXT_FG_COLOR,
+            Status::Completed => COMPLETED_TEXT_FG_COLOR,
         };
+        let line = Line::styled(format!("0x{}: {}", value.address, value.value), style);
         ListItem::new(line)
     }
 }

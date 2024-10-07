@@ -6,10 +6,10 @@ use std::io::prelude::*;
 use std::io::BufReader;
 use std::path::Path;
 
-use sim_tui::App;
+use tui::App;
 
 // use sim_tui::*;
-mod sim_tui;
+mod tui;
 
 #[derive(Debug)]
 #[derive(Clone)]
