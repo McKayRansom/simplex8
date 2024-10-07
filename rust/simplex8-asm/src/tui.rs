@@ -13,7 +13,6 @@
 //! [examples]: https://github.com/ratatui/ratatui/blob/main/examples
 //! [examples readme]: https://github.com/ratatui/ratatui/blob/main/examples/README.md
 
-use std::io::Result;
 use ratatui::{
     buffer::Buffer,
     crossterm::event::{self, Event, KeyCode, KeyEvent, KeyEventKind},
@@ -30,6 +29,7 @@ use ratatui::{
     },
     DefaultTerminal,
 };
+use std::io::Result;
 
 const TODO_HEADER_STYLE: Style = Style::new().fg(SLATE.c100).bg(BLUE.c800);
 const NORMAL_ROW_BG: Color = SLATE.c950;
@@ -93,7 +93,7 @@ impl FromIterator<(Status, i32, i32)> for TodoList {
     fn from_iter<I: IntoIterator<Item = (Status, i32, i32)>>(iter: I) -> Self {
         let items = iter
             .into_iter()
-            .map(|(status, address, value)| MemoryItem::new(status,address as u16, value as u8))
+            .map(|(status, address, value)| MemoryItem::new(status, address as u16, value as u8))
             .collect();
         let state = ListState::default();
         Self { items, state }
@@ -111,7 +111,6 @@ impl MemoryItem {
 }
 
 impl App {
-
     pub fn new() -> Self {
         Self::default()
     }
@@ -241,7 +240,6 @@ impl App {
     }
 
     fn render_registers(&self, area: Rect, buf: &mut Buffer) {
-
         // We show the list item's info under the list in this paragraph
         let block = Block::new()
             .title(Line::raw("REGISTERS").centered())
@@ -271,7 +269,7 @@ const fn alternate_colors(i: usize) -> Color {
 impl From<&MemoryItem> for ListItem<'_> {
     fn from(value: &MemoryItem) -> Self {
         let style = match value.status {
-            Status::Todo =>  TEXT_FG_COLOR,
+            Status::Todo => TEXT_FG_COLOR,
             Status::Completed => COMPLETED_TEXT_FG_COLOR,
         };
         let line = Line::styled(format!("0x{}: {}", value.address, value.value), style);
