@@ -2,8 +2,6 @@
  * Assembly definitions for the Simplex8 ISA
  *
  */
-use num_derive::FromPrimitive;
-use std::collections::HashMap;
 
 #[derive(Debug, Clone)]
 pub enum AssemblyError {
@@ -11,96 +9,69 @@ pub enum AssemblyError {
     UnknownInstruction,
 }
 
-#[derive(Debug, Clone, FromPrimitive)]
-pub enum Opcode {
-    NOP = 0,
-    LLI = 1,
-    LUI = 2,
-    MOV = 3,
-    ACC = 4,
-    ADD = 5,
-    SUB = 6,
-    // CMP = 7,
-    SHIFT = 8,
-    AND = 9,
-    OR = 10,
-    JMP = 11,
-    STORE = 12,
-    LOAD = 13,
-    // DISP =  14,
-    // INPUT = 15,
-    // NOOP = 0,
-    // MOVE = 3,
-    // JMPIF = 11,
-    // EQUAL = 9,
-    // CMP = 9,
-    // DISP = 12,
-}
+const OPCODES: [&'static str; 16] = [
+    "NOP",    // 0
+    "LI",     // 1
+    "UI",     // 2
+    "MOV",    // 3
+    "ACC",    // 4
+    "ADD",    // 5
+    "SUB",    // 6
+    "_CMP",   // 7
+    "SHIFT",  // 8
+    "AND",    // 9
+    "OR",     // 10
+    "JMP",    // 11
+    "STORE",  // 12
+    "LOAD",   // 13
+    "_DISP",  // 14
+    "_INPUT", // 15
+];
 
-#[derive(Debug)]
-pub struct Instruction {
-    pub op: Opcode,
-    pub arg: u8,
-}
-
-impl Instruction {
-    pub fn emit(&self) -> u8 {
-        ((self.op.clone() as u8) << 4) | self.arg
+// for any str
+fn lookup_op(op_str: &str) -> Option<u8> {
+    match OPCODES.iter().position(|&r| r == op_str) {
+        Some(op) => Some(op as u8),
+        None => None
     }
 }
 
-pub fn inst(op: Opcode, arg: u8) -> u8 {
-    (op as u8) << 4 | arg
+// static str you know works
+fn op(op: &'static str) -> u8 {
+    lookup_op(op).unwrap() as u8
 }
 
-fn lookup_op(op_str: &str) -> Option<u8> {
-    let opcodes: HashMap<_, u8> = HashMap::from([
-        ("NOP", 0),
-        ("LI", 1),
-        ("UI", 2),
-        ("MOV", 3),
-        ("ACC", 4),
-        ("ADD", 5),
-        ("SUB", 6),
-        // (//"CMP",   7),
-        ("SHIFT", 8),
-        ("AND", 9),
-        ("OR", 10),
-        ("JMP", 11),
-        ("STORE", 12),
-        ("LOAD", 13),
-        // (//"DISP",  14),
-        // (//"INPUT", 15),
-        ("NOOP", 0),
-        ("MOVE", 3),
-        ("JMPIF", 11),
-        ("EQUAL", 9),
-        ("CMP", 9),
-        ("DISP", 12),
-    ]);
-
-    let Some(&op_code) = opcodes.get(op_str) else {
-        return None;
-    };
-
-    Some(op_code)
+// for any str
+pub fn instruction(op: &str, arg: u8) -> Option<u8> {
+    match lookup_op(op) {
+        Some(op) => Some(op << 4 | arg & 0xF),
+        None => None
+    }
 }
 
-fn lookup_macro(op_str: &str, arg_str: &str) -> Result<Vec<u8>, AssemblyError> {
-    let arg_u8: u8 = arg_str.parse().unwrap();
+// static str you know works
+pub fn inst(op: &'static str, arg: u8) -> u8 {
+    instruction(op, arg).unwrap()
+}
+
+pub fn opcode_str(opcode: u8) -> Option<&'static str> {
+    if opcode < OPCODES.len() as u8 {
+        Some(OPCODES[opcode as usize]) 
+    } else {
+        None
+    }
+}
+
+fn lookup_macro(op_str: &str, arg_u8: u8) -> Result<Vec<u8>, AssemblyError> {
+    // let arg_u8: u8 = arg_str.parse().unwrap_or_default();
     match op_str {
-        "SET" => Ok(vec![
-            Instruction {
-                op: Opcode::LLI,
-                arg: arg_u8 & 0xF,
-            }
-            .emit(),
-            Instruction {
-                op: Opcode::LUI,
-                arg: arg_u8 >> 4,
-            }
-            .emit(),
-        ]),
+        "SET" => Ok(vec![inst("LI", arg_u8 & 0xF), inst("UI", arg_u8 >> 4)]),
+        "NOOP" => Ok(vec![inst("NOP", 0)]),
+        "MOVE" => Ok(vec![inst("MOV", arg_u8)]),
+        "JMPIF" => Ok(vec![inst("JMP", arg_u8)]),
+        "EQUAL" => Ok(vec![inst("AND", arg_u8)]),
+        "CMP" => Ok(vec![inst("AND", arg_u8)]),
+        "DISP" => Ok(vec![inst("STORE", arg_u8)]),
         _ => Err(AssemblyError::UnknownInstruction),
     }
 }
@@ -117,12 +88,13 @@ pub fn assemble(line: &str) -> Result<Vec<u8>, AssemblyError> {
         right.parse::<u8>().unwrap()
     };
 
-    // we have left and right
-    match lookup_op(left) {
-        Some(opcode) => Ok(vec![opcode << 4 | arg]),
-        None => lookup_macro(left, right),
+    match instruction(left, arg) {
+        Some(instruction) => Ok(vec![instruction]),
+        None => lookup_macro(left, arg),
     }
 }
+
+// pub fn disassemble(instr: u8) -> &str {}
 
 #[cfg(test)]
 mod tests {
@@ -130,24 +102,25 @@ mod tests {
 
     #[test]
     fn test_instruction_emit() {
-        assert_eq!(
-            Instruction {
-                op: Opcode::ADD,
-                arg: 4
-            }
-            .emit(),
-            0x54
-        );
+        assert_eq!(inst("ADD", 4), 0x54);
+        // check we truncate the arg
+        assert_eq!(inst("ADD", 255), 0x5F);
     }
 
     #[test]
     fn test_lookup_op() {
-        assert_eq!(lookup_op("ADD").unwrap(), 5);
+        assert_eq!(op("ADD"), 5);
     }
 
     #[test]
     fn test_assemble() {
-        assert_eq!(assemble("ADD $5").unwrap(), [0x55]);
-        assert_eq!(assemble("SET 255").unwrap(), [0x1F, 0x2F]);
+        assert_eq!(assemble("LI 0").unwrap(), [inst("LI", 0)]);
+        assert_eq!(assemble("ADD $5").unwrap(), [inst("ADD", 5)]);
+        assert_eq!(assemble("UI 255").unwrap(), [inst("UI", 0xF)]);
+    }
+
+    #[test]
+    fn test_assemble_macro() {
+        assert_eq!(assemble("SET 255").unwrap(), [inst("LI", 15), inst("UI", 15)]);
     }
 }

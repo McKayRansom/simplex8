@@ -33,18 +33,16 @@ fn main() -> io::Result<()> {
 
     let instructions = parse_file(path);
 
-    for item in instructions.unwrap() {
-        println!("0x{item:x}");
-    }
-
-    // let terminal = ratatui::init();
-    // let result = App::new().run(terminal);
-    // ratatui::restore();
+    // for item in instructions.unwrap() {
+    // println!("0x{item:x}");
+    // }
 
     let mut sim = Sim::new();
-    sim.step();
+    sim.load(instructions.unwrap());
 
-    // result
+    let terminal = ratatui::init();
+    let result = App::new(sim).run(terminal);
+    ratatui::restore();
 
-    Ok(())
+    result
 }
