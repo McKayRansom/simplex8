@@ -2,6 +2,7 @@
  * Assembly definitions for the Simplex8 ISA
  *
  */
+use std::collections::HashMap;
 
 #[derive(Debug, Clone)]
 pub enum AssemblyError {
@@ -76,11 +77,24 @@ fn lookup_macro(op_str: &str, arg_u8: u8) -> Result<Vec<u8>, AssemblyError> {
     }
 }
 
+// fn label(addr: usize) {
+    // let mut scores = HashMap::new(); 
+// }
+
+// pub struct assembler()
+
 pub fn assemble(line: &str) -> Result<Vec<u8>, AssemblyError> {
+    if line.contains(':') {
+        // label(addr);
+        return Ok(vec![]);
+    }
+
     let (left, right) = line
+        .trim_ascii_start()
         .split_once(' ')
         .ok_or(AssemblyError::UnknownInstruction)?;
 
+    // TODO: FIX THIS LOGIC AND TEST EDGE CASE!
     let arg = if right.starts_with("$") {
         let right_ = &right[1..right.len()];
         right_.parse::<u8>().unwrap()
@@ -117,6 +131,8 @@ mod tests {
         assert_eq!(assemble("LI 0").unwrap(), [inst("LI", 0)]);
         assert_eq!(assemble("ADD $5").unwrap(), [inst("ADD", 5)]);
         assert_eq!(assemble("UI 255").unwrap(), [inst("UI", 0xF)]);
+        assert_eq!(assemble("   LI 0").unwrap(), [inst("LI", 0)]);
+        assert_eq!(assemble("FOO:").unwrap(), []);
     }
 
     #[test]

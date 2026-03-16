@@ -164,7 +164,7 @@ impl App {
         } else {
             self.sim.pc - 10
         };
-        let end_addr = self.sim.pc + 10;
+        let end_addr = start_addr + 20;
 
         // Iterate through all elements in the `items` and stylize them.
         let items: Vec<ListItem> = self.sim.inst_mem[start_addr..end_addr]
